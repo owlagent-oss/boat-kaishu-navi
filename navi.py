@@ -252,11 +252,10 @@ def cmd_build():
         for k in tot:
             for f in ('bets', 'hits', 'ret'):
                 tot[k][f] += s.get(k, {}).get(f, 0)
-    tpl = open('template.html', encoding='utf-8').read()
     data = dict(date=f'{day:%Y-%m-%d}', updated=now().strftime('%m/%d %H:%M'), races=sorted(picks.values(), key=lambda r: r['deadline']),
                 record=dict(total=tot, days=rec['days']), rule=dict(ev_main=EV_MAIN, odds_max=ODDS_MAX, ev_sub=EV_SUB, ev_t3=EV_T3, t3_n=T3_N))
-    open('index.html', 'w', encoding='utf-8').write(tpl.replace('/*DATA*/null', json.dumps(data, ensure_ascii=False)))
-    print('index.html', len(picks), 'レース')
+    save_json('data/site.json', data)
+    print('data/site.json', len(picks), 'レース')
 
 if __name__ == '__main__':
     c = sys.argv[1] if len(sys.argv) > 1 else 'predict'

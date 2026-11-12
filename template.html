@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ボート回収率ナビ｜競艇・ボートレースの回収率と期待値を全24場で検証</title>
 <meta name="description" content="全国24場のボートレース（競艇）を過去2年・11万レースのデータで分析。締切前のオッズと1着確率から期待値を計算し、今日の狙い目と検証成績を毎日公開します。">
-<meta http-equiv="refresh" content="300">
 <style>
 :root{--bg:#f6f8fb;--card:#fff;--ink:#1d2433;--sub:#667085;--line:#e4e8ef;--acc:#0b6bcb;--main:#e8590c;--mainbg:#fff4e6;--subbg:#eef5ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;font-size:15px;line-height:1.6}
@@ -59,7 +58,8 @@ footer{font-size:11px;color:var(--sub);max-width:760px;margin:0 auto;padding:8px
 © 合同会社オールエージェント
 </footer>
 <script>
-const D=/*DATA*/null;
+let D=null;
+const SRC='https://raw.githubusercontent.com/owlagent-oss/boat-kaishu-navi/main/data/site.json';
 const yen=n=>n.toLocaleString('ja-JP');
 function stats(){
   const t=D.record.total,days=Object.keys(D.record.days).length,el=document.getElementById('stats');
@@ -88,7 +88,11 @@ function races(){
       <table><tr><th class="l">艇・選手</th><th>1着率</th><th>単勝</th><th>期待値</th><th></th></tr>${rows}</table></div>`}).join('')
     :'<div class="empty">今は表示できるレースがありません。締切の25分前ごろから順に出てきます。</div>';
 }
-stats();races();
+async function load(){
+  try{const r=await fetch(SRC+'?t='+Date.now(),{cache:'no-store'});D=await r.json();stats();races();}
+  catch(e){document.getElementById('races').innerHTML='<div class="empty">読み込みに失敗しました。少し待ってから開き直してください。</div>';}
+}
+load();setInterval(load,120000);
 </script>
 </body>
 </html>

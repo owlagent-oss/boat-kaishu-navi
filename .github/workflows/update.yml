@@ -1,19 +1,20 @@
 name: update
+# GitHub の定時実行は遅れたり間引かれたりするので、1回の実行の中で5分ごとにくり返す。
+# 実行中に次の定時が来たら待ち行列に入り、前の実行が終わると続きから動く。
 on:
   schedule:
-    - cron: '*/10 23 * * *'     # JST 8:00-8:59
-    - cron: '*/10 0-12 * * *'   # JST 9:00-21:59
+    - cron: '50 22 * * *'      # JST 7:50
+    - cron: '20 0-12 * * *'    # JST 9:20〜21:20 毎時（止まっていたときの再開用）
   workflow_dispatch:
 permissions:
   contents: write
-  pages: write
-  id-token: write
 concurrency:
   group: update
   cancel-in-progress: false
 jobs:
   run:
     runs-on: ubuntu-latest
+    timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -21,21 +22,23 @@ jobs:
           python-version: '3.12'
           cache: pip
       - run: pip install -r requirements.txt
-      - name: 答え合わせ（前日まで）
-        run: python3 navi.py settle
-      - name: 締切が近いレースを予想
-        run: python3 navi.py predict
-      - name: ページ作成
-        run: |
-          python3 navi.py build
-          mkdir -p site && cp index.html site/
-      - name: データを保存
+      - name: 5分ごとに予想・答え合わせ・保存
         run: |
           git config user.name "boat-navi-bot"
           git config user.email "boat-navi-bot@users.noreply.github.com"
-          git add data
-          git diff --cached --quiet || (git commit -m "update $(TZ=Asia/Tokyo date +%m/%d-%H:%M)" && git push)
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-      - uses: actions/deploy-pages@v4
+          start=$(date +%s)
+          while true; do
+            hm=$(TZ=Asia/Tokyo date +%H%M)
+            [ "$hm" -ge 2205 ] && break
+            [ $(( $(date +%s) - start )) -ge 20400 ] && break   # 5時間40分で交代
+            python3 navi.py settle || true
+            python3 navi.py predict || true
+            python3 navi.py build || true
+            git add data
+            if ! git diff --cached --quiet; then
+              git commit -qm "update $(TZ=Asia/Tokyo date +%m/%d-%H:%M)"
+              git pull -q --rebase -X theirs || true
+              git push -q || true
+            fi
+            sleep $(( 300 - $(date +%s) % 300 ))
+          done
