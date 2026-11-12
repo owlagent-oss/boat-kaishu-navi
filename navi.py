@@ -18,6 +18,14 @@ FEATS = ['waku', 'jcd_c', 'cls_c', 'age', 'weight', 'nat_win', 'nat_2', 'loc_win
 # 狙い目のルール（過去の検証で決めたもの。変えるときは README に理由を書く）
 EV_MAIN, ODDS_MAX = 1.2, 10.0   # 狙い目: 期待値1.2以上かつ単勝10倍以下
 EV_SUB = 1.0                    # 参考: 期待値1.0以上
+EV_T3, T3_N = 1.2, 4            # 3連単: 単勝の期待値1.2以上の艇を1着に固定し、2・3着は確率の高い順に4点
+BOAT = ['waku', 'cls_c', 'age', 'weight', 'nat_win', 'nat_2', 'loc_win', 'loc_2', 'motor_2', 'boat_2', 'exhibit',
+        'win_rank', 'motor_rank', 'ex_rank', 'win_gap']
+RACE = ['jcd_c', 'wind_m', 'wave_cm', 'race_max_win', 'b1_win']
+F2 = BOAT + RACE + ['p1_waku', 'p1_win', 'p1_ex', 'p1_prob', 'prob']
+F3 = F2 + ['p2_waku', 'p2_win', 'p2_ex', 'p2_prob']
+T3ORDER = [f'{f}-{s}-{t}' for i in range(20) for f in range(1, 7)
+           for s, t in [[(s, t) for s in range(1, 7) if s != f for t in range(1, 7) if t not in (f, s)][i]]]
 WINDOW_MIN = (2, 25)            # 締切の2〜25分前のレースを処理する
 PICKS = 'data/picks'
 
@@ -84,12 +92,38 @@ def tan_odds(jcd, rno, day):
     return out if len(out) == 6 else None
 
 # ---------- 特徴量・予測 ----------
-_model = None
-def model():
-    global _model
-    if _model is None:
-        _model = lgb.Booster(model_file='model.txt')
-    return _model
+_models = {}
+def model(name='model.txt'):
+    if name not in _models:
+        _models[name] = lgb.Booster(model_file=name)
+    return _models[name]
+
+def t3_odds(jcd, rno, day):
+    h = get(f'https://boatrace.jp/owpc/pc/race/odds3t?rno={rno}&jcd={jcd}&hd={day:%Y%m%d}')
+    v = re.findall(r'oddsPoint[^>]*>([^<]+)<', h or '')
+    if len(v) != 120:
+        return {}
+    out = {}
+    for c, x in zip(T3ORDER, v):
+        try: out[c] = float(x)
+        except ValueError: out[c] = 0.0
+    return out
+
+def t3_picks(g, a):
+    """1着をa号艇に固定したときの、2・3着の確率が高い並び T3_N 点"""
+    info = g.set_index('waku')
+    def given(x, tag, w):
+        x[f'{tag}_waku'] = w; x[f'{tag}_win'] = info.nat_win[w]; x[f'{tag}_ex'] = info.exhibit[w]; x[f'{tag}_prob'] = info.prob[w]
+        return x
+    x2 = given(g[g.waku != a].copy(), 'p1', a)
+    q2 = model('m2.txt').predict(x2[F2]); q2 = dict(zip(x2.waku, q2 / q2.sum()))
+    combos = []
+    for b in q2:
+        x3 = given(given(g[~g.waku.isin([a, b])].copy(), 'p1', a), 'p2', b)
+        q3 = model('m3.txt').predict(x3[F3]); q3 = q3 / q3.sum()
+        for c, v in zip(x3.waku, q3):
+            combos.append((f'{a}-{b}-{c}', float(info.prob[a] * q2[b] * v)))
+    return sorted(combos, key=lambda x: -x[1])[:T3_N]
 
 def features(g):
     g = g.copy()
@@ -124,7 +158,13 @@ def predict_race(g, day):
         tag = '' if thin else ('main' if (r.ev >= EV_MAIN and 0 < r.odds <= ODDS_MAX) else ('sub' if r.ev >= EV_SUB else ''))
         boats.append(dict(waku=int(r.waku), name=r.name, cls=r.cls, prob=round(float(r.prob), 4),
                           odds=float(r.odds), ev=round(float(r.ev), 3), exhibit=None if pd.isna(r.exhibit) else float(r.exhibit), tag=tag))
-    return dict(jcd=jcd, place=JCD.get(jcd, jcd), rno=rno, deadline=g.deadline.iloc[0], race_type=g.race_type.iloc[0],
+    t3 = []
+    firsts = [b['waku'] for b in boats if b['ev'] >= EV_T3 and b['odds'] > 0 and not thin]
+    if firsts:
+        o3 = t3_odds(jcd, rno, day)
+        for a in firsts:
+            t3.append(dict(first=a, combos=[dict(c=c, p=round(p, 4), odds=o3.get(c, 0.0)) for c, p in t3_picks(g, a)]))
+    return dict(jcd=jcd, place=JCD.get(jcd, jcd), rno=rno, t3=t3, deadline=g.deadline.iloc[0], race_type=g.race_type.iloc[0],
                 wind_m=None if pd.isna(bi['wind_m']) else int(bi['wind_m']), wave_cm=None if pd.isna(bi['wave_cm']) else int(bi['wave_cm']),
                 fetched=now().strftime('%H:%M'), boats=boats)
 
@@ -175,11 +215,20 @@ def cmd_settle():
             continue
         _, _, pays = parse.parse_k(t, f'{day:%Y-%m-%d}')
         win = {(x['jcd'], x['rno']): (int(x['combo']), x['payout']) for x in pays if x['bet'] == '単勝'}
+        win3 = {(x['jcd'], x['rno']): (x['combo'], x['payout']) for x in pays if x['bet'] == '3連単'}
         picks = json.load(open(f'{PICKS}/{f}', encoding='utf-8'))
-        stat = {k: dict(bets=0, hits=0, ret=0) for k in ('main', 'sub')}
+        stat = {k: dict(bets=0, hits=0, ret=0) for k in ('main', 'sub', 't3')}
         for key, r in picks.items():
             w = win.get((r['jcd'], r['rno']))
             r['winner'] = w[0] if w else None
+            w3 = win3.get((r['jcd'], r['rno']))
+            r['result3'] = w3[0] if w3 else None
+            if w3:
+                for t in r.get('t3', []):
+                    for c in t['combos']:
+                        stat['t3']['bets'] += 1
+                        if c['c'] == w3[0]:
+                            stat['t3']['hits'] += 1; stat['t3']['ret'] += w3[1]
             for b in r['boats']:
                 for k in ('main', 'sub'):
                     if b['tag'] == 'main' or (k == 'sub' and b['tag'] == 'sub'):
@@ -198,14 +247,14 @@ def cmd_build():
     day = now().date()
     picks = load_picks(day)
     rec = json.load(open('data/record.json', encoding='utf-8')) if os.path.exists('data/record.json') else {'days': {}}
-    tot = {k: dict(bets=0, hits=0, ret=0) for k in ('main', 'sub')}
+    tot = {k: dict(bets=0, hits=0, ret=0) for k in ('main', 'sub', 't3')}
     for s in rec['days'].values():
         for k in tot:
             for f in ('bets', 'hits', 'ret'):
-                tot[k][f] += s[k][f]
+                tot[k][f] += s.get(k, {}).get(f, 0)
     tpl = open('template.html', encoding='utf-8').read()
     data = dict(date=f'{day:%Y-%m-%d}', updated=now().strftime('%m/%d %H:%M'), races=sorted(picks.values(), key=lambda r: r['deadline']),
-                record=dict(total=tot, days=rec['days']), rule=dict(ev_main=EV_MAIN, odds_max=ODDS_MAX, ev_sub=EV_SUB))
+                record=dict(total=tot, days=rec['days']), rule=dict(ev_main=EV_MAIN, odds_max=ODDS_MAX, ev_sub=EV_SUB, ev_t3=EV_T3, t3_n=T3_N))
     open('index.html', 'w', encoding='utf-8').write(tpl.replace('/*DATA*/null', json.dumps(data, ensure_ascii=False)))
     print('index.html', len(picks), 'レース')
 

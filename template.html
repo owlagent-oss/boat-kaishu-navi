@@ -14,7 +14,8 @@ header{background:#0b2545;color:#fff;padding:16px 16px 14px}header h1{margin:0;f
 main{max-width:760px;margin:0 auto;padding:12px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
 h2{font-size:16px;margin:0 0 8px}.note{font-size:12px;color:var(--sub)}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}.stat{border:1px solid var(--line);border-radius:10px;padding:10px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}@media(max-width:520px){.stats{grid-template-columns:1fr}}
+.t3{padding:8px 10px;background:#fff8f0;border-top:1px solid var(--line);font-size:13px}.t3 b{color:var(--main)}.cb{display:inline-block;margin:2px 8px 2px 0;padding:1px 6px;border:1px solid #f0c9a6;border-radius:6px;background:#fff}.cb.hit{background:var(--main);color:#fff}.stat{border:1px solid var(--line);border-radius:10px;padding:10px}
 .stat b{font-size:22px}.stat .lbl{font-size:12px;color:var(--sub)}
 .tabs{display:flex;gap:6px;margin:4px 0 10px;flex-wrap:wrap}.tabs button{border:1px solid var(--line);background:#fff;border-radius:16px;padding:4px 12px;font-size:13px;cursor:pointer}
 .tabs button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
@@ -47,7 +48,8 @@ footer{font-size:11px;color:var(--sub);max-width:760px;margin:0 auto;padding:8px
 <div class="card">
   <h2>この数字の見方</h2>
   <p class="note">1着率＝過去2年・約11万レースから作ったモデルが出した、その艇が1着になる確率。期待値＝1着率×単勝オッズ。1.0を超えると「長く買い続けたら戻りが多くなる計算」です。<br>
-  <span class="tag main">狙い目</span> 期待値<span class="r1"></span>以上かつ単勝<span class="r2"></span>倍以下　<span class="tag sub">参考</span> 期待値<span class="r3"></span>以上</p>
+  <b>3連単 狙い目</b>：単勝の期待値が<span class="r4"></span>以上の艇を1着に固定して、2着・3着は確率の高い順に<span class="r5"></span>点（%は3連単の的中確率、倍は3連単オッズ）。<br>
+  <span class="tag main">狙い目</span> 単勝の期待値<span class="r1"></span>以上かつ単勝<span class="r2"></span>倍以下　<span class="tag sub">参考</span> 単勝の期待値<span class="r3"></span>以上</p>
 </div>
 </main>
 <footer>
@@ -61,19 +63,20 @@ const D=/*DATA*/null;
 const yen=n=>n.toLocaleString('ja-JP');
 function stats(){
   const t=D.record.total,days=Object.keys(D.record.days).length,el=document.getElementById('stats');
-  const box=(k,label)=>{const s=t[k];const roi=s.bets?(s.ret/(s.bets*100)*100).toFixed(1)+'%':'—';const hit=s.bets?(s.hits/s.bets*100).toFixed(1)+'%':'—';
+  const box=(k,label)=>{const s=t[k]||{bets:0,hits:0,ret:0};const roi=s.bets?(s.ret/(s.bets*100)*100).toFixed(1)+'%':'—';const hit=s.bets?(s.hits/s.bets*100).toFixed(1)+'%':'—';
     return `<div class="stat"><div class="lbl">${label}</div><b>${roi}</b><div class="lbl">回収率（${yen(s.bets)}点・的中${hit}）</div></div>`};
-  el.innerHTML=box('main','狙い目')+box('sub','参考（期待値'+D.rule.ev_sub+'以上）');
+  el.innerHTML=box('t3','3連単 狙い目（'+D.rule.t3_n+'点ずつ）')+box('main','単勝 狙い目')+box('sub','単勝 参考（期待値'+D.rule.ev_sub+'以上）');
   document.getElementById('rulenote').textContent=days?`${days}日分の集計（単勝100円ずつ買った場合）。前日までの結果を毎朝反映します。`:'検証を始めたばかりです。明日の朝から成績が出ます。';
-  document.querySelector('.r1').textContent=D.rule.ev_main;document.querySelector('.r2').textContent=D.rule.odds_max;document.querySelector('.r3').textContent=D.rule.ev_sub;
+  document.querySelector('.r1').textContent=D.rule.ev_main;document.querySelector('.r2').textContent=D.rule.odds_max;document.querySelector('.r3').textContent=D.rule.ev_sub;document.querySelector('.r4').textContent=D.rule.ev_t3;document.querySelector('.r5').textContent=D.rule.t3_n;
 }
 let filter='main';
 function races(){
   document.getElementById('upd').textContent=`最終更新 ${D.updated}`;
   const nowHM=new Date(Date.now()+9*3600e3).toISOString().slice(11,16);
   const tabs=[['main','狙い目だけ'],['sub','参考も'],['all','全部']];
+  const has=(r,f)=>(r.t3&&r.t3.length)||r.boats.some(b=>b.tag=='main'||(f=='sub'&&b.tag=='sub'));
   document.getElementById('tabs').innerHTML=tabs.map(([k,l])=>`<button class="${k==filter?'on':''}" onclick="filter='${k}';races()">${l}</button>`).join('');
-  let rs=D.races.filter(r=>filter=='all'||r.boats.some(b=>b.tag=='main'||(filter=='sub'&&b.tag=='sub')));
+  let rs=D.races.filter(r=>filter=='all'||has(r,filter));
   rs.sort((a,b)=>((a.deadline<nowHM)-(b.deadline<nowHM))||a.deadline.localeCompare(b.deadline));
   document.getElementById('races').innerHTML=rs.length?rs.map(r=>{
     const done=r.deadline<nowHM;
@@ -81,6 +84,7 @@ function races(){
       <td>${(b.prob*100).toFixed(1)}%</td><td>${b.odds?b.odds.toFixed(1):'—'}</td><td>${b.ev.toFixed(2)}</td><td>${b.tag?`<span class="tag ${b.tag}">${b.tag=='main'?'狙い目':'参考'}</span>`:''}</td></tr>`).join('');
     return `<div class="race${done?' done':''}"><div class="rh"><span class="t">${r.place} ${r.rno}R <span class="note">${r.race_type}</span></span>
       <span class="dl">締切 ${r.deadline}・風${r.wind_m??'-'}m・オッズ ${r.fetched}時点</span></div>
+      ${(r.t3||[]).map(t=>`<div class="t3"><b>3連単 狙い目</b> ${t.first}号艇1着固定：${t.combos.map(c=>`<span class="cb${r.result3==c.c?' hit':''}">${c.c} <span class="note">${(c.p*100).toFixed(1)}%・${c.odds?c.odds.toFixed(1)+'倍':'—'}</span></span>`).join('')}</div>`).join('')}
       <table><tr><th class="l">艇・選手</th><th>1着率</th><th>単勝</th><th>期待値</th><th></th></tr>${rows}</table></div>`}).join('')
     :'<div class="empty">今は表示できるレースがありません。締切の25分前ごろから順に出てきます。</div>';
 }
