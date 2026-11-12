@@ -25,7 +25,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:5px 6px;b
 td.l,th.l{text-align:left}tr.main{background:var(--mainbg)}tr.sub{background:var(--subbg)}tr.win td{font-weight:700}
 .w{display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;border-radius:4px;font-weight:700;font-size:12px}
 .w1{background:#fff;border:1px solid #999}.w2{background:#222;color:#fff}.w3{background:#e03131;color:#fff}.w4{background:#1971c2;color:#fff}.w5{background:#f5d90a}.w6{background:#2f9e44;color:#fff}
-.tag{font-size:11px;font-weight:700;border-radius:4px;padding:0 5px}.tag.main{background:var(--main);color:#fff}.tag.sub{background:var(--acc);color:#fff}
+.tag{font-size:11px;font-weight:700;border-radius:4px;padding:0 5px}.tag.main{background:var(--main);color:#fff}.tag.sub{background:var(--acc);color:#fff}.tag.mkt{background:#0f9d58;color:#fff}
 .rev{font-size:12px;font-weight:700;border-radius:10px;padding:1px 8px;margin-left:6px;background:#eef1f5;color:var(--sub)}.rev.hi{background:var(--main);color:#fff}.rev.mid{background:var(--acc);color:#fff}.t3ev{font-size:12px;color:var(--sub);margin-left:4px}
 .empty{color:var(--sub);text-align:center;padding:20px}
 footer{font-size:11px;color:var(--sub);max-width:760px;margin:0 auto;padding:8px 16px 32px}
@@ -51,6 +51,7 @@ footer{font-size:11px;color:var(--sub);max-width:760px;margin:0 auto;padding:8px
   <b>レース横の期待値</b>：そのレースで単勝の期待値がいちばん高い艇の数字（オレンジ＝狙い目の基準以上、青＝1.0以上）。オッズが出ている艇が5艇未満のときは「—」。<br>
   <b>○点の期待値</b>：3連単の狙い目○点を100円ずつ買ったときの計算上の戻り（的中確率×3連単オッズの平均）。合成オッズは○点をまとめて1つの買い目と見たときの倍率。3連単の確率は単勝ほど精度が高くないので、こちらは参考の数字です。<br>
   <b>3連単 狙い目</b>：単勝の期待値が<span class="r4"></span>以上の艇を1着に固定して、2着・3着は確率の高い順に<span class="r5"></span>点（%は3連単の的中確率、倍は3連単オッズ）。点線の5〜<span class="r6"></span>点目は「広げるとき」用。ボックスは1着候補と、2・3着に来やすい2艇の3艇ボックス。<br>
+  <span class="tag mkt">新</span> <b>単勝 新ルール（検証中）</b>：3連単のオッズから計算したその艇の1着確率と、単勝のオッズのズレ（表の「市場差」）が<span class="r7"></span>以上の艇。3連単は売上が大きくオッズが正確なので、単勝がそれより高く付いている艇を狙います。過去のデータ（締切後のオッズ）で強かったので、締切前のオッズで通用するかを検証中です。<br>
   <span class="tag main">狙い目</span> 単勝の期待値<span class="r1"></span>以上かつ単勝<span class="r2"></span>倍以下　<span class="tag sub">参考</span> 単勝の期待値<span class="r3"></span>以上</p>
 </div>
 </main>
@@ -68,9 +69,9 @@ function stats(){
   const t=D.record.total,days=Object.keys(D.record.days).length,el=document.getElementById('stats');
   const box=(k,label)=>{const s=t[k]||{bets:0,hits:0,ret:0};const roi=s.bets?(s.ret/(s.bets*100)*100).toFixed(1)+'%':'—';const hit=s.bets?(s.hits/s.bets*100).toFixed(1)+'%':'—';
     return `<div class="stat"><div class="lbl">${label}</div><b>${roi}</b><div class="lbl">回収率（${yen(s.bets)}点・的中${hit}）</div></div>`};
-  el.innerHTML=box('t3','3連単 基本'+D.rule.t3_n+'点')+box('t3_8','3連単 '+D.rule.t3_wide+'点')+box('box','3連単 3艇ボックス')+box('main','単勝 狙い目')+box('sub','単勝 参考（期待値'+D.rule.ev_sub+'以上）');
+  el.innerHTML=box('t3','3連単 基本'+D.rule.t3_n+'点')+box('t3_8','3連単 '+D.rule.t3_wide+'点')+box('box','3連単 3艇ボックス')+box('mkt','単勝 新ルール（検証中）')+box('main','単勝 狙い目')+box('sub','単勝 参考（期待値'+D.rule.ev_sub+'以上）');
   document.getElementById('rulenote').textContent=days?`${days}日分の集計（単勝100円ずつ買った場合）。前日までの結果を毎朝反映します。`:'検証を始めたばかりです。明日の朝から成績が出ます。';
-  document.querySelector('.r1').textContent=D.rule.ev_main;document.querySelector('.r2').textContent=D.rule.odds_max;document.querySelector('.r3').textContent=D.rule.ev_sub;document.querySelector('.r4').textContent=D.rule.ev_t3;document.querySelector('.r5').textContent=D.rule.t3_n;document.querySelector('.r6').textContent=D.rule.t3_wide;
+  document.querySelector('.r1').textContent=D.rule.ev_main;document.querySelector('.r2').textContent=D.rule.odds_max;document.querySelector('.r3').textContent=D.rule.ev_sub;document.querySelector('.r4').textContent=D.rule.ev_t3;document.querySelector('.r5').textContent=D.rule.t3_n;document.querySelector('.r6').textContent=D.rule.t3_wide;document.querySelector('.r7').textContent=D.rule.ev_mkt??1.2;
 }
 let filter='main',sortBy='time';
 const raceEV=r=>{const v=r.boats.filter(b=>b.odds>0).map(b=>b);if(v.length<5)return null;const m=v.reduce((a,b)=>b.ev>a.ev?b:a);return m;};
@@ -79,7 +80,7 @@ function races(){
   document.getElementById('upd').textContent=`最終更新 ${D.updated}`;
   const nowHM=new Date(Date.now()+9*3600e3).toISOString().slice(11,16);
   const tabs=[['main','狙い目だけ'],['sub','参考も'],['all','全部']];
-  const has=(r,f)=>(r.t3&&r.t3.length)||r.boats.some(b=>b.tag=='main'||(f=='sub'&&b.tag=='sub'));
+  const has=(r,f)=>(r.t3&&r.t3.length)||r.boats.some(b=>b.mkt||b.tag=='main'||(f=='sub'&&b.tag=='sub'));
   document.getElementById('tabs').innerHTML=tabs.map(([k,l])=>`<button class="${k==filter?'on':''}" onclick="filter='${k}';races()">${l}</button>`).join('')+'<span style="flex:1"></span>'+[['time','締切順'],['ev','期待値の高い順']].map(([k,l])=>`<button class="${k==sortBy?'on':''}" onclick="sortBy='${k}';races()">${l}</button>`).join('');
   let rs=D.races.filter(r=>filter=='all'||has(r,filter));
   rs.sort((a,b)=>((a.deadline<nowHM)-(b.deadline<nowHM))||(sortBy=='ev'?((raceEV(b)?.ev??-1)-(raceEV(a)?.ev??-1)):0)||a.deadline.localeCompare(b.deadline));
@@ -87,12 +88,12 @@ function races(){
     const done=r.deadline<nowHM,me=raceEV(r);
     const badge=me?`<span class="rev ${me.ev>=D.rule.ev_main?'hi':me.ev>=D.rule.ev_sub?'mid':''}">期待値 ${me.ev.toFixed(2)}（${me.waku}号艇）</span>`:'<span class="rev">期待値 —</span>';
     const rows=r.boats.map(b=>`<tr class="${b.tag}${r.winner==b.waku?' win':''}"><td class="l"><span class="w w${b.waku}">${b.waku}</span> ${b.name} <span class="note">${b.cls}</span></td>
-      <td>${(b.prob*100).toFixed(1)}%</td><td>${b.odds?b.odds.toFixed(1):'—'}</td><td>${b.ev.toFixed(2)}</td><td>${b.tag?`<span class="tag ${b.tag}">${b.tag=='main'?'狙い目':'参考'}</span>`:''}</td></tr>`).join('');
+      <td>${(b.prob*100).toFixed(1)}%</td><td>${b.odds?b.odds.toFixed(1):'—'}</td><td>${b.ev.toFixed(2)}</td><td>${b.mev!=null?b.mev.toFixed(2):'—'}</td><td>${b.mkt?'<span class="tag mkt">新</span> ':''}${b.tag?`<span class="tag ${b.tag}">${b.tag=='main'?'狙い目':'参考'}</span>`:''}</td></tr>`).join('');
     return `<div class="race${done?' done':''}"><div class="rh"><span class="t">${r.place} ${r.rno}R <span class="note">${r.race_type}</span>${badge}</span>
       <span class="dl">締切 ${r.deadline}・風${r.wind_m??'-'}m・オッズ ${r.fetched}時点</span></div>
       ${(r.t3||[]).map(t=>`<div class="t3"><b>3連単 狙い目</b> ${t.first}号艇1着固定${(e=>e?`<span class="t3ev">（${D.rule.t3_n}点の期待値 ${e.ev.toFixed(2)}・合成オッズ ${e.syn.toFixed(1)}倍）</span>`:'')(t3EV(t,D.rule.t3_n))}：${t.combos.map((c,i)=>`<span class="cb${i>=D.rule.t3_n?' wide':''}${r.result3==c.c?' hit':''}">${c.c} <span class="note">${(c.p*100).toFixed(1)}%・${c.odds?c.odds.toFixed(1)+'倍':'—'}</span></span>`).join('')}
       ${t.box?`<div class="bx"><b>ボックス</b> ${t.box.join('・')}（6点${(v=>v.length?'・最低'+Math.min(...v).toFixed(1)+'倍':'')(Object.values(t.box_odds).filter(v=>v>0))}）</div>`:''}</div>`).join('')}
-      <table><tr><th class="l">艇・選手</th><th>1着率</th><th>単勝</th><th>期待値</th><th></th></tr>${rows}</table></div>`}).join('')
+      <table><tr><th class="l">艇・選手</th><th>1着率</th><th>単勝</th><th>期待値</th><th>市場差</th><th></th></tr>${rows}</table></div>`}).join('')
     :'<div class="empty">今は表示できるレースがありません。締切の25分前ごろから順に出てきます。</div>';
 }
 async function load(){
