@@ -3,7 +3,7 @@
   python3 navi.py settle    前日までの結果を取り込み、狙い目の成績(data/record.json)を更新
   python3 navi.py build     index.html を作る
 """
-import datetime as dt, io, itertools, json, os, re, sys, time, urllib.request
+import datetime as dt, gzip, io, itertools, json, os, re, sys, time, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 import numpy as np, pandas as pd, lightgbm as lgb, lhafile
 import parse
@@ -166,8 +166,8 @@ def predict_race(g, day):
                           odds=float(r.odds), ev=round(float(r.ev), 3), exhibit=None if pd.isna(r.exhibit) else float(r.exhibit), tag=tag))
     t3 = []
     firsts = [b['waku'] for b in boats if b['ev'] >= EV_T3 and b['odds'] > 0 and not thin]
+    o3 = t3_odds(jcd, rno, day)  # 狙い目がなくてもオッズの動きを記録するため毎回取る
     if firsts:
-        o3 = t3_odds(jcd, rno, day)
         for a in firsts:
             cs, box = t3_picks(g, a)
             bc = ['-'.join(map(str, x)) for x in itertools.permutations(box)]
@@ -175,7 +175,18 @@ def predict_race(g, day):
                            box=box, box_odds={c: o3.get(c, 0.0) for c in bc}))
     return dict(jcd=jcd, place=JCD.get(jcd, jcd), rno=rno, t3=t3, deadline=g.deadline.iloc[0], race_type=g.race_type.iloc[0],
                 wind_m=None if pd.isna(bi['wind_m']) else int(bi['wind_m']), wave_cm=None if pd.isna(bi['wave_cm']) else int(bi['wave_cm']),
-                fetched=now().strftime('%H:%M'), boats=boats)
+                fetched=now().strftime('%H:%M'), boats=boats,
+                _snap=dict(tan=[od.get(i, 0.0) for i in range(1, 7)], t3=[o3.get(c, 0.0) for c in T3ORDER] if o3 else []))
+
+SNAP = 'data/odds_ts'
+def save_snap(t, snap):
+    """オッズの動きを見るため、取った時点の単勝・3連単オッズを1回ごとに別ファイルで保存（3連単は T3ORDER の順）"""
+    if not snap:
+        return
+    d = f'{SNAP}/{t:%Y%m%d}'
+    os.makedirs(d, exist_ok=True)
+    with gzip.open(f'{d}/{t:%H%M}.json.gz', 'wt', encoding='utf-8') as f:
+        json.dump(dict(at=t.strftime('%H:%M:%S'), races=snap), f, separators=(',', ':'))
 
 def load_picks(day):
     path = f'{PICKS}/{day:%Y%m%d}.json'
@@ -201,11 +212,14 @@ def cmd_predict(force_all=False):
             todo.append(g)
     with ThreadPoolExecutor(6) as ex:
         res = list(ex.map(lambda g: predict_race(g, day), todo))
-    n = 0
+    n = 0; snap = {}
     for r in res:
         if r:
-            picks[f"{r['jcd']}-{r['rno']:02d}"] = r; n += 1
+            k = f"{r['jcd']}-{r['rno']:02d}"
+            snap[k] = dict(deadline=r['deadline'], **r.pop('_snap'))
+            picks[k] = r; n += 1
     save_json(f'{PICKS}/{day:%Y%m%d}.json', picks)
+    save_snap(t, snap)
     print(f'{t:%H:%M} 処理 {n}/{len(todo)}レース')
 
 # ---------- 答え合わせ ----------
