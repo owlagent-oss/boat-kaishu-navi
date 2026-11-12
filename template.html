@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ボート回収率ナビ｜競艇・ボートレースの回収率と期待値を全24場で検証</title>
+<meta name="description" content="全国24場のボートレース（競艇）を過去2年・11万レースのデータで分析。締切前のオッズと1着確率から期待値を計算し、今日の狙い目と検証成績を毎日公開します。">
+<meta http-equiv="refresh" content="300">
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--ink:#1d2433;--sub:#667085;--line:#e4e8ef;--acc:#0b6bcb;--main:#e8590c;--mainbg:#fff4e6;--subbg:#eef5ff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;font-size:15px;line-height:1.6}
+header{background:#0b2545;color:#fff;padding:16px 16px 14px}header h1{margin:0;font-size:20px}header p{margin:4px 0 0;font-size:12px;opacity:.85}
+.badge{display:inline-block;background:#ffd43b;color:#5c3c00;font-size:11px;font-weight:700;border-radius:10px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+main{max-width:760px;margin:0 auto;padding:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
+h2{font-size:16px;margin:0 0 8px}.note{font-size:12px;color:var(--sub)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}.stat{border:1px solid var(--line);border-radius:10px;padding:10px}
+.stat b{font-size:22px}.stat .lbl{font-size:12px;color:var(--sub)}
+.tabs{display:flex;gap:6px;margin:4px 0 10px;flex-wrap:wrap}.tabs button{border:1px solid var(--line);background:#fff;border-radius:16px;padding:4px 12px;font-size:13px;cursor:pointer}
+.tabs button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.race{border:1px solid var(--line);border-radius:10px;margin-bottom:8px;overflow:hidden}.race.done{opacity:.6}
+.rh{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:#f9fafb;font-size:14px}
+.rh .t{font-weight:700}.rh .dl{font-size:12px;color:var(--sub)}
+table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:5px 6px;border-top:1px solid var(--line);text-align:right}th{font-weight:500;color:var(--sub);font-size:11px}
+td.l,th.l{text-align:left}tr.main{background:var(--mainbg)}tr.sub{background:var(--subbg)}tr.win td{font-weight:700}
+.w{display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;border-radius:4px;font-weight:700;font-size:12px}
+.w1{background:#fff;border:1px solid #999}.w2{background:#222;color:#fff}.w3{background:#e03131;color:#fff}.w4{background:#1971c2;color:#fff}.w5{background:#f5d90a}.w6{background:#2f9e44;color:#fff}
+.tag{font-size:11px;font-weight:700;border-radius:4px;padding:0 5px}.tag.main{background:var(--main);color:#fff}.tag.sub{background:var(--acc);color:#fff}
+.empty{color:var(--sub);text-align:center;padding:20px}
+footer{font-size:11px;color:var(--sub);max-width:760px;margin:0 auto;padding:8px 16px 32px}
+</style>
+</head>
+<body>
+<header><h1>ボート回収率ナビ<span class="badge">検証中</span></h1><p>競艇・ボートレースの回収率と期待値を全24場で検証</p></header>
+<main>
+<div class="card">
+  <h2>狙い目の検証成績</h2>
+  <div class="stats" id="stats"></div>
+  <p class="note" id="rulenote"></p>
+</div>
+<div class="card">
+  <h2>今日のレース <span class="note" id="upd"></span></h2>
+  <div class="tabs" id="tabs"></div>
+  <div id="races"></div>
+  <p class="note">締切の約2〜25分前に、展示タイム・風・単勝オッズを取り込んで計算します（約10分ごとに更新）。オッズは締切まで動くので、買う前に必ず最新オッズを確かめてください。</p>
+</div>
+<div class="card">
+  <h2>この数字の見方</h2>
+  <p class="note">1着率＝過去2年・約11万レースから作ったモデルが出した、その艇が1着になる確率。期待値＝1着率×単勝オッズ。1.0を超えると「長く買い続けたら戻りが多くなる計算」です。<br>
+  <span class="tag main">狙い目</span> 期待値<span class="r1"></span>以上かつ単勝<span class="r2"></span>倍以下　<span class="tag sub">参考</span> 期待値<span class="r3"></span>以上</p>
+</div>
+</main>
+<footer>
+・掲載している確率・期待値は過去データにもとづく計算結果で、的中や利益を約束するものではありません。現在は検証期間中です。<br>
+・データ出典：BOAT RACE オフィシャルウェブサイト（番組表・競走成績・直前情報・オッズ）。<br>
+・舟券の購入は20歳になってから。余裕のある範囲で楽しみましょう。<br>
+© 合同会社オールエージェント
+</footer>
+<script>
+const D=/*DATA*/null;
+const yen=n=>n.toLocaleString('ja-JP');
+function stats(){
+  const t=D.record.total,days=Object.keys(D.record.days).length,el=document.getElementById('stats');
+  const box=(k,label)=>{const s=t[k];const roi=s.bets?(s.ret/(s.bets*100)*100).toFixed(1)+'%':'—';const hit=s.bets?(s.hits/s.bets*100).toFixed(1)+'%':'—';
+    return `<div class="stat"><div class="lbl">${label}</div><b>${roi}</b><div class="lbl">回収率（${yen(s.bets)}点・的中${hit}）</div></div>`};
+  el.innerHTML=box('main','狙い目')+box('sub','参考（期待値'+D.rule.ev_sub+'以上）');
+  document.getElementById('rulenote').textContent=days?`${days}日分の集計（単勝100円ずつ買った場合）。前日までの結果を毎朝反映します。`:'検証を始めたばかりです。明日の朝から成績が出ます。';
+  document.querySelector('.r1').textContent=D.rule.ev_main;document.querySelector('.r2').textContent=D.rule.odds_max;document.querySelector('.r3').textContent=D.rule.ev_sub;
+}
+let filter='main';
+function races(){
+  document.getElementById('upd').textContent=`${D.date}　${D.updated}更新`;
+  const nowHM=new Date(Date.now()+9*3600e3).toISOString().slice(11,16);
+  const tabs=[['main','狙い目だけ'],['sub','参考も'],['all','全部']];
+  document.getElementById('tabs').innerHTML=tabs.map(([k,l])=>`<button class="${k==filter?'on':''}" onclick="filter='${k}';races()">${l}</button>`).join('');
+  let rs=D.races.filter(r=>filter=='all'||r.boats.some(b=>b.tag=='main'||(filter=='sub'&&b.tag=='sub')));
+  rs.sort((a,b)=>((a.deadline<nowHM)-(b.deadline<nowHM))||a.deadline.localeCompare(b.deadline));
+  document.getElementById('races').innerHTML=rs.length?rs.map(r=>{
+    const done=r.deadline<nowHM;
+    const rows=r.boats.map(b=>`<tr class="${b.tag}${r.winner==b.waku?' win':''}"><td class="l"><span class="w w${b.waku}">${b.waku}</span> ${b.name} <span class="note">${b.cls}</span></td>
+      <td>${(b.prob*100).toFixed(1)}%</td><td>${b.odds?b.odds.toFixed(1):'—'}</td><td>${b.ev.toFixed(2)}</td><td>${b.tag?`<span class="tag ${b.tag}">${b.tag=='main'?'狙い目':'参考'}</span>`:''}</td></tr>`).join('');
+    return `<div class="race${done?' done':''}"><div class="rh"><span class="t">${r.place} ${r.rno}R <span class="note">${r.race_type}</span></span>
+      <span class="dl">締切 ${r.deadline}・風${r.wind_m??'-'}m・${r.fetched}時点</span></div>
+      <table><tr><th class="l">艇・選手</th><th>1着率</th><th>単勝</th><th>期待値</th><th></th></tr>${rows}</table></div>`}).join('')
+    :'<div class="empty">今は表示できるレースがありません。締切の25分前ごろから順に出てきます。</div>';
+}
+stats();races();
+</script>
+</body>
+</html>

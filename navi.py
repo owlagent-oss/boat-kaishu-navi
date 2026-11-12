@@ -1,0 +1,214 @@
+"""ボート回収率ナビ 毎日の自動処理。
+  python3 navi.py predict   締切が近いレースの直前情報とオッズを取り、期待値を計算して data/picks/ に保存
+  python3 navi.py settle    前日までの結果を取り込み、狙い目の成績(data/record.json)を更新
+  python3 navi.py build     index.html を作る
+"""
+import datetime as dt, io, json, os, re, sys, time, urllib.request
+from concurrent.futures import ThreadPoolExecutor
+import numpy as np, pandas as pd, lightgbm as lgb, lhafile
+import parse
+
+JST = dt.timezone(dt.timedelta(hours=9))
+UA = {'User-Agent': 'Mozilla/5.0 (boat-kaishu-navi)'}
+JCD = {'01':'桐生','02':'戸田','03':'江戸川','04':'平和島','05':'多摩川','06':'浜名湖','07':'蒲郡','08':'常滑',
+       '09':'津','10':'三国','11':'びわこ','12':'住之江','13':'尼崎','14':'鳴門','15':'丸亀','16':'児島',
+       '17':'宮島','18':'徳山','19':'下関','20':'若松','21':'芦屋','22':'福岡','23':'唐津','24':'大村'}
+FEATS = ['waku', 'jcd_c', 'cls_c', 'age', 'weight', 'nat_win', 'nat_2', 'loc_win', 'loc_2', 'motor_2', 'boat_2',
+         'exhibit', 'win_rank', 'motor_rank', 'ex_rank', 'win_gap', 'wind_m', 'wave_cm', 'b1_win', 'race_max_win']
+# 狙い目のルール（過去の検証で決めたもの。変えるときは README に理由を書く）
+EV_MAIN, ODDS_MAX = 1.2, 10.0   # 狙い目: 期待値1.2以上かつ単勝10倍以下
+EV_SUB = 1.0                    # 参考: 期待値1.0以上
+WINDOW_MIN = (2, 25)            # 締切の2〜25分前のレースを処理する
+PICKS = 'data/picks'
+
+def now():
+    return dt.datetime.now(JST)
+
+def get(url, binary=False, tries=3):
+    for i in range(tries):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30) as r:
+                b = r.read()
+                return b if binary else b.decode('utf-8', 'replace')
+        except Exception:
+            time.sleep(2 + i * 3)
+    return None
+
+def lzh_text(url):
+    b = get(url, binary=True)
+    if not b:
+        return None
+    f = lhafile.LhaFile(io.BytesIO(b))
+    return f.read(f.namelist()[0]).decode('cp932', 'replace')
+
+# ---------- 番組表 ----------
+def program(day):
+    path = f'{PICKS}/{day:%Y%m%d}_program.csv'
+    if os.path.exists(path):
+        return pd.read_csv(path, dtype={'jcd': str, 'toban': str, 'motor_no': str, 'boat_no': str, 'deadline': str})
+    t = lzh_text(f'https://www1.mbrace.or.jp/od2/B/{day:%Y%m}/b{day:%y%m%d}.lzh')
+    if not t:
+        return None
+    p = pd.DataFrame(parse.parse_b(t, f'{day:%Y-%m-%d}'))
+    os.makedirs(PICKS, exist_ok=True)
+    p.to_csv(path, index=False)
+    return p
+
+# ---------- 直前情報・オッズ ----------
+def beforeinfo(jcd, rno, day):
+    h = get(f'https://boatrace.jp/owpc/pc/race/beforeinfo?rno={rno}&jcd={jcd}&hd={day:%Y%m%d}')
+    if not h:
+        return None
+    ex = {}
+    for body in re.findall(r'<tbody class="is-fs12[^"]*">(.*?)</tbody>', h, re.S):
+        w = re.search(r'is-boatColor(\d)', body)
+        e = re.search(r'kg</td>\s*<td rowspan="4">([\d.]+)</td>', body)
+        if w:
+            ex[int(w.group(1))] = float(e.group(1)) if e else np.nan
+    txt = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', h))
+    wind = re.search(r'風速 (\d+)m', txt)
+    wave = re.search(r'波高 (\d+)cm', txt)
+    return dict(exhibit=ex, wind_m=int(wind.group(1)) if wind else np.nan, wave_cm=int(wave.group(1)) if wave else np.nan)
+
+def tan_odds(jcd, rno, day):
+    h = get(f'https://boatrace.jp/owpc/pc/race/oddstf?rno={rno}&jcd={jcd}&hd={day:%Y%m%d}')
+    if not h:
+        return None
+    v = re.findall(r'oddsPoint[^>]*>([^<]+)<', h)
+    out = {}
+    for i, x in enumerate(v[:6], 1):
+        try:
+            out[i] = float(x)
+        except ValueError:
+            out[i] = 0.0
+    return out if len(out) == 6 else None
+
+# ---------- 特徴量・予測 ----------
+_model = None
+def model():
+    global _model
+    if _model is None:
+        _model = lgb.Booster(model_file='model.txt')
+    return _model
+
+def features(g):
+    g = g.copy()
+    g['jcd_c'] = g.jcd.astype(int)
+    g['cls_c'] = g.cls.map({'A1': 4, 'A2': 3, 'B1': 2, 'B2': 1})
+    g['win_rank'] = g.nat_win.rank(ascending=False, method='min')
+    g['motor_rank'] = g.motor_2.rank(ascending=False, method='min')
+    g['ex_rank'] = g.exhibit.rank(method='min')
+    top2 = g.nat_win.nlargest(2)
+    other = top2.iloc[-1] if len(top2) > 1 else np.nan
+    g['win_gap'] = np.where(g.win_rank == 1, g.nat_win - other, g.nat_win - g.nat_win.max())
+    g['race_max_win'] = g.nat_win.max()
+    g['b1_win'] = g.sort_values('waku').nat_win.iloc[0]
+    return g
+
+def predict_race(g, day):
+    jcd, rno = g.jcd.iloc[0], int(g.rno.iloc[0])
+    bi, od = beforeinfo(jcd, rno, day), tan_odds(jcd, rno, day)
+    if not bi or not od:
+        return None
+    g = g.copy()
+    g['exhibit'] = g.waku.map(bi['exhibit'])
+    g['wind_m'], g['wave_cm'] = bi['wind_m'], bi['wave_cm']
+    g = features(g)
+    raw = model().predict(g[FEATS])
+    g['prob'] = raw / raw.sum()
+    g['odds'] = g.waku.map(od)
+    g['ev'] = np.where(g.odds > 0, g.prob * g.odds, 0)
+    boats = []
+    thin = (g.odds > 0).sum() < 5  # 票がまだ少なくオッズが出ていない艇が多い
+    for r in g.sort_values('waku').itertuples():
+        tag = '' if thin else ('main' if (r.ev >= EV_MAIN and 0 < r.odds <= ODDS_MAX) else ('sub' if r.ev >= EV_SUB else ''))
+        boats.append(dict(waku=int(r.waku), name=r.name, cls=r.cls, prob=round(float(r.prob), 4),
+                          odds=float(r.odds), ev=round(float(r.ev), 3), exhibit=None if pd.isna(r.exhibit) else float(r.exhibit), tag=tag))
+    return dict(jcd=jcd, place=JCD.get(jcd, jcd), rno=rno, deadline=g.deadline.iloc[0], race_type=g.race_type.iloc[0],
+                wind_m=None if pd.isna(bi['wind_m']) else int(bi['wind_m']), wave_cm=None if pd.isna(bi['wave_cm']) else int(bi['wave_cm']),
+                fetched=now().strftime('%H:%M'), boats=boats)
+
+def load_picks(day):
+    path = f'{PICKS}/{day:%Y%m%d}.json'
+    return json.load(open(path, encoding='utf-8')) if os.path.exists(path) else {}
+
+def save_json(path, obj):
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(obj, f, ensure_ascii=False, indent=1)
+
+def cmd_predict(force_all=False):
+    t = now(); day = t.date()
+    p = program(day)
+    if p is None or p.empty:
+        print('番組表なし'); return
+    picks = load_picks(day)
+    todo = []
+    for (jcd, rno), g in p.groupby(['jcd', 'rno']):
+        if not isinstance(g.deadline.iloc[0], str) or ':' not in g.deadline.iloc[0]:
+            continue
+        hh, mm = map(int, g.deadline.iloc[0].split(':'))
+        left = (dt.datetime.combine(day, dt.time(hh, mm), JST) - t).total_seconds() / 60
+        if force_all and left > WINDOW_MIN[0] or WINDOW_MIN[0] <= left <= WINDOW_MIN[1]:
+            todo.append(g)
+    with ThreadPoolExecutor(6) as ex:
+        res = list(ex.map(lambda g: predict_race(g, day), todo))
+    n = 0
+    for r in res:
+        if r:
+            picks[f"{r['jcd']}-{r['rno']:02d}"] = r; n += 1
+    save_json(f'{PICKS}/{day:%Y%m%d}.json', picks)
+    print(f'{t:%H:%M} 処理 {n}/{len(todo)}レース')
+
+# ---------- 答え合わせ ----------
+def cmd_settle():
+    rec_path = 'data/record.json'
+    rec = json.load(open(rec_path, encoding='utf-8')) if os.path.exists(rec_path) else {'days': {}}
+    today = now().date()
+    for f in sorted(os.listdir(PICKS)):
+        if not re.fullmatch(r'\d{8}\.json', f):
+            continue
+        day = dt.datetime.strptime(f[:8], '%Y%m%d').date()
+        if day >= today or f[:8] in rec['days']:
+            continue
+        t = lzh_text(f'https://www1.mbrace.or.jp/od2/K/{day:%Y%m}/k{day:%y%m%d}.lzh')
+        if not t:
+            continue
+        _, _, pays = parse.parse_k(t, f'{day:%Y-%m-%d}')
+        win = {(x['jcd'], x['rno']): (int(x['combo']), x['payout']) for x in pays if x['bet'] == '単勝'}
+        picks = json.load(open(f'{PICKS}/{f}', encoding='utf-8'))
+        stat = {k: dict(bets=0, hits=0, ret=0) for k in ('main', 'sub')}
+        for key, r in picks.items():
+            w = win.get((r['jcd'], r['rno']))
+            r['winner'] = w[0] if w else None
+            for b in r['boats']:
+                for k in ('main', 'sub'):
+                    if b['tag'] == 'main' or (k == 'sub' and b['tag'] == 'sub'):
+                        if not w:
+                            continue  # 中止・不成立は数えない
+                        stat[k]['bets'] += 1
+                        if w[0] == b['waku']:
+                            stat[k]['hits'] += 1; stat[k]['ret'] += w[1]
+        save_json(f'{PICKS}/{f}', picks)
+        rec['days'][f[:8]] = stat
+        print(day, stat)
+    save_json(rec_path, rec)
+
+# ---------- ページ ----------
+def cmd_build():
+    day = now().date()
+    picks = load_picks(day)
+    rec = json.load(open('data/record.json', encoding='utf-8')) if os.path.exists('data/record.json') else {'days': {}}
+    tot = {k: dict(bets=0, hits=0, ret=0) for k in ('main', 'sub')}
+    for s in rec['days'].values():
+        for k in tot:
+            for f in ('bets', 'hits', 'ret'):
+                tot[k][f] += s[k][f]
+    tpl = open('template.html', encoding='utf-8').read()
+    data = dict(date=f'{day:%Y-%m-%d}', updated=now().strftime('%m/%d %H:%M'), races=sorted(picks.values(), key=lambda r: r['deadline']),
+                record=dict(total=tot, days=rec['days']), rule=dict(ev_main=EV_MAIN, odds_max=ODDS_MAX, ev_sub=EV_SUB))
+    open('index.html', 'w', encoding='utf-8').write(tpl.replace('/*DATA*/null', json.dumps(data, ensure_ascii=False)))
+    print('index.html', len(picks), 'レース')
+
+if __name__ == '__main__':
+    c = sys.argv[1] if len(sys.argv) > 1 else 'predict'
+    {'predict': lambda: cmd_predict('--all' in sys.argv), 'settle': cmd_settle, 'build': cmd_build}[c]()
