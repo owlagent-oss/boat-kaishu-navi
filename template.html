@@ -69,7 +69,7 @@ function stats(){
 }
 let filter='main';
 function races(){
-  document.getElementById('upd').textContent=`${D.date}　${D.updated}更新`;
+  document.getElementById('upd').textContent=`最終更新 ${D.updated}`;
   const nowHM=new Date(Date.now()+9*3600e3).toISOString().slice(11,16);
   const tabs=[['main','狙い目だけ'],['sub','参考も'],['all','全部']];
   document.getElementById('tabs').innerHTML=tabs.map(([k,l])=>`<button class="${k==filter?'on':''}" onclick="filter='${k}';races()">${l}</button>`).join('');
@@ -80,7 +80,7 @@ function races(){
     const rows=r.boats.map(b=>`<tr class="${b.tag}${r.winner==b.waku?' win':''}"><td class="l"><span class="w w${b.waku}">${b.waku}</span> ${b.name} <span class="note">${b.cls}</span></td>
       <td>${(b.prob*100).toFixed(1)}%</td><td>${b.odds?b.odds.toFixed(1):'—'}</td><td>${b.ev.toFixed(2)}</td><td>${b.tag?`<span class="tag ${b.tag}">${b.tag=='main'?'狙い目':'参考'}</span>`:''}</td></tr>`).join('');
     return `<div class="race${done?' done':''}"><div class="rh"><span class="t">${r.place} ${r.rno}R <span class="note">${r.race_type}</span></span>
-      <span class="dl">締切 ${r.deadline}・風${r.wind_m??'-'}m・${r.fetched}時点</span></div>
+      <span class="dl">締切 ${r.deadline}・風${r.wind_m??'-'}m・オッズ ${r.fetched}時点</span></div>
       <table><tr><th class="l">艇・選手</th><th>1着率</th><th>単勝</th><th>期待値</th><th></th></tr>${rows}</table></div>`}).join('')
     :'<div class="empty">今は表示できるレースがありません。締切の25分前ごろから順に出てきます。</div>';
 }
