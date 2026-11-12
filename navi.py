@@ -111,6 +111,13 @@ def t3_odds(jcd, rno, day):
         except ValueError: out[c] = 0.0
     return out
 
+F3ORDER = ['-'.join(map(str, c)) for c in sorted(itertools.combinations(range(1, 7), 3), key=lambda c: (c[1], c[2], c[0]))]
+def f3_odds(jcd, rno, day):
+    """3連複オッズ20通り（ページの並びは (2番目,3番目,1番目) の小さい順。払戻で確認済み）"""
+    h = get(f'https://boatrace.jp/owpc/pc/race/odds3f?rno={rno}&jcd={jcd}&hd={day:%Y%m%d}')
+    v = re.findall(r'oddsPoint[^>]*>([^<]+)<', h or '')
+    return [float(x) if x.replace('.', '', 1).isdigit() else 0.0 for x in v] if len(v) == 20 else []
+
 def t3_picks(g, a):
     """1着をa号艇に固定したときの、2・3着の確率が高い並び T3_N 点"""
     info = g.set_index('waku')
@@ -189,11 +196,11 @@ def predict_race(g, day):
     return dict(jcd=jcd, place=JCD.get(jcd, jcd), rno=rno, t3=t3, deadline=g.deadline.iloc[0], race_type=g.race_type.iloc[0],
                 wind_m=None if pd.isna(bi['wind_m']) else int(bi['wind_m']), wave_cm=None if pd.isna(bi['wave_cm']) else int(bi['wave_cm']),
                 fetched=now().strftime('%H:%M'), boats=boats,
-                _snap=dict(tan=[od.get(i, 0.0) for i in range(1, 7)], t3=[o3.get(c, 0.0) for c in T3ORDER] if o3 else []))
+                _snap=dict(tan=[od.get(i, 0.0) for i in range(1, 7)], t3=[o3.get(c, 0.0) for c in T3ORDER] if o3 else [], f3=f3_odds(jcd, rno, day)))
 
 SNAP = 'data/odds_ts'
 def save_snap(t, snap):
-    """オッズの動きを見るため、取った時点の単勝・3連単オッズを1回ごとに別ファイルで保存（3連単は T3ORDER の順）"""
+    """オッズの動きを見るため、取った時点の単勝・3連単・3連複オッズを1回ごとに別ファイルで保存（3連単は T3ORDER、3連複は F3ORDER の順）"""
     if not snap:
         return
     d = f'{SNAP}/{t:%Y%m%d}'
