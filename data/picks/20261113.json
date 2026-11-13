@@ -1021,7 +1021,7 @@
   "race_type": "みくにあさ推",
   "wind_m": 2,
   "wave_cm": 2,
-  "fetched": "09:35",
+  "fetched": "09:40",
   "boats": [
    {
     "waku": 1,
@@ -1093,6 +1093,79 @@
     "name": "栗原一馬",
     "cls": "B1",
     "prob": 0.0318,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   }
+  ]
+ },
+ "23-04": {
+  "jcd": "23",
+  "place": "唐津",
+  "rno": 4,
+  "t3": [],
+  "deadline": "10:05",
+  "race_type": "予選",
+  "wind_m": 2,
+  "wave_cm": 2,
+  "fetched": "09:40",
+  "boats": [
+   {
+    "waku": 1,
+    "name": "原村百那",
+    "cls": "B2",
+    "prob": 0.3354,
+    "odds": 3.3,
+    "ev": 1.107,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 2,
+    "name": "武井莉里",
+    "cls": "A2",
+    "prob": 0.1949,
+    "odds": 1.1,
+    "ev": 0.214,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 3,
+    "name": "奥村明日",
+    "cls": "B1",
+    "prob": 0.1576,
+    "odds": 6.7,
+    "ev": 1.056,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 4,
+    "name": "松本怜",
+    "cls": "B1",
+    "prob": 0.125,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 5,
+    "name": "河内悠利",
+    "cls": "B1",
+    "prob": 0.0768,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 6,
+    "name": "中谷朋子",
+    "cls": "A2",
+    "prob": 0.1102,
     "odds": 0.0,
     "ev": 0.0,
     "exhibit": null,
