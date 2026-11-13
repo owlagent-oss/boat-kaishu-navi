@@ -25,7 +25,8 @@ table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:5px 6px;b
 td.l,th.l{text-align:left}tr.main{background:var(--mainbg)}tr.sub{background:var(--subbg)}tr.win td{font-weight:700}
 .w{display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;border-radius:4px;font-weight:700;font-size:12px}
 .w1{background:#fff;border:1px solid #999}.w2{background:#222;color:#fff}.w3{background:#e03131;color:#fff}.w4{background:#1971c2;color:#fff}.w5{background:#f5d90a}.w6{background:#2f9e44;color:#fff}
-.tag{font-size:11px;font-weight:700;border-radius:4px;padding:0 5px}.tag.main{background:var(--main);color:#fff}.tag.sub{background:var(--acc);color:#fff}.tag.mkt{background:#0f9d58;color:#fff}
+.tag{font-size:11px;font-weight:700;border-radius:4px;padding:0 5px}.tag.main{background:var(--main);color:#fff}.tag.sub{background:var(--acc);color:#fff}.tag.mkt{background:#0f9d58;color:#fff}.tag.set{background:#7048e8;color:#fff}
+.st{padding:8px 10px;background:#f5f0ff;border-top:1px solid var(--line);font-size:13px}.st b{color:#7048e8}.st .cb{border-color:#cfc0f5}.st .cb.hit{background:#7048e8;color:#fff}
 .rev{font-size:12px;font-weight:700;border-radius:10px;padding:1px 8px;margin-left:6px;background:#eef1f5;color:var(--sub)}.rev.hi{background:var(--main);color:#fff}.rev.mid{background:var(--acc);color:#fff}.t3ev{font-size:12px;color:var(--sub);margin-left:4px}
 .empty{color:var(--sub);text-align:center;padding:20px}
 footer{font-size:11px;color:var(--sub);max-width:760px;margin:0 auto;padding:8px 16px 32px}
@@ -52,6 +53,7 @@ footer{font-size:11px;color:var(--sub);max-width:760px;margin:0 auto;padding:8px
   <b>○点の期待値</b>：3連単の狙い目○点を100円ずつ買ったときの計算上の戻り（的中確率×3連単オッズの平均）。合成オッズは○点をまとめて1つの買い目と見たときの倍率。3連単の確率は単勝ほど精度が高くないので、こちらは参考の数字です。<br>
   <b>3連単 狙い目</b>：単勝の期待値が<span class="r4"></span>以上の艇を1着に固定して、2着・3着は確率の高い順に<span class="r5"></span>点（%は3連単の的中確率、倍は3連単オッズ）。点線の5〜<span class="r6"></span>点目は「広げるとき」用。ボックスは1着候補と、2・3着に来やすい2艇の3艇ボックス。<br>
   <span class="tag mkt">新</span> <b>単勝 新ルール（検証中）</b>：表の<b>ズレ偏差値</b>が高い艇の<b>単勝</b>。ズレ偏差値＝3連単のオッズから計算したその艇の1着確率と、単勝のオッズのズレを、平均50の偏差値にしたものです（当ナビ独自の指標）。3連単は売上が大きくオッズが正確なので、偏差値が高い艇は「単勝が3連単より割安に付いている」ことを表します。「新」は偏差値61以上（ズレ<span class="r7"></span>倍以上）。3連単で1着に固定しても得にはならないため、単勝で狙う指標です。締切後のオッズでは強かったので、締切前のオッズで通用するかを検証中です。<br>
+  <span class="tag set">セット</span> <b>セット買い（検証中）</b>：ズレ偏差値が<span class="r8"></span>以上で単勝<span class="r9"></span>倍以下の艇に、<b>単勝200円</b>と、<b>その艇を1着に固定した3連単4点（各100円）</b>を合わせて買う形です（1セット600円）。3連単の4点は、その艇が1着の並びのうち3連単オッズが低い順。3連単だけでは計算上プラスにならないため、単勝のズレで土台を作り、3連単で大きい配当も狙う組み合わせです。成績は1セット600円あたりの戻りで集計します。<br>
   <span class="tag main">狙い目</span> 単勝の期待値<span class="r1"></span>以上かつ単勝<span class="r2"></span>倍以下　<span class="tag sub">参考</span> 単勝の期待値<span class="r3"></span>以上</p>
 </div>
 </main>
@@ -69,9 +71,11 @@ function stats(){
   const t=D.record.total,days=Object.keys(D.record.days).length,el=document.getElementById('stats');
   const box=(k,label)=>{const s=t[k]||{bets:0,hits:0,ret:0};const roi=s.bets?(s.ret/(s.bets*100)*100).toFixed(1)+'%':'—';const hit=s.bets?(s.hits/s.bets*100).toFixed(1)+'%':'—';
     return `<div class="stat"><div class="lbl">${label}</div><b>${roi}</b><div class="lbl">回収率（${yen(s.bets)}点・的中${hit}）</div></div>`};
-  el.innerHTML=box('t3','3連単 基本'+D.rule.t3_n+'点')+box('t3_8','3連単 '+D.rule.t3_wide+'点')+box('box','3連単 3艇ボックス')+box('mkt','単勝 新ルール（検証中）')+box('main','単勝 狙い目')+box('sub','単勝 参考（期待値'+D.rule.ev_sub+'以上）');
-  document.getElementById('rulenote').textContent=days?`${days}日分の集計（単勝100円ずつ買った場合）。前日までの結果を毎朝反映します。`:'検証を始めたばかりです。明日の朝から成績が出ます。';
-  document.querySelector('.r1').textContent=D.rule.ev_main;document.querySelector('.r2').textContent=D.rule.odds_max;document.querySelector('.r3').textContent=D.rule.ev_sub;document.querySelector('.r4').textContent=D.rule.ev_t3;document.querySelector('.r5').textContent=D.rule.t3_n;document.querySelector('.r6').textContent=D.rule.t3_wide;document.querySelector('.r7').textContent=D.rule.ev_mkt??1.2;
+  const setBox=()=>{const s=t.set||{bets:0,hits:0,ret:0};const u=(D.rule.set_tan??200)/100+(D.rule.set_n??4);const n=Math.round(s.bets/u);
+    return `<div class="stat"><div class="lbl">セット買い（検証中）</div><b>${s.bets?(s.ret/(s.bets*100)*100).toFixed(1)+'%':'—'}</b><div class="lbl">回収率（${yen(n)}セット・的中${n?(s.hits/n*100).toFixed(1)+'%':'—'}）</div></div>`};
+  el.innerHTML=setBox()+box('t3','3連単 基本'+D.rule.t3_n+'点')+box('t3_8','3連単 '+D.rule.t3_wide+'点')+box('box','3連単 3艇ボックス')+box('mkt','単勝 新ルール（検証中）')+box('main','単勝 狙い目')+box('sub','単勝 参考（期待値'+D.rule.ev_sub+'以上）');
+  document.getElementById('rulenote').textContent=days?`${days}日分の集計（100円ずつ買った場合。セット買いは1セット600円）。前日までの結果を毎朝反映します。`:'検証を始めたばかりです。明日の朝から成績が出ます。';
+  document.querySelector('.r1').textContent=D.rule.ev_main;document.querySelector('.r2').textContent=D.rule.odds_max;document.querySelector('.r3').textContent=D.rule.ev_sub;document.querySelector('.r4').textContent=D.rule.ev_t3;document.querySelector('.r5').textContent=D.rule.t3_n;document.querySelector('.r6').textContent=D.rule.t3_wide;document.querySelector('.r7').textContent=D.rule.ev_mkt??1.2;document.querySelector('.r8').textContent=D.rule.dev_set??63;document.querySelector('.r9').textContent=D.rule.set_odds_max??10;
 }
 let filter='main',sortBy='time';
 const hv=m=>50+10*(Math.log(m)+0.4534)/0.5871;  // ズレ偏差値（2022-11〜2024-10の約2万艇が基準）
@@ -81,7 +85,7 @@ function races(){
   document.getElementById('upd').textContent=`最終更新 ${D.updated}`;
   const nowHM=new Date(Date.now()+9*3600e3).toISOString().slice(11,16);
   const tabs=[['main','狙い目だけ'],['sub','参考も'],['all','全部']];
-  const has=(r,f)=>(r.t3&&r.t3.length)||r.boats.some(b=>b.mkt||b.tag=='main'||(f=='sub'&&b.tag=='sub'));
+  const has=(r,f)=>(r.t3&&r.t3.length)||(r.sets&&r.sets.length)||r.boats.some(b=>b.mkt||b.tag=='main'||(f=='sub'&&b.tag=='sub'));
   document.getElementById('tabs').innerHTML=tabs.map(([k,l])=>`<button class="${k==filter?'on':''}" onclick="filter='${k}';races()">${l}</button>`).join('')+'<span style="flex:1"></span>'+[['time','締切順'],['ev','期待値の高い順']].map(([k,l])=>`<button class="${k==sortBy?'on':''}" onclick="sortBy='${k}';races()">${l}</button>`).join('');
   let rs=D.races.filter(r=>filter=='all'||has(r,filter));
   rs.sort((a,b)=>((a.deadline<nowHM)-(b.deadline<nowHM))||(sortBy=='ev'?((raceEV(b)?.ev??-1)-(raceEV(a)?.ev??-1)):0)||a.deadline.localeCompare(b.deadline));
@@ -92,6 +96,7 @@ function races(){
       <td>${(b.prob*100).toFixed(1)}%</td><td>${b.odds?b.odds.toFixed(1):'—'}</td><td>${b.ev.toFixed(2)}</td><td>${b.mev>0?`<b style="color:${hv(b.mev)>=60?'#0f9d58':'inherit'}">${hv(b.mev).toFixed(0)}</b>`:'—'}</td><td>${b.mkt?'<span class="tag mkt">新</span> ':''}${b.tag?`<span class="tag ${b.tag}">${b.tag=='main'?'狙い目':'参考'}</span>`:''}</td></tr>`).join('');
     return `<div class="race${done?' done':''}"><div class="rh"><span class="t">${r.place} ${r.rno}R <span class="note">${r.race_type}</span>${badge}</span>
       <span class="dl">締切 ${r.deadline}・風${r.wind_m??'-'}m・オッズ ${r.fetched}時点</span></div>
+      ${(r.sets||[]).map(s=>`<div class="st"><span class="tag set">セット</span> <b>セット買い（検証中）</b> ${s.first}号艇（ズレ偏差値 ${s.dev.toFixed(0)}）：<span class="cb${r.winner==s.first?' hit':''}">単勝 ${s.first} <span class="note">${D.rule.set_tan??200}円・${s.tan.toFixed(1)}倍</span></span>＋3連単 各100円 ${s.combos.map(c=>`<span class="cb${r.result3==c.c?' hit':''}">${c.c} <span class="note">${c.odds.toFixed(1)}倍</span></span>`).join('')}</div>`).join('')}
       ${(r.t3||[]).map(t=>`<div class="t3"><b>3連単 狙い目</b> ${t.first}号艇1着固定${(e=>e?`<span class="t3ev">（${D.rule.t3_n}点の期待値 ${e.ev.toFixed(2)}・合成オッズ ${e.syn.toFixed(1)}倍）</span>`:'')(t3EV(t,D.rule.t3_n))}：${t.combos.map((c,i)=>`<span class="cb${i>=D.rule.t3_n?' wide':''}${r.result3==c.c?' hit':''}">${c.c} <span class="note">${(c.p*100).toFixed(1)}%・${c.odds?c.odds.toFixed(1)+'倍':'—'}</span></span>`).join('')}
       ${t.box?`<div class="bx"><b>ボックス</b> ${t.box.join('・')}（6点${(v=>v.length?'・最低'+Math.min(...v).toFixed(1)+'倍':'')(Object.values(t.box_odds).filter(v=>v>0))}）</div>`:''}</div>`).join('')}
       <table><tr><th class="l">艇・選手</th><th>1着率</th><th>単勝</th><th>期待値</th><th>ズレ偏差値</th><th></th></tr>${rows}</table></div>`}).join('')

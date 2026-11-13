@@ -20,6 +20,9 @@ EV_MAIN, ODDS_MAX = 1.2, 10.0   # 狙い目: 期待値1.2以上かつ単勝10倍
 EV_SUB = 1.0                    # 参考: 期待値1.0以上
 EV_MKT = 1.2                    # 単勝 新ルール（検証中）: 3連単オッズから出した1着確率 × 単勝オッズ（控除25%で換算）が1.2以上
 EV_T3, T3_N = 1.2, 4            # 3連単: 単勝の期待値1.2以上の艇を1着に固定し、2・3着は確率の高い順に4点（基本）
+DEV_SET, SET_ODDS_MAX = 63, 10.0 # セット買い（検証中）: ズレ偏差値63以上かつ単勝10倍以下の艇に、単勝200円＋その艇1着固定の3連単4点（3連単オッズの低い順）を各100円
+SET_TAN, SET_N = 2, 4           # 単勝は200円（100円×2）、3連単は4点
+DEV_MEAN, DEV_SD = -0.4534, 0.5871  # ズレ偏差値の基準（2022-11〜2024-10の21,684艇の log(市場差) の平均・標準偏差）
 T3_WIDE = 8                     # 広げるときは8点。ボックスは1着候補＋2・3着に来やすい2艇の3艇ボックス（6点）
 BOAT = ['waku', 'cls_c', 'age', 'weight', 'nat_win', 'nat_2', 'loc_win', 'loc_2', 'motor_2', 'boat_2', 'exhibit',
         'win_rank', 'motor_rank', 'ex_rank', 'win_gap']
@@ -118,6 +121,10 @@ def f3_odds(jcd, rno, day):
     v = re.findall(r'oddsPoint[^>]*>([^<]+)<', h or '')
     return [float(x) if x.replace('.', '', 1).isdigit() else 0.0 for x in v] if len(v) == 20 else []
 
+def zure_dev(mev):
+    """市場差（3連単から出した1着確率×0.75÷単勝の確率）→ ズレ偏差値"""
+    return 50 + 10 * (np.log(mev) - DEV_MEAN) / DEV_SD if mev > 0 else 0.0
+
 def t3_picks(g, a):
     """1着をa号艇に固定したときの、2・3着の確率が高い並び T3_N 点"""
     info = g.set_index('waku')
@@ -177,6 +184,7 @@ def predict_race(g, day):
     o3 = t3_odds(jcd, rno, day)  # 狙い目がなくてもオッズの動きを記録するため毎回取る
     # 単勝 新ルール: 3連単の市場が見ている1着確率と単勝オッズのズレ
     v3 = {c: x for c, x in (o3 or {}).items() if x > 0}
+    sets = []
     if len(v3) >= 100 and not thin:
         s3 = sum(1 / x for x in v3.values()); m1 = {}
         for c, x in v3.items():
@@ -187,13 +195,19 @@ def predict_race(g, day):
                 b['mp'] = round(m1.get(b['waku'], 0), 4)
                 b['mev'] = round(m1.get(b['waku'], 0) * 0.75 / ((1 / b['odds']) / st), 3)
                 b['mkt'] = b['mev'] >= EV_MKT
+                # セット買い: ズレ偏差値が高く単勝10倍以下の艇に、単勝＋その艇1着固定の3連単（市場で人気の4点）
+                if zure_dev(b['mev']) >= DEV_SET and b['odds'] <= SET_ODDS_MAX:
+                    cs = sorted((c for c in v3 if int(c[0]) == b['waku']), key=v3.get)[:SET_N]
+                    if len(cs) == SET_N:
+                        sets.append(dict(first=b['waku'], dev=round(float(zure_dev(b['mev'])), 1), tan=b['odds'],
+                                         combos=[dict(c=c, odds=v3[c]) for c in cs]))
     if firsts:
         for a in firsts:
             cs, box = t3_picks(g, a)
             bc = ['-'.join(map(str, x)) for x in itertools.permutations(box)]
             t3.append(dict(first=a, combos=[dict(c=c, p=round(p, 4), odds=o3.get(c, 0.0)) for c, p in cs],
                            box=box, box_odds={c: o3.get(c, 0.0) for c in bc}))
-    return dict(jcd=jcd, place=JCD.get(jcd, jcd), rno=rno, t3=t3, deadline=g.deadline.iloc[0], race_type=g.race_type.iloc[0],
+    return dict(jcd=jcd, place=JCD.get(jcd, jcd), rno=rno, t3=t3, sets=sets, deadline=g.deadline.iloc[0], race_type=g.race_type.iloc[0],
                 wind_m=None if pd.isna(bi['wind_m']) else int(bi['wind_m']), wave_cm=None if pd.isna(bi['wave_cm']) else int(bi['wave_cm']),
                 fetched=now().strftime('%H:%M'), boats=boats,
                 _snap=dict(tan=[od.get(i, 0.0) for i in range(1, 7)], t3=[o3.get(c, 0.0) for c in T3ORDER] if o3 else [], f3=f3_odds(jcd, rno, day)))
@@ -260,7 +274,7 @@ def cmd_settle():
         win = {(x['jcd'], x['rno']): (int(x['combo']), x['payout']) for x in pays if x['bet'] == '単勝'}
         win3 = {(x['jcd'], x['rno']): (x['combo'], x['payout']) for x in pays if x['bet'] == '3連単'}
         picks = json.load(open(f'{PICKS}/{f}', encoding='utf-8'))
-        stat = {k: dict(bets=0, hits=0, ret=0) for k in ('main', 'sub', 't3', 't3_8', 'box', 'mkt')}
+        stat = {k: dict(bets=0, hits=0, ret=0) for k in ('main', 'sub', 't3', 't3_8', 'box', 'mkt', 'set')}
         for key, r in picks.items():
             w = win.get((r['jcd'], r['rno']))
             r['winner'] = w[0] if w else None
@@ -274,6 +288,13 @@ def cmd_settle():
                         stat[k]['bets'] += len(cs)
                         if w3[0] in cs:
                             stat[k]['hits'] += 1; stat[k]['ret'] += w3[1]
+            if w and w3:
+                # セット買い: 1セット＝単勝200円＋3連単4点400円（bets は100円単位で6、hits は的中したセット数）
+                for s in r.get('sets', []):
+                    stat['set']['bets'] += SET_TAN + len(s['combos'])
+                    got = (w[1] * SET_TAN if w[0] == s['first'] else 0) + (w3[1] if w3[0] in [c['c'] for c in s['combos']] else 0)
+                    if got:
+                        stat['set']['hits'] += 1; stat['set']['ret'] += got
             for b in r['boats']:
                 if b.get('mkt') and w:
                     stat['mkt']['bets'] += 1
@@ -296,13 +317,14 @@ def cmd_build():
     day = now().date()
     picks = load_picks(day)
     rec = json.load(open('data/record.json', encoding='utf-8')) if os.path.exists('data/record.json') else {'days': {}}
-    tot = {k: dict(bets=0, hits=0, ret=0) for k in ('main', 'sub', 't3', 't3_8', 'box', 'mkt')}
+    tot = {k: dict(bets=0, hits=0, ret=0) for k in ('main', 'sub', 't3', 't3_8', 'box', 'mkt', 'set')}
     for s in rec['days'].values():
         for k in tot:
             for f in ('bets', 'hits', 'ret'):
                 tot[k][f] += s.get(k, {}).get(f, 0)
     data = dict(date=f'{day:%Y-%m-%d}', updated=now().strftime('%m/%d %H:%M'), races=sorted(picks.values(), key=lambda r: r['deadline']),
-                record=dict(total=tot, days=rec['days']), rule=dict(ev_main=EV_MAIN, odds_max=ODDS_MAX, ev_sub=EV_SUB, ev_t3=EV_T3, ev_mkt=EV_MKT, t3_n=T3_N, t3_wide=T3_WIDE))
+                record=dict(total=tot, days=rec['days']), rule=dict(ev_main=EV_MAIN, odds_max=ODDS_MAX, ev_sub=EV_SUB, ev_t3=EV_T3, ev_mkt=EV_MKT, t3_n=T3_N, t3_wide=T3_WIDE,
+                                                                     dev_set=DEV_SET, set_odds_max=SET_ODDS_MAX, set_tan=SET_TAN * 100, set_n=SET_N))
     save_json('data/site.json', data)
     print('data/site.json', len(picks), 'レース')
 
