@@ -19431,23 +19431,96 @@
   "race_type": "一般戦",
   "wind_m": 2,
   "wave_cm": 1,
-  "fetched": "16:50",
+  "fetched": "16:55",
   "boats": [
    {
     "waku": 1,
     "name": "作間章",
     "cls": "A1",
-    "prob": 0.6682,
+    "prob": 0.6494,
     "odds": 1.0,
-    "ev": 0.668,
-    "exhibit": null,
+    "ev": 0.649,
+    "exhibit": 6.82,
     "tag": ""
    },
    {
     "waku": 2,
     "name": "高村諒",
     "cls": "B2",
-    "prob": 0.0283,
+    "prob": 0.0196,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": 6.85,
+    "tag": ""
+   },
+   {
+    "waku": 3,
+    "name": "山田丈",
+    "cls": "A2",
+    "prob": 0.2438,
+    "odds": 16.8,
+    "ev": 4.096,
+    "exhibit": 6.81,
+    "tag": ""
+   },
+   {
+    "waku": 4,
+    "name": "川島圭司",
+    "cls": "A2",
+    "prob": 0.058,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": 6.84,
+    "tag": ""
+   },
+   {
+    "waku": 5,
+    "name": "前田健太",
+    "cls": "B1",
+    "prob": 0.0229,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": 6.94,
+    "tag": ""
+   },
+   {
+    "waku": 6,
+    "name": "中村紋夕",
+    "cls": "B1",
+    "prob": 0.0063,
+    "odds": 6.7,
+    "ev": 0.042,
+    "exhibit": 6.85,
+    "tag": ""
+   }
+  ]
+ },
+ "24-05": {
+  "jcd": "24",
+  "place": "大村",
+  "rno": 5,
+  "t3": [],
+  "deadline": "17:19",
+  "race_type": "予選",
+  "wind_m": 1,
+  "wave_cm": 1,
+  "fetched": "16:55",
+  "boats": [
+   {
+    "waku": 1,
+    "name": "下河誉史",
+    "cls": "B1",
+    "prob": 0.6246,
+    "odds": 1.0,
+    "ev": 0.625,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 2,
+    "name": "小野勇作",
+    "cls": "B1",
+    "prob": 0.0542,
     "odds": 0.0,
     "ev": 0.0,
     "exhibit": null,
@@ -19455,19 +19528,19 @@
    },
    {
     "waku": 3,
-    "name": "山田丈",
-    "cls": "A2",
-    "prob": 0.1329,
-    "odds": 33.0,
-    "ev": 4.385,
+    "name": "大須賀友",
+    "cls": "A1",
+    "prob": 0.1644,
+    "odds": 0.0,
+    "ev": 0.0,
     "exhibit": null,
     "tag": ""
    },
    {
     "waku": 4,
-    "name": "川島圭司",
+    "name": "中嶋健一",
     "cls": "A2",
-    "prob": 0.0639,
+    "prob": 0.0668,
     "odds": 0.0,
     "ev": 0.0,
     "exhibit": null,
@@ -19475,9 +19548,9 @@
    },
    {
     "waku": 5,
-    "name": "前田健太",
+    "name": "小池公生",
     "cls": "B1",
-    "prob": 0.0769,
+    "prob": 0.038,
     "odds": 0.0,
     "ev": 0.0,
     "exhibit": null,
@@ -19485,11 +19558,11 @@
    },
    {
     "waku": 6,
-    "name": "中村紋夕",
-    "cls": "B1",
-    "prob": 0.0297,
-    "odds": 6.6,
-    "ev": 0.196,
+    "name": "長岡良也",
+    "cls": "A2",
+    "prob": 0.052,
+    "odds": 0.0,
+    "ev": 0.0,
     "exhibit": null,
     "tag": ""
    }
