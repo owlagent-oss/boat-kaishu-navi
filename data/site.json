@@ -1,6 +1,6 @@
 {
  "date": "2026-11-14",
- "updated": "11/14 17:25",
+ "updated": "11/14 17:30",
  "races": [
   {
    "jcd": "10",
@@ -22648,32 +22648,131 @@
    "place": "蒲郡",
    "rno": 6,
    "t3": [],
-   "sets": [],
+   "sets": [
+    {
+     "first": 3,
+     "dev": 63.3,
+     "tan": 5.7,
+     "combos": [
+      {
+       "c": "3-1-4",
+       "odds": 38.9
+      },
+      {
+       "c": "3-4-1",
+       "odds": 55.4
+      },
+      {
+       "c": "3-2-1",
+       "odds": 58.7
+      },
+      {
+       "c": "3-1-6",
+       "odds": 71.2
+      }
+     ]
+    },
+    {
+     "first": 3,
+     "dev": 63.3,
+     "tan": 5.7,
+     "combos": [
+      {
+       "c": "3-1-4",
+       "odds": 38.9
+      },
+      {
+       "c": "3-4-1",
+       "odds": 55.4
+      },
+      {
+       "c": "3-2-1",
+       "odds": 58.7
+      },
+      {
+       "c": "3-1-6",
+       "odds": 71.2
+      }
+     ]
+    },
+    {
+     "first": 4,
+     "dev": 68.1,
+     "tan": 3.6,
+     "combos": [
+      {
+       "c": "4-1-6",
+       "odds": 15.3
+      },
+      {
+       "c": "4-1-5",
+       "odds": 22.5
+      },
+      {
+       "c": "4-6-1",
+       "odds": 27.9
+      },
+      {
+       "c": "4-1-3",
+       "odds": 35.2
+      }
+     ]
+    },
+    {
+     "first": 4,
+     "dev": 68.1,
+     "tan": 3.6,
+     "combos": [
+      {
+       "c": "4-1-6",
+       "odds": 15.3
+      },
+      {
+       "c": "4-1-5",
+       "odds": 22.5
+      },
+      {
+       "c": "4-6-1",
+       "odds": 27.9
+      },
+      {
+       "c": "4-1-3",
+       "odds": 35.2
+      }
+     ]
+    }
+   ],
    "deadline": "17:37",
    "race_type": "一般戦",
    "wind_m": 1,
    "wave_cm": 0,
-   "fetched": "17:25",
+   "fetched": "17:30",
    "boats": [
     {
      "waku": 1,
      "name": "作間章",
      "cls": "A1",
      "prob": 0.3482,
-     "odds": 1.0,
-     "ev": 0.348,
+     "odds": 1.3,
+     "ev": 0.453,
      "exhibit": 6.8,
-     "tag": ""
+     "tag": "",
+     "mp": 0.5178,
+     "mev": 1.359,
+     "mkt": true
     },
     {
      "waku": 1,
      "name": "川尻泰輔",
      "cls": "A2",
      "prob": 0.2777,
-     "odds": 1.0,
-     "ev": 0.278,
+     "odds": 1.3,
+     "ev": 0.361,
      "exhibit": 6.8,
-     "tag": ""
+     "tag": "",
+     "mp": 0.5178,
+     "mev": 1.359,
+     "mkt": true
     },
     {
      "waku": 2,
@@ -22700,80 +22799,104 @@
      "name": "中嶋達也",
      "cls": "B1",
      "prob": 0.0709,
-     "odds": 0.0,
-     "ev": 0.0,
+     "odds": 5.7,
+     "ev": 0.404,
      "exhibit": 6.73,
-     "tag": ""
+     "tag": "",
+     "mp": 0.1203,
+     "mev": 1.385,
+     "mkt": true
     },
     {
      "waku": 3,
      "name": "原田秀弥",
      "cls": "A2",
      "prob": 0.0789,
-     "odds": 0.0,
-     "ev": 0.0,
+     "odds": 5.7,
+     "ev": 0.45,
      "exhibit": 6.73,
-     "tag": ""
+     "tag": "",
+     "mp": 0.1203,
+     "mev": 1.385,
+     "mkt": true
     },
     {
      "waku": 4,
      "name": "山田丈",
      "cls": "A2",
      "prob": 0.0846,
-     "odds": 4.1,
-     "ev": 0.347,
+     "odds": 3.6,
+     "ev": 0.305,
      "exhibit": 6.84,
-     "tag": ""
+     "tag": "",
+     "mp": 0.2529,
+     "mev": 1.838,
+     "mkt": true
     },
     {
      "waku": 4,
      "name": "宇佐見淳",
      "cls": "A2",
      "prob": 0.0308,
-     "odds": 4.1,
-     "ev": 0.126,
+     "odds": 3.6,
+     "ev": 0.111,
      "exhibit": 6.84,
-     "tag": ""
+     "tag": "",
+     "mp": 0.2529,
+     "mev": 1.838,
+     "mkt": true
     },
     {
      "waku": 5,
      "name": "鈴木結平",
      "cls": "B2",
      "prob": 0.0036,
-     "odds": 0.0,
-     "ev": 0.0,
+     "odds": 40.5,
+     "ev": 0.146,
      "exhibit": 6.89,
-     "tag": ""
+     "tag": "",
+     "mp": 0.0405,
+     "mev": 3.312,
+     "mkt": true
     },
     {
      "waku": 5,
      "name": "柴田友和",
      "cls": "B1",
      "prob": 0.0131,
-     "odds": 0.0,
-     "ev": 0.0,
+     "odds": 40.5,
+     "ev": 0.529,
      "exhibit": 6.89,
-     "tag": ""
+     "tag": "",
+     "mp": 0.0405,
+     "mev": 3.312,
+     "mkt": true
     },
     {
      "waku": 6,
      "name": "川島圭司",
      "cls": "A2",
      "prob": 0.0161,
-     "odds": 0.0,
-     "ev": 0.0,
+     "odds": 10.1,
+     "ev": 0.163,
      "exhibit": 6.78,
-     "tag": ""
+     "tag": "",
+     "mp": 0.043,
+     "mev": 0.876,
+     "mkt": false
     },
     {
      "waku": 6,
      "name": "高村諒",
      "cls": "B2",
      "prob": 0.0244,
-     "odds": 0.0,
-     "ev": 0.0,
+     "odds": 10.1,
+     "ev": 0.246,
      "exhibit": 6.78,
-     "tag": ""
+     "tag": "",
+     "mp": 0.043,
+     "mev": 0.876,
+     "mkt": false
     }
    ]
   },
@@ -22787,7 +22910,7 @@
    "race_type": "予選",
    "wind_m": 2,
    "wave_cm": 1,
-   "fetched": "17:25",
+   "fetched": "17:30",
    "boats": [
     {
      "waku": 1,
@@ -22906,6 +23029,80 @@
      "prob": 0.0161,
      "odds": 90.0,
      "ev": 1.447,
+     "exhibit": null,
+     "tag": ""
+    }
+   ]
+  },
+  {
+   "jcd": "20",
+   "place": "若松",
+   "rno": 7,
+   "t3": [],
+   "sets": [],
+   "deadline": "17:55",
+   "race_type": "予選特賞",
+   "wind_m": 1,
+   "wave_cm": 1,
+   "fetched": "17:30",
+   "boats": [
+    {
+     "waku": 1,
+     "name": "西村美智",
+     "cls": "A2",
+     "prob": 0.3706,
+     "odds": 1.2,
+     "ev": 0.445,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 2,
+     "name": "表健太",
+     "cls": "B1",
+     "prob": 0.0262,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 3,
+     "name": "杉山勝匡",
+     "cls": "B1",
+     "prob": 0.0506,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 4,
+     "name": "佐々木和",
+     "cls": "A2",
+     "prob": 0.1088,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 5,
+     "name": "小坂尚哉",
+     "cls": "A1",
+     "prob": 0.4147,
+     "odds": 2.0,
+     "ev": 0.829,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 6,
+     "name": "瀬川大地",
+     "cls": "B1",
+     "prob": 0.029,
+     "odds": 0.0,
+     "ev": 0.0,
      "exhibit": null,
      "tag": ""
     }
