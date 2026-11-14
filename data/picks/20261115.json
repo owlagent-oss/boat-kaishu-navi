@@ -252,7 +252,7 @@
   "race_type": "狙いトク特選",
   "wind_m": 1,
   "wave_cm": 1,
-  "fetched": "08:40",
+  "fetched": "08:45",
   "boats": [
    {
     "waku": 1,
@@ -279,8 +279,8 @@
     "name": "森竜也",
     "cls": "B1",
     "prob": 0.0451,
-    "odds": 18.7,
-    "ev": 0.844,
+    "odds": 10.5,
+    "ev": 0.474,
     "exhibit": null,
     "tag": ""
    },
@@ -289,8 +289,8 @@
     "name": "篠崎仁志",
     "cls": "A1",
     "prob": 0.19,
-    "odds": 18.7,
-    "ev": 3.554,
+    "odds": 10.5,
+    "ev": 1.995,
     "exhibit": null,
     "tag": ""
    },
