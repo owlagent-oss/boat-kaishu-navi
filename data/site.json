@@ -1,6 +1,6 @@
 {
  "date": "2026-11-14",
- "updated": "11/14 16:45",
+ "updated": "11/14 16:50",
  "races": [
   {
    "jcd": "10",
@@ -22085,15 +22085,15 @@
    "race_type": "一般戦",
    "wind_m": 1,
    "wave_cm": 0,
-   "fetched": "16:45",
+   "fetched": "16:50",
    "boats": [
     {
      "waku": 1,
      "name": "品田直樹",
      "cls": "A2",
      "prob": 0.4466,
-     "odds": 4.5,
-     "ev": 2.01,
+     "odds": 1.6,
+     "ev": 0.715,
      "exhibit": null,
      "tag": ""
     },
@@ -22112,8 +22112,8 @@
      "name": "中村紋夕",
      "cls": "B1",
      "prob": 0.047,
-     "odds": 1.0,
-     "ev": 0.047,
+     "odds": 1.3,
+     "ev": 0.061,
      "exhibit": null,
      "tag": ""
     },
