@@ -1,0 +1,76 @@
+{
+ "18-01": {
+  "jcd": "18",
+  "place": "徳山",
+  "rno": 1,
+  "t3": [],
+  "sets": [],
+  "deadline": "08:35",
+  "race_type": "朝トク予選",
+  "wind_m": 1,
+  "wave_cm": 1,
+  "fetched": "08:17",
+  "boats": [
+   {
+    "waku": 1,
+    "name": "前野竜一",
+    "cls": "A2",
+    "prob": 0.752,
+    "odds": 1.7,
+    "ev": 1.278,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 2,
+    "name": "寺島吉彦",
+    "cls": "B1",
+    "prob": 0.0773,
+    "odds": 2.6,
+    "ev": 0.201,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 3,
+    "name": "石倉拓美",
+    "cls": "B2",
+    "prob": 0.0309,
+    "odds": 5.2,
+    "ev": 0.161,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 4,
+    "name": "山崎昂介",
+    "cls": "B1",
+    "prob": 0.0524,
+    "odds": 5.2,
+    "ev": 0.272,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 5,
+    "name": "竹之内極",
+    "cls": "B1",
+    "prob": 0.0596,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 6,
+    "name": "蒲原健太",
+    "cls": "B1",
+    "prob": 0.0278,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   }
+  ]
+ }
+}
