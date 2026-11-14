@@ -1,6 +1,6 @@
 {
  "date": "2026-11-15",
- "updated": "11/15 08:50",
+ "updated": "11/15 08:55",
  "races": [
   {
    "jcd": "18",
@@ -250,12 +250,36 @@
    "place": "徳山",
    "rno": 2,
    "t3": [],
-   "sets": [],
+   "sets": [
+    {
+     "first": 4,
+     "dev": 73.9,
+     "tan": 7.2,
+     "combos": [
+      {
+       "c": "4-1-2",
+       "odds": 11.4
+      },
+      {
+       "c": "4-1-6",
+       "odds": 13.5
+      },
+      {
+       "c": "4-2-1",
+       "odds": 24.7
+      },
+      {
+       "c": "4-6-1",
+       "odds": 25.2
+      }
+     ]
+    }
+   ],
    "deadline": "09:01",
    "race_type": "狙いトク特選",
    "wind_m": 1,
    "wave_cm": 1,
-   "fetched": "08:50",
+   "fetched": "08:55",
    "boats": [
     {
      "waku": 1,
@@ -265,57 +289,75 @@
      "odds": 1.0,
      "ev": 0.766,
      "exhibit": 6.86,
-     "tag": ""
+     "tag": "",
+     "mp": 0.4457,
+     "mev": 0.456,
+     "mkt": false
     },
     {
      "waku": 2,
      "name": "鳥居塚孝",
      "cls": "A2",
      "prob": 0.063,
-     "odds": 0.0,
-     "ev": 0.0,
+     "odds": 10.4,
+     "ev": 0.655,
      "exhibit": 6.88,
-     "tag": ""
+     "tag": "",
+     "mp": 0.1075,
+     "mev": 1.143,
+     "mkt": false
     },
     {
      "waku": 3,
      "name": "森竜也",
      "cls": "B1",
      "prob": 0.0274,
-     "odds": 10.5,
-     "ev": 0.288,
+     "odds": 18.7,
+     "ev": 0.513,
      "exhibit": 6.96,
-     "tag": ""
+     "tag": "",
+     "mp": 0.036,
+     "mev": 0.689,
+     "mkt": false
     },
     {
      "waku": 4,
      "name": "篠崎仁志",
      "cls": "A1",
      "prob": 0.1237,
-     "odds": 10.5,
-     "ev": 1.299,
+     "odds": 7.2,
+     "ev": 0.891,
      "exhibit": 6.91,
-     "tag": ""
+     "tag": "",
+     "mp": 0.3501,
+     "mev": 2.578,
+     "mkt": true
     },
     {
      "waku": 5,
      "name": "市川美宏",
      "cls": "B1",
      "prob": 0.0092,
-     "odds": 0.0,
-     "ev": 0.0,
+     "odds": 23.4,
+     "ev": 0.215,
      "exhibit": 6.98,
-     "tag": ""
+     "tag": "",
+     "mp": 0.0202,
+     "mev": 0.483,
+     "mkt": false
     },
     {
      "waku": 6,
      "name": "大久保信",
      "cls": "A2",
      "prob": 0.0111,
-     "odds": 0.0,
-     "ev": 0.0,
+     "odds": 31.2,
+     "ev": 0.347,
      "exhibit": 6.87,
-     "tag": ""
+     "tag": "",
+     "mp": 0.0405,
+     "mev": 1.292,
+     "mkt": true
     }
    ]
   },
@@ -446,7 +488,7 @@
    "race_type": "予選",
    "wind_m": 0,
    "wave_cm": 1,
-   "fetched": "08:50",
+   "fetched": "08:55",
    "boats": [
     {
      "waku": 1,
