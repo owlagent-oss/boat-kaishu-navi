@@ -1,6 +1,6 @@
 {
  "date": "2026-11-14",
- "updated": "11/14 17:15",
+ "updated": "11/14 17:20",
  "races": [
   {
    "jcd": "10",
@@ -22561,57 +22561,72 @@
    "race_type": "予選",
    "wind_m": 1,
    "wave_cm": 1,
-   "fetched": "17:15",
+   "fetched": "17:20",
    "boats": [
     {
      "waku": 1,
      "name": "横田貴満",
      "cls": "A2",
      "prob": 0.7731,
-     "odds": 1.0,
-     "ev": 0.773,
+     "odds": 1.1,
+     "ev": 0.85,
      "exhibit": 6.83,
-     "tag": ""
+     "tag": "",
+     "mp": 0.5765,
+     "mev": 0.641,
+     "mkt": false
     },
     {
      "waku": 2,
      "name": "君島秀三",
      "cls": "A1",
      "prob": 0.1285,
-     "odds": 3.2,
-     "ev": 0.411,
+     "odds": 3.1,
+     "ev": 0.398,
      "exhibit": 6.88,
-     "tag": ""
+     "tag": "",
+     "mp": 0.1994,
+     "mev": 0.625,
+     "mkt": false
     },
     {
      "waku": 3,
      "name": "井澤聖奈",
      "cls": "B2",
      "prob": 0.0101,
-     "odds": 32.2,
-     "ev": 0.327,
+     "odds": 34.5,
+     "ev": 0.35,
      "exhibit": 6.85,
-     "tag": ""
+     "tag": "",
+     "mp": 0.0607,
+     "mev": 2.117,
+     "mkt": true
     },
     {
      "waku": 4,
      "name": "渡邉英児",
      "cls": "A2",
      "prob": 0.067,
-     "odds": 0.0,
-     "ev": 0.0,
+     "odds": 17.2,
+     "ev": 1.153,
      "exhibit": 6.88,
-     "tag": ""
+     "tag": "sub",
+     "mp": 0.1166,
+     "mev": 2.027,
+     "mkt": true
     },
     {
      "waku": 5,
      "name": "田村美和",
      "cls": "B1",
      "prob": 0.0147,
-     "odds": 32.2,
-     "ev": 0.474,
+     "odds": 34.5,
+     "ev": 0.508,
      "exhibit": 6.9,
-     "tag": ""
+     "tag": "",
+     "mp": 0.023,
+     "mev": 0.801,
+     "mkt": false
     },
     {
      "waku": 6,
@@ -22635,7 +22650,7 @@
    "race_type": "一般戦",
    "wind_m": 1,
    "wave_cm": 0,
-   "fetched": "17:15",
+   "fetched": "17:20",
    "boats": [
     {
      "waku": 1,
