@@ -1,6 +1,6 @@
 {
  "date": "2026-11-15",
- "updated": "11/15 08:17",
+ "updated": "11/15 08:20",
  "races": [
   {
    "jcd": "18",
@@ -12,7 +12,7 @@
    "race_type": "朝トク予選",
    "wind_m": 1,
    "wave_cm": 1,
-   "fetched": "08:17",
+   "fetched": "08:20",
    "boats": [
     {
      "waku": 1,
