@@ -22006,15 +22006,15 @@
   "sets": [],
   "deadline": "16:52",
   "race_type": "予選",
-  "wind_m": 1,
+  "wind_m": 2,
   "wave_cm": 1,
-  "fetched": "16:40",
+  "fetched": "16:45",
   "boats": [
    {
     "waku": 1,
     "name": "林祐介",
     "cls": "B1",
-    "prob": 0.4058,
+    "prob": 0.4055,
     "odds": 1.0,
     "ev": 0.406,
     "exhibit": 6.88,
@@ -22024,9 +22024,9 @@
     "waku": 2,
     "name": "大須賀友",
     "cls": "A1",
-    "prob": 0.3776,
-    "odds": 0.0,
-    "ev": 0.0,
+    "prob": 0.3772,
+    "odds": 40.5,
+    "ev": 15.277,
     "exhibit": 6.81,
     "tag": ""
    },
@@ -22034,9 +22034,9 @@
     "waku": 3,
     "name": "長野壮志",
     "cls": "A2",
-    "prob": 0.0981,
-    "odds": 0.0,
-    "ev": 0.0,
+    "prob": 0.0982,
+    "odds": 40.5,
+    "ev": 3.977,
     "exhibit": 6.95,
     "tag": ""
    },
@@ -22044,7 +22044,7 @@
     "waku": 4,
     "name": "芦澤望",
     "cls": "A2",
-    "prob": 0.0689,
+    "prob": 0.0693,
     "odds": 0.0,
     "ev": 0.0,
     "exhibit": 6.88,
@@ -22054,9 +22054,9 @@
     "waku": 5,
     "name": "加藤政彦",
     "cls": "B1",
-    "prob": 0.0358,
-    "odds": 16.5,
-    "ev": 0.59,
+    "prob": 0.0359,
+    "odds": 40.5,
+    "ev": 1.454,
     "exhibit": 6.89,
     "tag": ""
    },
@@ -22068,6 +22068,80 @@
     "odds": 0.0,
     "ev": 0.0,
     "exhibit": 6.84,
+    "tag": ""
+   }
+  ]
+ },
+ "07-05": {
+  "jcd": "07",
+  "place": "蒲郡",
+  "rno": 5,
+  "t3": [],
+  "sets": [],
+  "deadline": "17:10",
+  "race_type": "一般戦",
+  "wind_m": 1,
+  "wave_cm": 0,
+  "fetched": "16:45",
+  "boats": [
+   {
+    "waku": 1,
+    "name": "品田直樹",
+    "cls": "A2",
+    "prob": 0.4466,
+    "odds": 4.5,
+    "ev": 2.01,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 2,
+    "name": "前田健太",
+    "cls": "B1",
+    "prob": 0.1197,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 3,
+    "name": "中村紋夕",
+    "cls": "B1",
+    "prob": 0.047,
+    "odds": 1.0,
+    "ev": 0.047,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 4,
+    "name": "川口貴久",
+    "cls": "B1",
+    "prob": 0.1313,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 5,
+    "name": "渡邉俊介",
+    "cls": "A1",
+    "prob": 0.2168,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 6,
+    "name": "東口晃",
+    "cls": "B1",
+    "prob": 0.0387,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
     "tag": ""
    }
   ]
