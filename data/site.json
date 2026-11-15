@@ -1,6 +1,6 @@
 {
  "date": "2026-11-15",
- "updated": "11/15 16:50",
+ "updated": "11/15 16:55",
  "races": [
   {
    "jcd": "18",
@@ -19742,23 +19742,97 @@
    "race_type": "一般",
    "wind_m": 3,
    "wave_cm": 2,
-   "fetched": "16:50",
+   "fetched": "16:55",
    "boats": [
     {
      "waku": 1,
      "name": "長岡良也",
      "cls": "A2",
-     "prob": 0.6623,
+     "prob": 0.695,
      "odds": 1.0,
-     "ev": 0.662,
-     "exhibit": null,
+     "ev": 0.695,
+     "exhibit": 6.81,
      "tag": ""
     },
     {
      "waku": 2,
      "name": "池田剛規",
      "cls": "B1",
-     "prob": 0.0753,
+     "prob": 0.0765,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": 6.83,
+     "tag": ""
+    },
+    {
+     "waku": 3,
+     "name": "佐藤博亮",
+     "cls": "A1",
+     "prob": 0.1333,
+     "odds": 6.7,
+     "ev": 0.893,
+     "exhibit": 6.87,
+     "tag": ""
+    },
+    {
+     "waku": 4,
+     "name": "井本昌也",
+     "cls": "A1",
+     "prob": 0.0695,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": 6.89,
+     "tag": ""
+    },
+    {
+     "waku": 5,
+     "name": "峰重侑治",
+     "cls": "B1",
+     "prob": 0.0191,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": 6.87,
+     "tag": ""
+    },
+    {
+     "waku": 6,
+     "name": "一色颯輝",
+     "cls": "B1",
+     "prob": 0.0066,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": 6.9,
+     "tag": ""
+    }
+   ]
+  },
+  {
+   "jcd": "15",
+   "place": "丸亀",
+   "rno": 5,
+   "t3": [],
+   "sets": [],
+   "deadline": "17:19",
+   "race_type": "予選",
+   "wind_m": 1,
+   "wave_cm": 1,
+   "fetched": "16:55",
+   "boats": [
+    {
+     "waku": 1,
+     "name": "竹田和哉",
+     "cls": "A1",
+     "prob": 0.6204,
+     "odds": 1.2,
+     "ev": 0.745,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 2,
+     "name": "大上卓人",
+     "cls": "A1",
+     "prob": 0.0637,
      "odds": 0.0,
      "ev": 0.0,
      "exhibit": null,
@@ -19766,39 +19840,39 @@
     },
     {
      "waku": 3,
-     "name": "佐藤博亮",
+     "name": "尾嶋一広",
      "cls": "A1",
-     "prob": 0.1023,
-     "odds": 6.7,
-     "ev": 0.685,
+     "prob": 0.0539,
+     "odds": 0.0,
+     "ev": 0.0,
      "exhibit": null,
      "tag": ""
     },
     {
      "waku": 4,
-     "name": "井本昌也",
+     "name": "松本純平",
      "cls": "A1",
-     "prob": 0.0788,
-     "odds": 0.0,
-     "ev": 0.0,
+     "prob": 0.0665,
+     "odds": 28.8,
+     "ev": 1.914,
      "exhibit": null,
      "tag": ""
     },
     {
      "waku": 5,
-     "name": "峰重侑治",
-     "cls": "B1",
-     "prob": 0.0481,
-     "odds": 0.0,
-     "ev": 0.0,
+     "name": "毒島誠",
+     "cls": "A1",
+     "prob": 0.1482,
+     "odds": 2.0,
+     "ev": 0.296,
      "exhibit": null,
      "tag": ""
     },
     {
      "waku": 6,
-     "name": "一色颯輝",
-     "cls": "B1",
-     "prob": 0.0332,
+     "name": "北村征嗣",
+     "cls": "A1",
+     "prob": 0.0473,
      "odds": 0.0,
      "ev": 0.0,
      "exhibit": null,
