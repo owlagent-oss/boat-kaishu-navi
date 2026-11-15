@@ -1,6 +1,6 @@
 {
  "date": "2026-11-15",
- "updated": "11/15 10:00",
+ "updated": "11/15 10:05",
  "races": [
   {
    "jcd": "18",
@@ -930,7 +930,7 @@
    "race_type": "朝トコ小判R",
    "wind_m": 0,
    "wave_cm": 0,
-   "fetched": "10:00",
+   "fetched": "10:05",
    "boats": [
     {
      "waku": 1,
@@ -1004,7 +1004,7 @@
    "race_type": "予選",
    "wind_m": 1,
    "wave_cm": 1,
-   "fetched": "10:00",
+   "fetched": "10:05",
    "boats": [
     {
      "waku": 1,
@@ -1063,6 +1063,80 @@
      "prob": 0.0148,
      "odds": 18.9,
      "ev": 0.279,
+     "exhibit": null,
+     "tag": ""
+    }
+   ]
+  },
+  {
+   "jcd": "09",
+   "place": "津",
+   "rno": 1,
+   "t3": [],
+   "sets": [],
+   "deadline": "10:28",
+   "race_type": "ツッキーレー",
+   "wind_m": 1,
+   "wave_cm": 1,
+   "fetched": "10:05",
+   "boats": [
+    {
+     "waku": 1,
+     "name": "竹下大樹",
+     "cls": "A1",
+     "prob": 0.9064,
+     "odds": 1.0,
+     "ev": 0.906,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 2,
+     "name": "小玉啓太",
+     "cls": "B1",
+     "prob": 0.0216,
+     "odds": 5.2,
+     "ev": 0.112,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 3,
+     "name": "網代良芽",
+     "cls": "B1",
+     "prob": 0.0271,
+     "odds": 10.5,
+     "ev": 0.285,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 4,
+     "name": "豊田祥生",
+     "cls": "B1",
+     "prob": 0.0156,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 5,
+     "name": "日高龍之",
+     "cls": "B1",
+     "prob": 0.0156,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 6,
+     "name": "花田凱成",
+     "cls": "B1",
+     "prob": 0.0138,
+     "odds": 0.0,
+     "ev": 0.0,
      "exhibit": null,
      "tag": ""
     }
