@@ -1,6 +1,6 @@
 {
  "date": "2026-11-15",
- "updated": "11/15 16:45",
+ "updated": "11/15 16:50",
  "races": [
   {
    "jcd": "18",
@@ -19742,7 +19742,7 @@
    "race_type": "一般",
    "wind_m": 3,
    "wave_cm": 2,
-   "fetched": "16:45",
+   "fetched": "16:50",
    "boats": [
     {
      "waku": 1,
