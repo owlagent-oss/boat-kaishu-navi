@@ -608,66 +608,66 @@
   "race_type": "ガチトク予選",
   "wind_m": 1,
   "wave_cm": 1,
-  "fetched": "09:40",
+  "fetched": "09:45",
   "boats": [
    {
     "waku": 1,
     "name": "大神康司",
     "cls": "A1",
-    "prob": 0.785,
-    "odds": 1.2,
-    "ev": 0.942,
-    "exhibit": null,
+    "prob": 0.7226,
+    "odds": 1.1,
+    "ev": 0.795,
+    "exhibit": 6.93,
     "tag": ""
    },
    {
     "waku": 2,
     "name": "前野竜一",
     "cls": "A2",
-    "prob": 0.0561,
-    "odds": 0.0,
-    "ev": 0.0,
-    "exhibit": null,
+    "prob": 0.117,
+    "odds": 6.7,
+    "ev": 0.784,
+    "exhibit": 6.93,
     "tag": ""
    },
    {
     "waku": 3,
     "name": "田川大貴",
     "cls": "B1",
-    "prob": 0.0345,
+    "prob": 0.0586,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.93,
     "tag": ""
    },
    {
     "waku": 4,
     "name": "中尾優香",
     "cls": "B1",
-    "prob": 0.0531,
-    "odds": 3.7,
-    "ev": 0.196,
-    "exhibit": null,
+    "prob": 0.0693,
+    "odds": 6.7,
+    "ev": 0.464,
+    "exhibit": 6.88,
     "tag": ""
    },
    {
     "waku": 5,
     "name": "宮内直哉",
     "cls": "B1",
-    "prob": 0.0448,
+    "prob": 0.0207,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.92,
     "tag": ""
    },
    {
     "waku": 6,
     "name": "市川美宏",
     "cls": "B1",
-    "prob": 0.0264,
-    "odds": 3.7,
-    "ev": 0.098,
-    "exhibit": null,
+    "prob": 0.0118,
+    "odds": 6.7,
+    "ev": 0.079,
+    "exhibit": 6.89,
     "tag": ""
    }
   ]
@@ -682,7 +682,7 @@
   "race_type": "一般",
   "wind_m": 2,
   "wave_cm": 2,
-  "fetched": "09:40",
+  "fetched": "09:45",
   "boats": [
    {
     "waku": 1,
