@@ -1,0 +1,76 @@
+{
+ "18-01": {
+  "jcd": "18",
+  "place": "徳山",
+  "rno": 1,
+  "t3": [],
+  "sets": [],
+  "deadline": "08:47",
+  "race_type": "朝トク一般",
+  "wind_m": 3,
+  "wave_cm": 3,
+  "fetched": "08:33",
+  "boats": [
+   {
+    "waku": 1,
+    "name": "清埜翔子",
+    "cls": "A2",
+    "prob": 0.7947,
+    "odds": 1.0,
+    "ev": 0.795,
+    "exhibit": 6.89,
+    "tag": ""
+   },
+   {
+    "waku": 2,
+    "name": "塚田修二",
+    "cls": "B1",
+    "prob": 0.0527,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": 6.87,
+    "tag": ""
+   },
+   {
+    "waku": 3,
+    "name": "宇恵有香",
+    "cls": "B2",
+    "prob": 0.0853,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": 6.88,
+    "tag": ""
+   },
+   {
+    "waku": 4,
+    "name": "石倉拓美",
+    "cls": "B2",
+    "prob": 0.0348,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": 6.89,
+    "tag": ""
+   },
+   {
+    "waku": 5,
+    "name": "宮内直哉",
+    "cls": "B1",
+    "prob": 0.0296,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": 6.9,
+    "tag": ""
+   },
+   {
+    "waku": 6,
+    "name": "甲斐貴大",
+    "cls": "B2",
+    "prob": 0.0028,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": 6.95,
+    "tag": ""
+   }
+  ]
+ }
+}
