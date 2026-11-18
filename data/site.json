@@ -1,6 +1,6 @@
 {
  "date": "2026-11-18",
- "updated": "11/18 19:40",
+ "updated": "11/18 19:45",
  "races": [
   {
    "jcd": "18",
@@ -20512,6 +20512,80 @@
      "mp": 0.0152,
      "mev": 1.893,
      "mkt": true
+    }
+   ]
+  },
+  {
+   "jcd": "01",
+   "place": "桐生",
+   "rno": 11,
+   "t3": [],
+   "sets": [],
+   "deadline": "20:07",
+   "race_type": "予選特選",
+   "wind_m": 1,
+   "wave_cm": 1,
+   "fetched": "19:45",
+   "boats": [
+    {
+     "waku": 1,
+     "name": "若林将",
+     "cls": "A1",
+     "prob": 0.6701,
+     "odds": 1.0,
+     "ev": 0.67,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 2,
+     "name": "河野大",
+     "cls": "A1",
+     "prob": 0.054,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 3,
+     "name": "松本庸平",
+     "cls": "B1",
+     "prob": 0.0371,
+     "odds": 38.6,
+     "ev": 1.431,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 4,
+     "name": "野村誠",
+     "cls": "A2",
+     "prob": 0.1026,
+     "odds": 19.3,
+     "ev": 1.98,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 5,
+     "name": "齊藤大将",
+     "cls": "B1",
+     "prob": 0.0313,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 6,
+     "name": "数原魁",
+     "cls": "A2",
+     "prob": 0.1049,
+     "odds": 77.2,
+     "ev": 8.095,
+     "exhibit": null,
+     "tag": ""
     }
    ]
   }
