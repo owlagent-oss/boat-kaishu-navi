@@ -1,6 +1,6 @@
 {
  "date": "2026-11-19",
- "updated": "11/19 09:10",
+ "updated": "11/19 09:15",
  "races": [
   {
    "jcd": "18",
@@ -779,43 +779,117 @@
    "race_type": "どきどきなる",
    "wind_m": 8,
    "wave_cm": 8,
-   "fetched": "09:10",
+   "fetched": "09:15",
    "boats": [
     {
      "waku": 1,
      "name": "今井美亜",
      "cls": "A1",
-     "prob": 0.4709,
+     "prob": 0.4472,
      "odds": 1.0,
-     "ev": 0.471,
-     "exhibit": null,
+     "ev": 0.447,
+     "exhibit": 7.07,
      "tag": ""
     },
     {
      "waku": 2,
      "name": "松井友汰",
      "cls": "A2",
-     "prob": 0.1425,
+     "prob": 0.2177,
      "odds": 6.4,
-     "ev": 0.912,
-     "exhibit": null,
+     "ev": 1.393,
+     "exhibit": 7.01,
      "tag": ""
     },
     {
      "waku": 3,
      "name": "高野哲史",
      "cls": "A1",
-     "prob": 0.1553,
+     "prob": 0.2174,
      "odds": 10.7,
-     "ev": 1.662,
-     "exhibit": null,
+     "ev": 2.326,
+     "exhibit": 7.01,
      "tag": ""
     },
     {
      "waku": 4,
      "name": "小林孝彰",
      "cls": "B1",
-     "prob": 0.1235,
+     "prob": 0.0797,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": 7.02,
+     "tag": ""
+    },
+    {
+     "waku": 5,
+     "name": "熊本英一",
+     "cls": "B1",
+     "prob": 0.0199,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": 7.07,
+     "tag": ""
+    },
+    {
+     "waku": 6,
+     "name": "齊藤優",
+     "cls": "B1",
+     "prob": 0.018,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": 7.0,
+     "tag": ""
+    }
+   ]
+  },
+  {
+   "jcd": "18",
+   "place": "徳山",
+   "rno": 3,
+   "t3": [],
+   "sets": [],
+   "deadline": "09:39",
+   "race_type": "決めトク一般",
+   "wind_m": 3,
+   "wave_cm": 3,
+   "fetched": "09:15",
+   "boats": [
+    {
+     "waku": 1,
+     "name": "土山卓也",
+     "cls": "A2",
+     "prob": 0.5214,
+     "odds": 3.0,
+     "ev": 1.564,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 2,
+     "name": "本橋克洋",
+     "cls": "B1",
+     "prob": 0.0622,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 3,
+     "name": "高岡竜也",
+     "cls": "A1",
+     "prob": 0.1199,
+     "odds": 6.0,
+     "ev": 0.72,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 4,
+     "name": "豊田訓靖",
+     "cls": "B1",
+     "prob": 0.0366,
      "odds": 0.0,
      "ev": 0.0,
      "exhibit": null,
@@ -823,19 +897,19 @@
     },
     {
      "waku": 5,
-     "name": "熊本英一",
-     "cls": "B1",
-     "prob": 0.068,
-     "odds": 0.0,
-     "ev": 0.0,
+     "name": "大山千広",
+     "cls": "A2",
+     "prob": 0.2196,
+     "odds": 1.2,
+     "ev": 0.263,
      "exhibit": null,
      "tag": ""
     },
     {
      "waku": 6,
-     "name": "齊藤優",
+     "name": "山崎昂介",
      "cls": "B1",
-     "prob": 0.0398,
+     "prob": 0.0403,
      "odds": 0.0,
      "ev": 0.0,
      "exhibit": null,
