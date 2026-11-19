@@ -16601,7 +16601,7 @@
   "race_type": "一般",
   "wind_m": 7,
   "wave_cm": 7,
-  "fetched": "17:50",
+  "fetched": "17:55",
   "boats": [
    {
     "waku": 1,
@@ -16618,8 +16618,8 @@
     "name": "西丸侑太",
     "cls": "A1",
     "prob": 0.0899,
-    "odds": 8.5,
-    "ev": 0.764,
+    "odds": 8.8,
+    "ev": 0.791,
     "exhibit": null,
     "tag": ""
    },
@@ -16628,8 +16628,8 @@
     "name": "北村征嗣",
     "cls": "A1",
     "prob": 0.0793,
-    "odds": 21.3,
-    "ev": 1.688,
+    "odds": 11.0,
+    "ev": 0.872,
     "exhibit": null,
     "tag": ""
    },
