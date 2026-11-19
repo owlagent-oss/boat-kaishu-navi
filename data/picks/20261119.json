@@ -16234,5 +16234,153 @@
     "mkt": false
    }
   ]
+ },
+ "01-07": {
+  "jcd": "01",
+  "place": "桐生",
+  "rno": 7,
+  "t3": [],
+  "sets": [],
+  "deadline": "17:55",
+  "race_type": "ドラドキ3",
+  "wind_m": 7,
+  "wave_cm": 6,
+  "fetched": "17:35",
+  "boats": [
+   {
+    "waku": 1,
+    "name": "柏野幸二",
+    "cls": "A2",
+    "prob": 0.3605,
+    "odds": 2.4,
+    "ev": 0.865,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 2,
+    "name": "渡邊裕貴",
+    "cls": "B1",
+    "prob": 0.0804,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 3,
+    "name": "三角哲男",
+    "cls": "A1",
+    "prob": 0.2209,
+    "odds": 3.2,
+    "ev": 0.707,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 4,
+    "name": "加藤高史",
+    "cls": "B1",
+    "prob": 0.1938,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 5,
+    "name": "鈴木秀茉",
+    "cls": "B1",
+    "prob": 0.0795,
+    "odds": 9.7,
+    "ev": 0.771,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 6,
+    "name": "阿波勝哉",
+    "cls": "B1",
+    "prob": 0.0649,
+    "odds": 1.9,
+    "ev": 0.123,
+    "exhibit": null,
+    "tag": ""
+   }
+  ]
+ },
+ "15-06": {
+  "jcd": "15",
+  "place": "丸亀",
+  "rno": 6,
+  "t3": [],
+  "sets": [],
+  "deadline": "17:46",
+  "race_type": "一般",
+  "wind_m": 7,
+  "wave_cm": 7,
+  "fetched": "17:35",
+  "boats": [
+   {
+    "waku": 1,
+    "name": "大上卓人",
+    "cls": "A1",
+    "prob": 0.6351,
+    "odds": 1.0,
+    "ev": 0.635,
+    "exhibit": 6.69,
+    "tag": ""
+   },
+   {
+    "waku": 2,
+    "name": "渡邉和将",
+    "cls": "A1",
+    "prob": 0.0693,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": 6.78,
+    "tag": ""
+   },
+   {
+    "waku": 3,
+    "name": "赤岩善生",
+    "cls": "A1",
+    "prob": 0.0954,
+    "odds": 10.0,
+    "ev": 0.954,
+    "exhibit": 6.79,
+    "tag": ""
+   },
+   {
+    "waku": 4,
+    "name": "坪井康晴",
+    "cls": "A1",
+    "prob": 0.0768,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": 6.77,
+    "tag": ""
+   },
+   {
+    "waku": 5,
+    "name": "竹田和哉",
+    "cls": "A1",
+    "prob": 0.0879,
+    "odds": 90.0,
+    "ev": 7.91,
+    "exhibit": 6.76,
+    "tag": ""
+   },
+   {
+    "waku": 6,
+    "name": "中村日向",
+    "cls": "A1",
+    "prob": 0.0355,
+    "odds": 12.8,
+    "ev": 0.454,
+    "exhibit": 6.72,
+    "tag": ""
+   }
+  ]
  }
 }
