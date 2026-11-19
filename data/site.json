@@ -1,6 +1,6 @@
 {
  "date": "2026-11-19",
- "updated": "11/19 17:40",
+ "updated": "11/19 17:45",
  "races": [
   {
    "jcd": "18",
@@ -16515,37 +16515,46 @@
    "race_type": "ドラドキ3",
    "wind_m": 7,
    "wave_cm": 6,
-   "fetched": "17:40",
+   "fetched": "17:45",
    "boats": [
     {
      "waku": 1,
      "name": "柏野幸二",
      "cls": "A2",
      "prob": 0.4509,
-     "odds": 2.4,
-     "ev": 1.082,
+     "odds": 2.2,
+     "ev": 0.992,
      "exhibit": 6.79,
-     "tag": ""
+     "tag": "",
+     "mp": 0.4644,
+     "mev": 1.044,
+     "mkt": false
     },
     {
      "waku": 2,
      "name": "渡邊裕貴",
      "cls": "B1",
      "prob": 0.08,
-     "odds": 0.0,
-     "ev": 0.0,
+     "odds": 6.1,
+     "ev": 0.488,
      "exhibit": 6.78,
-     "tag": ""
+     "tag": "",
+     "mp": 0.1127,
+     "mev": 0.703,
+     "mkt": false
     },
     {
      "waku": 3,
      "name": "三角哲男",
      "cls": "A1",
      "prob": 0.3036,
-     "odds": 3.2,
-     "ev": 0.972,
+     "odds": 3.0,
+     "ev": 0.911,
      "exhibit": 6.7,
-     "tag": ""
+     "tag": "",
+     "mp": 0.232,
+     "mev": 0.711,
+     "mkt": false
     },
     {
      "waku": 4,
@@ -16562,20 +16571,26 @@
      "name": "鈴木秀茉",
      "cls": "B1",
      "prob": 0.0309,
-     "odds": 9.7,
-     "ev": 0.299,
+     "odds": 24.7,
+     "ev": 0.762,
      "exhibit": 6.85,
-     "tag": ""
+     "tag": "",
+     "mp": 0.0407,
+     "mev": 1.029,
+     "mkt": false
     },
     {
      "waku": 6,
      "name": "阿波勝哉",
      "cls": "B1",
      "prob": 0.0142,
-     "odds": 1.9,
-     "ev": 0.027,
+     "odds": 2.7,
+     "ev": 0.038,
      "exhibit": 6.89,
-     "tag": ""
+     "tag": "",
+     "mp": 0.0863,
+     "mev": 0.238,
+     "mkt": false
     }
    ]
   }
