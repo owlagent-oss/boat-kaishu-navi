@@ -520,66 +520,66 @@
   "race_type": "どーなるなる",
   "wind_m": 4,
   "wave_cm": 4,
-  "fetched": "08:45",
+  "fetched": "08:50",
   "boats": [
    {
     "waku": 1,
     "name": "井上遥妃",
     "cls": "A1",
-    "prob": 0.6373,
+    "prob": 0.6657,
     "odds": 1.0,
-    "ev": 0.637,
-    "exhibit": null,
+    "ev": 0.666,
+    "exhibit": 6.86,
     "tag": ""
    },
    {
     "waku": 2,
     "name": "深見亜由",
     "cls": "B1",
-    "prob": 0.0408,
+    "prob": 0.038,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.93,
     "tag": ""
    },
    {
     "waku": 3,
     "name": "本村大",
     "cls": "B1",
-    "prob": 0.0601,
+    "prob": 0.075,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.93,
     "tag": ""
    },
    {
     "waku": 4,
     "name": "藤田竜弘",
     "cls": "A2",
-    "prob": 0.0866,
-    "odds": 6.5,
-    "ev": 0.563,
-    "exhibit": null,
+    "prob": 0.1121,
+    "odds": 4.1,
+    "ev": 0.46,
+    "exhibit": 6.92,
     "tag": ""
    },
    {
     "waku": 5,
     "name": "柳内敬太",
     "cls": "A1",
-    "prob": 0.1254,
-    "odds": 26.2,
-    "ev": 3.286,
-    "exhibit": null,
+    "prob": 0.0935,
+    "odds": 11.0,
+    "ev": 1.028,
+    "exhibit": 6.93,
     "tag": ""
    },
    {
     "waku": 6,
     "name": "下河雅史",
     "cls": "B1",
-    "prob": 0.0498,
+    "prob": 0.0157,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 7.0,
     "tag": ""
    }
   ]
@@ -594,7 +594,7 @@
   "race_type": "狙いトク一般",
   "wind_m": 3,
   "wave_cm": 3,
-  "fetched": "08:45",
+  "fetched": "08:50",
   "boats": [
    {
     "waku": 1,
@@ -651,8 +651,8 @@
     "name": "倉持莉々",
     "cls": "A1",
     "prob": 0.1105,
-    "odds": 14.2,
-    "ev": 1.569,
+    "odds": 14.6,
+    "ev": 1.614,
     "exhibit": null,
     "tag": ""
    }
