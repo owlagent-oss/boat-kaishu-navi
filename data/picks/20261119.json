@@ -625,7 +625,7 @@
   "race_type": "狙いトク一般",
   "wind_m": 3,
   "wave_cm": 3,
-  "fetched": "08:55",
+  "fetched": "09:00",
   "boats": [
    {
     "waku": 1,
@@ -642,8 +642,8 @@
     "name": "為本智也",
     "cls": "B1",
     "prob": 0.0533,
-    "odds": 32.2,
-    "ev": 1.715,
+    "odds": 34.5,
+    "ev": 1.838,
     "exhibit": null,
     "tag": ""
    },
@@ -662,8 +662,8 @@
     "name": "生方靖亜",
     "cls": "B1",
     "prob": 0.0827,
-    "odds": 16.1,
-    "ev": 1.332,
+    "odds": 11.5,
+    "ev": 0.951,
     "exhibit": null,
     "tag": ""
    },
@@ -682,8 +682,8 @@
     "name": "篠崎仁志",
     "cls": "A1",
     "prob": 0.1487,
-    "odds": 16.1,
-    "ev": 2.395,
+    "odds": 11.5,
+    "ev": 1.711,
     "exhibit": null,
     "tag": ""
    }
