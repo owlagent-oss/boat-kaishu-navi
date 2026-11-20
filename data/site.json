@@ -1,6 +1,6 @@
 {
  "date": "2026-11-21",
- "updated": "11/21 08:29",
+ "updated": "11/21 08:30",
  "races": [
   {
    "jcd": "14",
@@ -71,7 +71,7 @@
    "race_type": "とるならなる",
    "wind_m": 2,
    "wave_cm": 2,
-   "fetched": "08:29",
+   "fetched": "08:30",
    "boats": [
     {
      "waku": 1,
@@ -338,7 +338,7 @@
    "race_type": "サンライズV",
    "wind_m": 2,
    "wave_cm": 2,
-   "fetched": "08:29",
+   "fetched": "08:30",
    "boats": [
     {
      "waku": 1,
@@ -430,7 +430,7 @@
    "race_type": "予選",
    "wind_m": 4,
    "wave_cm": 4,
-   "fetched": "08:29",
+   "fetched": "08:30",
    "boats": [
     {
      "waku": 1,
