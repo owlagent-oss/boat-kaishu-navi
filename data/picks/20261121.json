@@ -1994,15 +1994,15 @@
   "race_type": "予選",
   "wind_m": 3,
   "wave_cm": 3,
-  "fetched": "09:55",
+  "fetched": "10:00",
   "boats": [
    {
     "waku": 1,
     "name": "篠原晟弥",
     "cls": "A2",
     "prob": 0.504,
-    "odds": 1.1,
-    "ev": 0.554,
+    "odds": 1.6,
+    "ev": 0.806,
     "exhibit": 6.68,
     "tag": ""
    },
@@ -2021,8 +2021,8 @@
     "name": "片橋幸貴",
     "cls": "A1",
     "prob": 0.2294,
-    "odds": 2.7,
-    "ev": 0.619,
+    "odds": 1.8,
+    "ev": 0.413,
     "exhibit": 6.67,
     "tag": ""
    },
@@ -2031,8 +2031,8 @@
     "name": "中野夢斗",
     "cls": "B1",
     "prob": 0.103,
-    "odds": 0.0,
-    "ev": 0.0,
+    "odds": 11.2,
+    "ev": 1.154,
     "exhibit": 6.65,
     "tag": ""
    },
@@ -2051,8 +2051,8 @@
     "name": "小池哲也",
     "cls": "A2",
     "prob": 0.032,
-    "odds": 8.2,
-    "ev": 0.262,
+    "odds": 11.2,
+    "ev": 0.358,
     "exhibit": 6.69,
     "tag": ""
    }
@@ -2068,7 +2068,7 @@
   "race_type": "予選",
   "wind_m": 4,
   "wave_cm": 4,
-  "fetched": "09:55",
+  "fetched": "10:00",
   "boats": [
    {
     "waku": 1,
@@ -2142,7 +2142,7 @@
   "race_type": "ファーストB",
   "wind_m": 1,
   "wave_cm": 1,
-  "fetched": "09:55",
+  "fetched": "10:00",
   "boats": [
    {
     "waku": 1,
@@ -2159,8 +2159,8 @@
     "name": "栗山繁洋",
     "cls": "B1",
     "prob": 0.0274,
-    "odds": 18.0,
-    "ev": 0.493,
+    "odds": 7.6,
+    "ev": 0.208,
     "exhibit": null,
     "tag": ""
    },
