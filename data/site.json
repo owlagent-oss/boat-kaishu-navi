@@ -1,6 +1,6 @@
 {
  "date": "2026-11-21",
- "updated": "11/21 09:10",
+ "updated": "11/21 09:15",
  "races": [
   {
    "jcd": "14",
@@ -1302,7 +1302,7 @@
    "race_type": "どきどきなる",
    "wind_m": 4,
    "wave_cm": 4,
-   "fetched": "09:10",
+   "fetched": "09:15",
    "boats": [
     {
      "waku": 1,
@@ -1376,7 +1376,7 @@
    "race_type": "サンライズX",
    "wind_m": 1,
    "wave_cm": 1,
-   "fetched": "09:10",
+   "fetched": "09:15",
    "boats": [
     {
      "waku": 1,
