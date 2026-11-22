@@ -1,6 +1,6 @@
 {
  "date": "2026-11-23",
- "updated": "11/23 08:45",
+ "updated": "11/23 08:50",
  "races": [
   {
    "jcd": "14",
@@ -519,66 +519,66 @@
    "race_type": "どーなるなる",
    "wind_m": 1,
    "wave_cm": 1,
-   "fetched": "08:45",
+   "fetched": "08:50",
    "boats": [
     {
      "waku": 1,
      "name": "大田直弥",
      "cls": "B1",
-     "prob": 0.3703,
-     "odds": 2.8,
-     "ev": 1.037,
-     "exhibit": null,
+     "prob": 0.3658,
+     "odds": 3.3,
+     "ev": 1.207,
+     "exhibit": 6.75,
      "tag": ""
     },
     {
      "waku": 2,
      "name": "金子順一",
      "cls": "B1",
-     "prob": 0.084,
-     "odds": 0.0,
-     "ev": 0.0,
-     "exhibit": null,
+     "prob": 0.0602,
+     "odds": 16.5,
+     "ev": 0.993,
+     "exhibit": 6.79,
      "tag": ""
     },
     {
      "waku": 3,
      "name": "本村大",
      "cls": "B1",
-     "prob": 0.1046,
+     "prob": 0.1481,
      "odds": 0.0,
      "ev": 0.0,
-     "exhibit": null,
+     "exhibit": 6.78,
      "tag": ""
     },
     {
      "waku": 4,
      "name": "井上遥妃",
      "cls": "A1",
-     "prob": 0.2001,
-     "odds": 1.0,
-     "ev": 0.2,
-     "exhibit": null,
+     "prob": 0.2506,
+     "odds": 1.1,
+     "ev": 0.276,
+     "exhibit": 6.76,
      "tag": ""
     },
     {
      "waku": 5,
      "name": "高野哲史",
      "cls": "A1",
-     "prob": 0.1902,
-     "odds": 0.0,
-     "ev": 0.0,
-     "exhibit": null,
+     "prob": 0.1541,
+     "odds": 8.2,
+     "ev": 1.263,
+     "exhibit": 6.77,
      "tag": ""
     },
     {
      "waku": 6,
      "name": "藤田浩人",
      "cls": "A2",
-     "prob": 0.0509,
+     "prob": 0.0212,
      "odds": 0.0,
      "ev": 0.0,
-     "exhibit": null,
+     "exhibit": 6.79,
      "tag": ""
     }
    ]
@@ -593,7 +593,7 @@
    "race_type": "サンライズW",
    "wind_m": 1,
    "wave_cm": 1,
-   "fetched": "08:45",
+   "fetched": "08:50",
    "boats": [
     {
      "waku": 1,
