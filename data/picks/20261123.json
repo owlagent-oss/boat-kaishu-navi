@@ -1115,66 +1115,66 @@
   "race_type": "サンライズX",
   "wind_m": 1,
   "wave_cm": 1,
-  "fetched": "09:20",
+  "fetched": "09:25",
   "boats": [
    {
     "waku": 1,
     "name": "宇佐見淳",
     "cls": "A2",
-    "prob": 0.5705,
+    "prob": 0.5278,
     "odds": 1.0,
-    "ev": 0.57,
-    "exhibit": null,
+    "ev": 0.528,
+    "exhibit": 6.69,
     "tag": ""
    },
    {
     "waku": 2,
     "name": "桑原啓",
     "cls": "B1",
-    "prob": 0.0336,
+    "prob": 0.04,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.63,
     "tag": ""
    },
    {
     "waku": 3,
     "name": "森永淳",
     "cls": "A1",
-    "prob": 0.1905,
-    "odds": 24.7,
-    "ev": 4.704,
-    "exhibit": null,
+    "prob": 0.3296,
+    "odds": 12.7,
+    "ev": 4.185,
+    "exhibit": 6.62,
     "tag": ""
    },
    {
     "waku": 4,
     "name": "中村裕将",
     "cls": "B1",
-    "prob": 0.0834,
+    "prob": 0.0353,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.76,
     "tag": ""
    },
    {
     "waku": 5,
     "name": "平石和男",
     "cls": "A2",
-    "prob": 0.0942,
+    "prob": 0.0619,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.67,
     "tag": ""
    },
    {
     "waku": 6,
     "name": "小川晃司",
     "cls": "B1",
-    "prob": 0.0279,
+    "prob": 0.0055,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.76,
     "tag": ""
    }
   ]
@@ -1189,7 +1189,7 @@
   "race_type": "予選",
   "wind_m": 4,
   "wave_cm": 4,
-  "fetched": "09:20",
+  "fetched": "09:25",
   "boats": [
    {
     "waku": 1,
