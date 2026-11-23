@@ -1,6 +1,6 @@
 {
  "date": "2026-11-23",
- "updated": "11/23 18:35",
+ "updated": "11/23 18:40",
  "races": [
   {
    "jcd": "14",
@@ -20453,7 +20453,7 @@
    "race_type": "準優進出戦",
    "wind_m": 4,
    "wave_cm": 3,
-   "fetched": "18:35",
+   "fetched": "18:40",
    "boats": [
     {
      "waku": 1,
@@ -20470,8 +20470,8 @@
      "name": "宗行治哉",
      "cls": "A1",
      "prob": 0.177,
-     "odds": 0.0,
-     "ev": 0.0,
+     "odds": 59.2,
+     "ev": 10.476,
      "exhibit": 6.77,
      "tag": ""
     },
@@ -20480,8 +20480,8 @@
      "name": "岡村慶太",
      "cls": "A1",
      "prob": 0.1356,
-     "odds": 6.2,
-     "ev": 0.84,
+     "odds": 4.9,
+     "ev": 0.664,
      "exhibit": 6.83,
      "tag": ""
     },
@@ -20490,8 +20490,8 @@
      "name": "近江翔吾",
      "cls": "A2",
      "prob": 0.0869,
-     "odds": 50.2,
-     "ev": 4.363,
+     "odds": 11.8,
+     "ev": 1.026,
      "exhibit": 6.8,
      "tag": ""
     },
@@ -20527,53 +20527,127 @@
    "race_type": "準優勝戦",
    "wind_m": 0,
    "wave_cm": 0,
-   "fetched": "18:35",
+   "fetched": "18:40",
    "boats": [
     {
      "waku": 1,
      "name": "石橋道友",
      "cls": "A1",
-     "prob": 0.6477,
+     "prob": 0.7111,
      "odds": 1.0,
-     "ev": 0.648,
-     "exhibit": null,
+     "ev": 0.711,
+     "exhibit": 6.64,
      "tag": ""
     },
     {
      "waku": 2,
      "name": "岡崎恭裕",
      "cls": "A2",
-     "prob": 0.0733,
-     "odds": 11.7,
-     "ev": 0.857,
-     "exhibit": null,
+     "prob": 0.0951,
+     "odds": 12.0,
+     "ev": 1.141,
+     "exhibit": 6.79,
      "tag": ""
     },
     {
      "waku": 3,
      "name": "小原聡将",
      "cls": "A2",
-     "prob": 0.0537,
+     "prob": 0.1,
      "odds": 0.0,
      "ev": 0.0,
-     "exhibit": null,
+     "exhibit": 6.7,
      "tag": ""
     },
     {
      "waku": 4,
      "name": "井上未都",
      "cls": "B1",
-     "prob": 0.0864,
-     "odds": 8.8,
-     "ev": 0.76,
-     "exhibit": null,
+     "prob": 0.0435,
+     "odds": 9.0,
+     "ev": 0.391,
+     "exhibit": 6.71,
      "tag": ""
     },
     {
      "waku": 5,
      "name": "松山将吾",
      "cls": "A1",
-     "prob": 0.0997,
+     "prob": 0.0418,
+     "odds": 36.0,
+     "ev": 1.504,
+     "exhibit": 6.79,
+     "tag": ""
+    },
+    {
+     "waku": 6,
+     "name": "梶野学志",
+     "cls": "A2",
+     "prob": 0.0086,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": 6.8,
+     "tag": ""
+    }
+   ]
+  },
+  {
+   "jcd": "19",
+   "place": "下関",
+   "rno": 9,
+   "t3": [],
+   "sets": [],
+   "deadline": "19:02",
+   "race_type": "予選",
+   "wind_m": 1,
+   "wave_cm": 1,
+   "fetched": "18:40",
+   "boats": [
+    {
+     "waku": 1,
+     "name": "廣中智紗",
+     "cls": "A2",
+     "prob": 0.8737,
+     "odds": 1.0,
+     "ev": 0.874,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 2,
+     "name": "福山恵里",
+     "cls": "B1",
+     "prob": 0.0238,
+     "odds": 52.1,
+     "ev": 1.243,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 3,
+     "name": "池千夏",
+     "cls": "B1",
+     "prob": 0.0176,
+     "odds": 26.0,
+     "ev": 0.459,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 4,
+     "name": "佐藤ほの",
+     "cls": "B1",
+     "prob": 0.0244,
+     "odds": 104.2,
+     "ev": 2.544,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 5,
+     "name": "西村歩",
+     "cls": "B1",
+     "prob": 0.0492,
      "odds": 0.0,
      "ev": 0.0,
      "exhibit": null,
@@ -20581,9 +20655,9 @@
     },
     {
      "waku": 6,
-     "name": "梶野学志",
-     "cls": "A2",
-     "prob": 0.0393,
+     "name": "中澤里桜",
+     "cls": "B2",
+     "prob": 0.0112,
      "odds": 0.0,
      "ev": 0.0,
      "exhibit": null,
