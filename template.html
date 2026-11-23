@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ボート回収率ナビ｜競艇・ボートレースの回収率と期待値を全24場で検証</title>
-<meta name="description" content="全国24場のボートレース（競艇）を過去2年・11万レースのデータで分析。締切前のオッズと1着確率から期待値を計算し、今日の狙い目と検証成績を毎日公開します。">
+<title>ボートレース ズレ偏差値ナビ｜全24場のデータと独自指標「ズレ偏差値」</title>
+<meta name="description" content="全国24場のボートレース（競艇）を過去2年・約11万レースのデータで分析。単勝と3連単のオッズのズレを偏差値にした独自指標「ズレ偏差値」、場の荒れランキング・平穏ランキング、場ごとの1号艇1着率や万舟率を毎日公開します。">
 <style>
 :root{--bg:#f6f8fb;--card:#fff;--ink:#1d2433;--sub:#667085;--line:#e4e8ef;--acc:#0b6bcb;--main:#e8590c;--mainbg:#fff4e6;--subbg:#eef5ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;font-size:15px;line-height:1.6}
@@ -28,23 +28,40 @@ td.l,th.l{text-align:left}tr.main{background:var(--mainbg)}tr.sub{background:var
 .tag{font-size:11px;font-weight:700;border-radius:4px;padding:0 5px}.tag.main{background:var(--main);color:#fff}.tag.sub{background:var(--acc);color:#fff}.tag.mkt{background:#0f9d58;color:#fff}.tag.set{background:#7048e8;color:#fff}
 .st{padding:8px 10px;background:#f5f0ff;border-top:1px solid var(--line);font-size:13px}.st b{color:#7048e8}.st .cb{border-color:#cfc0f5}.st .cb.hit{background:#7048e8;color:#fff}
 .rev{font-size:12px;font-weight:700;border-radius:10px;padding:1px 8px;margin-left:6px;background:#eef1f5;color:var(--sub)}.rev.hi{background:var(--main);color:#fff}.rev.mid{background:var(--acc);color:#fff}.t3ev{font-size:12px;color:var(--sub);margin-left:4px}
+.stats2{display:grid;grid-template-columns:1fr 1fr;gap:8px}@media(max-width:520px){.stats2{grid-template-columns:1fr}}.rk{border:1px solid var(--line);border-radius:10px;padding:10px}.rk h3{margin:0 0 6px;font-size:14px}.rk ol{margin:0;padding-left:22px;font-size:13px}.rk li span{color:var(--sub);font-size:12px}th.s{cursor:pointer;text-decoration:underline dotted}#places td,#places th{white-space:nowrap}
 .empty{color:var(--sub);text-align:center;padding:20px}
 footer{font-size:11px;color:var(--sub);max-width:760px;margin:0 auto;padding:8px 16px 32px}
 </style>
 </head>
 <body>
-<header><h1>ボート回収率ナビ<span class="badge">検証中</span></h1><p>競艇・ボートレースの回収率と期待値を全24場で検証</p></header>
+<header><h1>ボートレース ズレ偏差値ナビ</h1><p>全24場のデータと独自指標「ズレ偏差値」で、ボートレースをもっと深く</p></header>
 <main>
 <div class="card">
-  <h2>狙い目の検証成績</h2>
-  <div class="stats" id="stats"></div>
-  <p class="note" id="rulenote"></p>
+  <h2>ズレ偏差値とは</h2>
+  <p class="note">同じ艇の「1着になりそうな度合い」を、<b>単勝のオッズ</b>と<b>3連単のオッズ</b>の2つから計算して、そのズレを平均50の偏差値にした当ナビ独自の指標です。3連単は売上が大きく、オッズが正確になりやすい券種です。偏差値が高い艇は「単勝が3連単にくらべて割安に付いている」ことを表します（60以上は<b style="color:#0f9d58">緑</b>で表示）。<br>
+  ※過去の確定オッズでは偏差値が高いほど単勝の回収率が高くなりましたが、締切前のオッズで通用するかは検証中です。得をすることを約束する数字ではありません。</p>
 </div>
 <div class="card">
   <h2>今日のレース <span class="note" id="upd"></span></h2>
   <div class="tabs" id="tabs"></div>
   <div id="races"></div>
   <p class="note">締切の約2〜25分前に、展示タイム・風・単勝オッズを取り込んで計算します（約10分ごとに更新）。オッズは締切まで動くので、買う前に必ず最新オッズを確かめてください。</p>
+</div>
+<div class="card">
+  <h2>荒れランキング・平穏ランキング <span class="note" id="stperiod"></span></h2>
+  <div class="stats2" id="rank"></div>
+  <p class="note">荒れ度は「1号艇の1着率が低い」「3連単の配当（中央値）が高い」の2つの順位の平均で決めています。万舟率＝3連単が1万円以上になったレースの割合。</p>
+</div>
+<div class="card">
+  <h2>場ごとの基本データ</h2>
+  <div style="overflow-x:auto"><table id="places"></table></div>
+  <p class="note">コース別1着率＝進入したコースごとの1着の割合（左から1〜6コース）。見出しを押すと並べ替えできます。</p>
+</div>
+<div class="card">
+  <h2>検証の記録</h2>
+  <div class="stats" id="stats"></div>
+  <p class="note" id="rulenote"></p>
+  <p class="note">締切前のオッズで、ルールどおり100円ずつ買ったと仮定した成績です。舟券は売上の約25%が差し引かれるため、何も考えずに買っても平均は75%前後になります。ここに出ている買い方は検証中のもので、利益が出ることを約束するものではありません。</p>
 </div>
 <div class="card">
   <h2>この数字の見方</h2>
@@ -67,6 +84,25 @@ footer{font-size:11px;color:var(--sub);max-width:760px;margin:0 auto;padding:8px
 let D=null;
 const SRC='https://raw.githubusercontent.com/owlagent-oss/boat-kaishu-navi/main/data/site.json';
 const yen=n=>n.toLocaleString('ja-JP');
+const STATS='https://raw.githubusercontent.com/owlagent-oss/boat-kaishu-navi/main/data/stats.json';
+let S=null,psort='score',pdir=1;
+function placeTable(){
+  const cols=[['name','場',0],['b1_win','1号艇1着率',1],['t3_median','3連単中央値',1],['manshu','万舟率',1],['races','レース数',1]];
+  let ps=S.places.map((p,i)=>({...p,score:i}));
+  if(psort!='score')ps.sort((a,b)=>(a[psort]>b[psort]?1:a[psort]<b[psort]?-1:0)*pdir);
+  const n=S.national;
+  document.getElementById('places').innerHTML=`<tr><th class="l s" onclick="ps_('score')">荒れ順</th>${cols.map(([k,l])=>`<th class="s${k=='name'?' l':''}" onclick="ps_('${k}')">${l}</th>`).join('')}<th>コース別1着率</th></tr>`+
+    ps.map(p=>`<tr><td class="l">${p.score+1}</td><td class="l">${p.name}</td><td>${p.b1_win.toFixed(1)}%</td><td>${yen(p.t3_median)}円</td><td>${p.manshu.toFixed(1)}%</td><td>${yen(p.races)}</td><td class="note">${p.course_win.map(v=>v.toFixed(1)).join(' / ')}</td></tr>`).join('')+
+    `<tr><td class="l"></td><td class="l"><b>全国</b></td><td><b>${n.b1_win}%</b></td><td><b>${yen(n.t3_median)}円</b></td><td><b>${n.manshu}%</b></td><td>${yen(n.races)}</td><td></td></tr>`;
+}
+function ps_(k){if(psort==k)pdir=-pdir;else{psort=k;pdir=(k=='name'||k=='score')?1:-1;}placeTable();}
+function ranking(){
+  document.getElementById('stperiod').textContent=`（${S.period}・${yen(S.national.races)}レース）`;
+  const li=p=>`<li>${p.name} <span>1号艇${p.b1_win.toFixed(1)}%・中央値${yen(p.t3_median)}円・万舟${p.manshu.toFixed(1)}%</span></li>`;
+  document.getElementById('rank').innerHTML=`<div class="rk"><h3>荒れる場 TOP5</h3><ol>${S.places.slice(0,5).map(li).join('')}</ol></div><div class="rk"><h3>平穏な場 TOP5</h3><ol>${S.places.slice(-5).reverse().map(li).join('')}</ol></div>`;
+  placeTable();
+}
+async function loadStats(){try{const r=await fetch(STATS+'?t='+Date.now(),{cache:'no-store'});S=await r.json();ranking();}catch(e){document.getElementById('rank').innerHTML='<div class="empty">読み込みに失敗しました。</div>';}}
 function stats(){
   const t=D.record.total,days=Object.keys(D.record.days).length,el=document.getElementById('stats');
   const box=(k,label)=>{const s=t[k]||{bets:0,hits:0,ret:0};const roi=s.bets?(s.ret/(s.bets*100)*100).toFixed(1)+'%':'—';const hit=s.bets?(s.hits/s.bets*100).toFixed(1)+'%':'—';
@@ -84,7 +120,7 @@ const t3EV=(t,n)=>{const c=t.combos.slice(0,n).filter(x=>x.odds>0);if(c.length<n
 function races(){
   document.getElementById('upd').textContent=`最終更新 ${D.updated}`;
   const nowHM=new Date(Date.now()+9*3600e3).toISOString().slice(11,16);
-  const tabs=[['main','狙い目だけ'],['sub','参考も'],['all','全部']];
+  const tabs=[['main','検証中の印あり'],['sub','参考も'],['all','全部']];
   const has=(r,f)=>(r.t3&&r.t3.length)||(r.sets&&r.sets.length)||r.boats.some(b=>b.mkt||b.tag=='main'||(f=='sub'&&b.tag=='sub'));
   document.getElementById('tabs').innerHTML=tabs.map(([k,l])=>`<button class="${k==filter?'on':''}" onclick="filter='${k}';races()">${l}</button>`).join('')+'<span style="flex:1"></span>'+[['time','締切順'],['ev','期待値の高い順']].map(([k,l])=>`<button class="${k==sortBy?'on':''}" onclick="sortBy='${k}';races()">${l}</button>`).join('');
   let rs=D.races.filter(r=>filter=='all'||has(r,filter));
@@ -97,7 +133,7 @@ function races(){
     return `<div class="race${done?' done':''}"><div class="rh"><span class="t">${r.place} ${r.rno}R <span class="note">${r.race_type}</span>${badge}</span>
       <span class="dl">締切 ${r.deadline}・風${r.wind_m??'-'}m・オッズ ${r.fetched}時点</span></div>
       ${(r.sets||[]).map(s=>`<div class="st"><span class="tag set">セット</span> <b>セット買い（検証中）</b> ${s.first}号艇（ズレ偏差値 ${s.dev.toFixed(0)}）：<span class="cb${r.winner==s.first?' hit':''}">単勝 ${s.first} <span class="note">${D.rule.set_tan??200}円・${s.tan.toFixed(1)}倍</span></span>＋3連単 各100円 ${s.combos.map(c=>`<span class="cb${r.result3==c.c?' hit':''}">${c.c} <span class="note">${c.odds.toFixed(1)}倍</span></span>`).join('')}</div>`).join('')}
-      ${(r.t3||[]).map(t=>`<div class="t3"><b>3連単 狙い目</b> ${t.first}号艇1着固定${(e=>e?`<span class="t3ev">（${D.rule.t3_n}点の期待値 ${e.ev.toFixed(2)}・合成オッズ ${e.syn.toFixed(1)}倍）</span>`:'')(t3EV(t,D.rule.t3_n))}：${t.combos.map((c,i)=>`<span class="cb${i>=D.rule.t3_n?' wide':''}${r.result3==c.c?' hit':''}">${c.c} <span class="note">${(c.p*100).toFixed(1)}%・${c.odds?c.odds.toFixed(1)+'倍':'—'}</span></span>`).join('')}
+      ${(r.t3||[]).map(t=>`<div class="t3"><b>3連単（検証中）</b> ${t.first}号艇1着固定${(e=>e?`<span class="t3ev">（${D.rule.t3_n}点の期待値 ${e.ev.toFixed(2)}・合成オッズ ${e.syn.toFixed(1)}倍）</span>`:'')(t3EV(t,D.rule.t3_n))}：${t.combos.map((c,i)=>`<span class="cb${i>=D.rule.t3_n?' wide':''}${r.result3==c.c?' hit':''}">${c.c} <span class="note">${(c.p*100).toFixed(1)}%・${c.odds?c.odds.toFixed(1)+'倍':'—'}</span></span>`).join('')}
       ${t.box?`<div class="bx"><b>ボックス</b> ${t.box.join('・')}（6点${(v=>v.length?'・最低'+Math.min(...v).toFixed(1)+'倍':'')(Object.values(t.box_odds).filter(v=>v>0))}）</div>`:''}</div>`).join('')}
       <table><tr><th class="l">艇・選手</th><th>1着率</th><th>単勝</th><th>期待値</th><th>ズレ偏差値</th><th></th></tr>${rows}</table></div>`}).join('')
     :'<div class="empty">今は表示できるレースがありません。締切の25分前ごろから順に出てきます。</div>';
@@ -106,7 +142,7 @@ async function load(){
   try{const r=await fetch(SRC+'?t='+Date.now(),{cache:'no-store'});D=await r.json();stats();races();}
   catch(e){document.getElementById('races').innerHTML='<div class="empty">読み込みに失敗しました。少し待ってから開き直してください。</div>';}
 }
-load();setInterval(load,120000);
+load();loadStats();setInterval(load,120000);
 </script>
 </body>
 </html>
