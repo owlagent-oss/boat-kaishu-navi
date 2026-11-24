@@ -560,7 +560,7 @@
   "race_type": "サンライズX",
   "wind_m": 1,
   "wave_cm": 1,
-  "fetched": "09:25",
+  "fetched": "09:30",
   "boats": [
    {
     "waku": 1,
@@ -634,23 +634,97 @@
   "race_type": "予選",
   "wind_m": 1,
   "wave_cm": 1,
-  "fetched": "09:25",
+  "fetched": "09:30",
   "boats": [
    {
     "waku": 1,
     "name": "鶴田勇雄",
     "cls": "A2",
-    "prob": 0.5605,
+    "prob": 0.5252,
     "odds": 1.5,
-    "ev": 0.841,
-    "exhibit": null,
+    "ev": 0.788,
+    "exhibit": 6.78,
     "tag": ""
    },
    {
     "waku": 2,
     "name": "和田操拓",
     "cls": "B1",
-    "prob": 0.0598,
+    "prob": 0.1784,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": 6.7,
+    "tag": ""
+   },
+   {
+    "waku": 3,
+    "name": "堤昇",
+    "cls": "B1",
+    "prob": 0.0897,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": 6.8,
+    "tag": ""
+   },
+   {
+    "waku": 4,
+    "name": "宮地博士",
+    "cls": "B1",
+    "prob": 0.0331,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": 6.71,
+    "tag": ""
+   },
+   {
+    "waku": 5,
+    "name": "吉田俊彦",
+    "cls": "A2",
+    "prob": 0.0669,
+    "odds": 1.5,
+    "ev": 0.1,
+    "exhibit": 6.81,
+    "tag": ""
+   },
+   {
+    "waku": 6,
+    "name": "松田祐季",
+    "cls": "A1",
+    "prob": 0.1066,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": 6.74,
+    "tag": ""
+   }
+  ]
+ },
+ "18-04": {
+  "jcd": "18",
+  "place": "徳山",
+  "rno": 4,
+  "t3": [],
+  "sets": [],
+  "deadline": "09:53",
+  "race_type": "ガチトク予選",
+  "wind_m": 2,
+  "wave_cm": 2,
+  "fetched": "09:30",
+  "boats": [
+   {
+    "waku": 1,
+    "name": "金子拓矢",
+    "cls": "A1",
+    "prob": 0.8188,
+    "odds": 1.0,
+    "ev": 0.819,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 2,
+    "name": "川島圭司",
+    "cls": "A2",
+    "prob": 0.045,
     "odds": 0.0,
     "ev": 0.0,
     "exhibit": null,
@@ -658,9 +732,9 @@
    },
    {
     "waku": 3,
-    "name": "堤昇",
+    "name": "石原凪紗",
     "cls": "B1",
-    "prob": 0.0617,
+    "prob": 0.0409,
     "odds": 0.0,
     "ev": 0.0,
     "exhibit": null,
@@ -668,9 +742,9 @@
    },
    {
     "waku": 4,
-    "name": "宮地博士",
+    "name": "武重雄介",
     "cls": "B1",
-    "prob": 0.0323,
+    "prob": 0.0404,
     "odds": 0.0,
     "ev": 0.0,
     "exhibit": null,
@@ -678,19 +752,19 @@
    },
    {
     "waku": 5,
-    "name": "吉田俊彦",
-    "cls": "A2",
-    "prob": 0.1017,
-    "odds": 1.5,
-    "ev": 0.153,
+    "name": "岡暢祐",
+    "cls": "B1",
+    "prob": 0.0466,
+    "odds": 0.0,
+    "ev": 0.0,
     "exhibit": null,
     "tag": ""
    },
    {
     "waku": 6,
-    "name": "松田祐季",
-    "cls": "A1",
-    "prob": 0.184,
+    "name": "松永隼ノ",
+    "cls": "B2",
+    "prob": 0.0083,
     "odds": 0.0,
     "ev": 0.0,
     "exhibit": null,
