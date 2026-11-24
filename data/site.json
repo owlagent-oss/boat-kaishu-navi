@@ -1,6 +1,6 @@
 {
  "date": "2026-11-24",
- "updated": "11/24 17:55",
+ "updated": "11/24 18:00",
  "races": [
   {
    "jcd": "21",
@@ -19385,24 +19385,48 @@
    "place": "住之江",
    "rno": 7,
    "t3": [],
-   "sets": [],
+   "sets": [
+    {
+     "first": 3,
+     "dev": 66.1,
+     "tan": 4.9,
+     "combos": [
+      {
+       "c": "3-1-6",
+       "odds": 6.9
+      },
+      {
+       "c": "3-1-4",
+       "odds": 15.9
+      },
+      {
+       "c": "3-6-1",
+       "odds": 18.4
+      },
+      {
+       "c": "3-6-4",
+       "odds": 32.1
+      }
+     ]
+    }
+   ],
    "deadline": "18:04",
    "race_type": "予選",
    "wind_m": 0,
    "wave_cm": 1,
-   "fetched": "17:55",
+   "fetched": "18:00",
    "boats": [
     {
      "waku": 1,
      "name": "鈴木勝博",
      "cls": "A2",
      "prob": 0.7377,
-     "odds": 1.1,
-     "ev": 0.811,
+     "odds": 1.0,
+     "ev": 0.738,
      "exhibit": 6.9,
      "tag": "",
-     "mp": 0.564,
-     "mev": 0.647,
+     "mp": 0.5079,
+     "mev": 0.516,
      "mkt": false
     },
     {
@@ -19410,25 +19434,25 @@
      "name": "赤松咲香",
      "cls": "B2",
      "prob": 0.021,
-     "odds": 27.0,
-     "ev": 0.567,
+     "odds": 49.8,
+     "ev": 1.045,
      "exhibit": 6.83,
-     "tag": "",
-     "mp": 0.0367,
-     "mev": 1.032,
-     "mkt": false
+     "tag": "sub",
+     "mp": 0.0305,
+     "mev": 1.542,
+     "mkt": true
     },
     {
      "waku": 3,
      "name": "清水敦揮",
      "cls": "A2",
      "prob": 0.1638,
-     "odds": 4.5,
-     "ev": 0.737,
+     "odds": 4.9,
+     "ev": 0.803,
      "exhibit": 6.86,
      "tag": "",
-     "mp": 0.2675,
-     "mev": 1.255,
+     "mp": 0.3282,
+     "mev": 1.634,
      "mkt": true
     },
     {
@@ -19436,12 +19460,12 @@
      "name": "福岡泉水",
      "cls": "B1",
      "prob": 0.0464,
-     "odds": 9.0,
-     "ev": 0.418,
+     "odds": 16.6,
+     "ev": 0.771,
      "exhibit": 6.86,
      "tag": "",
-     "mp": 0.0496,
-     "mev": 0.466,
+     "mp": 0.0452,
+     "mev": 0.762,
      "mkt": false
     },
     {
@@ -19449,12 +19473,12 @@
      "name": "阿久根芳",
      "cls": "B2",
      "prob": 0.003,
-     "odds": 18.0,
-     "ev": 0.054,
+     "odds": 33.2,
+     "ev": 0.099,
      "exhibit": 6.84,
      "tag": "",
-     "mp": 0.0198,
-     "mev": 0.371,
+     "mp": 0.0174,
+     "mev": 0.588,
      "mkt": false
     },
     {
@@ -19462,13 +19486,87 @@
      "name": "平田健之",
      "cls": "A2",
      "prob": 0.0281,
-     "odds": 18.0,
-     "ev": 0.506,
+     "odds": 24.9,
+     "ev": 0.7,
      "exhibit": 6.99,
      "tag": "",
-     "mp": 0.0625,
-     "mev": 1.173,
-     "mkt": false
+     "mp": 0.0708,
+     "mev": 1.791,
+     "mkt": true
+    }
+   ]
+  },
+  {
+   "jcd": "07",
+   "place": "蒲郡",
+   "rno": 8,
+   "t3": [],
+   "sets": [],
+   "deadline": "18:22",
+   "race_type": "一般戦",
+   "wind_m": 4,
+   "wave_cm": 2,
+   "fetched": "18:00",
+   "boats": [
+    {
+     "waku": 1,
+     "name": "松山将吾",
+     "cls": "A1",
+     "prob": 0.6077,
+     "odds": 1.0,
+     "ev": 0.608,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 2,
+     "name": "渡辺真至",
+     "cls": "B2",
+     "prob": 0.0697,
+     "odds": 6.9,
+     "ev": 0.481,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 3,
+     "name": "三村岳人",
+     "cls": "A2",
+     "prob": 0.0905,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 4,
+     "name": "三品隆浩",
+     "cls": "B1",
+     "prob": 0.0791,
+     "odds": 34.5,
+     "ev": 2.728,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 5,
+     "name": "一色颯輝",
+     "cls": "B1",
+     "prob": 0.0953,
+     "odds": 5.7,
+     "ev": 0.543,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 6,
+     "name": "本吉正樹",
+     "cls": "B1",
+     "prob": 0.0577,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": null,
+     "tag": ""
     }
    ]
   }
