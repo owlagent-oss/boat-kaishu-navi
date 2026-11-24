@@ -1,6 +1,6 @@
 {
  "date": "2026-11-24",
- "updated": "11/24 09:15",
+ "updated": "11/24 09:20",
  "races": [
   {
    "jcd": "21",
@@ -489,7 +489,7 @@
    "race_type": "決めトク特賞",
    "wind_m": 2,
    "wave_cm": 2,
-   "fetched": "09:15",
+   "fetched": "09:20",
    "boats": [
     {
      "waku": 1,
@@ -516,8 +516,8 @@
      "name": "内山七海",
      "cls": "A2",
      "prob": 0.0962,
-     "odds": 22.5,
-     "ev": 2.164,
+     "odds": 23.2,
+     "ev": 2.231,
      "exhibit": 6.91,
      "tag": ""
     },
@@ -563,7 +563,7 @@
    "race_type": "サンライズX",
    "wind_m": 1,
    "wave_cm": 1,
-   "fetched": "09:15",
+   "fetched": "09:20",
    "boats": [
     {
      "waku": 1,
@@ -620,6 +620,80 @@
      "name": "杢野誓良",
      "cls": "B1",
      "prob": 0.0223,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": null,
+     "tag": ""
+    }
+   ]
+  },
+  {
+   "jcd": "10",
+   "place": "三国",
+   "rno": 3,
+   "t3": [],
+   "sets": [],
+   "deadline": "09:43",
+   "race_type": "予選",
+   "wind_m": 1,
+   "wave_cm": 1,
+   "fetched": "09:20",
+   "boats": [
+    {
+     "waku": 1,
+     "name": "鶴田勇雄",
+     "cls": "A2",
+     "prob": 0.5605,
+     "odds": 1.5,
+     "ev": 0.841,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 2,
+     "name": "和田操拓",
+     "cls": "B1",
+     "prob": 0.0598,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 3,
+     "name": "堤昇",
+     "cls": "B1",
+     "prob": 0.0617,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 4,
+     "name": "宮地博士",
+     "cls": "B1",
+     "prob": 0.0323,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 5,
+     "name": "吉田俊彦",
+     "cls": "A2",
+     "prob": 0.1017,
+     "odds": 1.5,
+     "ev": 0.153,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 6,
+     "name": "松田祐季",
+     "cls": "A1",
+     "prob": 0.184,
      "odds": 0.0,
      "ev": 0.0,
      "exhibit": null,
