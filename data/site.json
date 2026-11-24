@@ -1,6 +1,6 @@
 {
  "date": "2026-11-24",
- "updated": "11/24 09:00",
+ "updated": "11/24 09:05",
  "races": [
   {
    "jcd": "21",
@@ -341,15 +341,15 @@
    "race_type": "サンライズW",
    "wind_m": 1,
    "wave_cm": 1,
-   "fetched": "09:00",
+   "fetched": "09:05",
    "boats": [
     {
      "waku": 1,
      "name": "平石和男",
      "cls": "A2",
      "prob": 0.571,
-     "odds": 1.0,
-     "ev": 0.571,
+     "odds": 3.6,
+     "ev": 2.056,
      "exhibit": 6.75,
      "tag": ""
     },
@@ -378,8 +378,8 @@
      "name": "中辻崇人",
      "cls": "A1",
      "prob": 0.3049,
-     "odds": 3.1,
-     "ev": 0.945,
+     "odds": 1.0,
+     "ev": 0.305,
      "exhibit": 6.66,
      "tag": ""
     },
@@ -415,23 +415,97 @@
    "race_type": "予選",
    "wind_m": 6,
    "wave_cm": 6,
-   "fetched": "09:00",
+   "fetched": "09:05",
    "boats": [
     {
      "waku": 1,
      "name": "柳沢一",
      "cls": "A1",
-     "prob": 0.6119,
-     "odds": 1.0,
-     "ev": 0.612,
-     "exhibit": null,
+     "prob": 0.6095,
+     "odds": 1.5,
+     "ev": 0.914,
+     "exhibit": 6.77,
      "tag": ""
     },
     {
      "waku": 2,
      "name": "真庭明志",
      "cls": "A2",
-     "prob": 0.0781,
+     "prob": 0.1247,
+     "odds": 6.0,
+     "ev": 0.748,
+     "exhibit": 6.73,
+     "tag": ""
+    },
+    {
+     "waku": 3,
+     "name": "後藤盛也",
+     "cls": "B1",
+     "prob": 0.1408,
+     "odds": 3.0,
+     "ev": 0.422,
+     "exhibit": 6.71,
+     "tag": ""
+    },
+    {
+     "waku": 4,
+     "name": "大澤誠也",
+     "cls": "B1",
+     "prob": 0.0558,
+     "odds": 6.0,
+     "ev": 0.335,
+     "exhibit": 6.75,
+     "tag": ""
+    },
+    {
+     "waku": 5,
+     "name": "原田秀弥",
+     "cls": "A2",
+     "prob": 0.0531,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": 6.82,
+     "tag": ""
+    },
+    {
+     "waku": 6,
+     "name": "渡辺空依",
+     "cls": "B1",
+     "prob": 0.0161,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": 6.72,
+     "tag": ""
+    }
+   ]
+  },
+  {
+   "jcd": "18",
+   "place": "徳山",
+   "rno": 3,
+   "t3": [],
+   "sets": [],
+   "deadline": "09:27",
+   "race_type": "決めトク特賞",
+   "wind_m": 2,
+   "wave_cm": 2,
+   "fetched": "09:05",
+   "boats": [
+    {
+     "waku": 1,
+     "name": "高倉和士",
+     "cls": "A1",
+     "prob": 0.8459,
+     "odds": 1.0,
+     "ev": 0.846,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 2,
+     "name": "藤井徹",
+     "cls": "B1",
+     "prob": 0.03,
      "odds": 0.0,
      "ev": 0.0,
      "exhibit": null,
@@ -439,9 +513,9 @@
     },
     {
      "waku": 3,
-     "name": "後藤盛也",
-     "cls": "B1",
-     "prob": 0.0829,
+     "name": "内山七海",
+     "cls": "A2",
+     "prob": 0.0382,
      "odds": 0.0,
      "ev": 0.0,
      "exhibit": null,
@@ -449,9 +523,9 @@
     },
     {
      "waku": 4,
-     "name": "大澤誠也",
+     "name": "瀬川大地",
      "cls": "B1",
-     "prob": 0.0982,
+     "prob": 0.0316,
      "odds": 0.0,
      "ev": 0.0,
      "exhibit": null,
@@ -459,9 +533,9 @@
     },
     {
      "waku": 5,
-     "name": "原田秀弥",
-     "cls": "A2",
-     "prob": 0.0913,
+     "name": "竹腰正樹",
+     "cls": "B1",
+     "prob": 0.0296,
      "odds": 0.0,
      "ev": 0.0,
      "exhibit": null,
@@ -469,9 +543,9 @@
     },
     {
      "waku": 6,
-     "name": "渡辺空依",
-     "cls": "B1",
-     "prob": 0.0376,
+     "name": "南佑典",
+     "cls": "A2",
+     "prob": 0.0247,
      "odds": 0.0,
      "ev": 0.0,
      "exhibit": null,
