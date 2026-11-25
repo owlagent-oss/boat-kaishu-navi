@@ -17679,7 +17679,7 @@
   "race_type": "予選",
   "wind_m": 3,
   "wave_cm": 3,
-  "fetched": "17:15",
+  "fetched": "17:20",
   "boats": [
    {
     "waku": 1,
@@ -17753,126 +17753,126 @@
   "race_type": "一般",
   "wind_m": 3,
   "wave_cm": 3,
-  "fetched": "17:15",
+  "fetched": "17:20",
   "boats": [
    {
     "waku": 1,
     "name": "淺香文武",
     "cls": "B1",
-    "prob": 0.3297,
+    "prob": 0.2567,
     "odds": 1.0,
-    "ev": 0.33,
-    "exhibit": null,
+    "ev": 0.257,
+    "exhibit": 6.71,
     "tag": ""
    },
    {
     "waku": 1,
     "name": "村岡賢",
     "cls": "B1",
-    "prob": 0.1822,
+    "prob": 0.1854,
     "odds": 1.0,
-    "ev": 0.182,
-    "exhibit": null,
+    "ev": 0.185,
+    "exhibit": 6.71,
     "tag": ""
    },
    {
     "waku": 2,
     "name": "森定晃史",
     "cls": "A2",
-    "prob": 0.0685,
+    "prob": 0.0614,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.7,
     "tag": ""
    },
    {
     "waku": 2,
     "name": "中田元泰",
     "cls": "A2",
-    "prob": 0.0531,
+    "prob": 0.0942,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.7,
     "tag": ""
    },
    {
     "waku": 3,
     "name": "大須賀友",
     "cls": "A1",
-    "prob": 0.0401,
+    "prob": 0.1234,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.63,
     "tag": ""
    },
    {
     "waku": 3,
     "name": "畑和宏",
     "cls": "A2",
-    "prob": 0.051,
+    "prob": 0.0922,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.63,
     "tag": ""
    },
    {
     "waku": 4,
     "name": "村田修次",
     "cls": "A2",
-    "prob": 0.054,
+    "prob": 0.0371,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.73,
     "tag": ""
    },
    {
     "waku": 4,
     "name": "松下知幸",
     "cls": "B1",
-    "prob": 0.0407,
+    "prob": 0.0185,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.73,
     "tag": ""
    },
    {
     "waku": 5,
     "name": "泉具巳",
     "cls": "B1",
-    "prob": 0.0416,
+    "prob": 0.0209,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.72,
     "tag": ""
    },
    {
     "waku": 5,
     "name": "木村仁紀",
     "cls": "A1",
-    "prob": 0.0898,
+    "prob": 0.0626,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.72,
     "tag": ""
    },
    {
     "waku": 6,
     "name": "田中きら",
     "cls": "B2",
-    "prob": 0.0244,
+    "prob": 0.0229,
     "odds": 4.5,
-    "ev": 0.11,
-    "exhibit": null,
+    "ev": 0.103,
+    "exhibit": 6.69,
     "tag": ""
    },
    {
     "waku": 6,
     "name": "中澤里桜",
     "cls": "B2",
-    "prob": 0.0247,
+    "prob": 0.0245,
     "odds": 4.5,
-    "ev": 0.111,
-    "exhibit": null,
+    "ev": 0.11,
+    "exhibit": 6.69,
     "tag": ""
    }
   ]
@@ -17887,7 +17887,7 @@
   "race_type": "一般戦",
   "wind_m": 0,
   "wave_cm": 1,
-  "fetched": "17:15",
+  "fetched": "17:20",
   "boats": [
    {
     "waku": 1,
@@ -17944,6 +17944,80 @@
     "name": "小野桜",
     "cls": "B1",
     "prob": 0.0367,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   }
+  ]
+ },
+ "15-06": {
+  "jcd": "15",
+  "place": "丸亀",
+  "rno": 6,
+  "t3": [],
+  "sets": [],
+  "deadline": "17:42",
+  "race_type": "かけうどん6",
+  "wind_m": 3,
+  "wave_cm": 3,
+  "fetched": "17:20",
+  "boats": [
+   {
+    "waku": 1,
+    "name": "田中京介",
+    "cls": "A2",
+    "prob": 0.5544,
+    "odds": 1.0,
+    "ev": 0.554,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 2,
+    "name": "小川竜太",
+    "cls": "B1",
+    "prob": 0.0865,
+    "odds": 11.2,
+    "ev": 0.969,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 3,
+    "name": "青木玄太",
+    "cls": "A1",
+    "prob": 0.1203,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 4,
+    "name": "堀本裕也",
+    "cls": "B2",
+    "prob": 0.0536,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 5,
+    "name": "白神優",
+    "cls": "A1",
+    "prob": 0.128,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 6,
+    "name": "内山文典",
+    "cls": "B1",
+    "prob": 0.0572,
     "odds": 0.0,
     "ev": 0.0,
     "exhibit": null,
