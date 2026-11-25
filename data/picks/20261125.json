@@ -1143,7 +1143,7 @@
   "race_type": "決めトク特賞",
   "wind_m": 2,
   "wave_cm": 2,
-  "fetched": "09:15",
+  "fetched": "09:20",
   "boats": [
    {
     "waku": 1,
@@ -1217,7 +1217,7 @@
   "race_type": "サンライズX",
   "wind_m": 2,
   "wave_cm": 2,
-  "fetched": "09:15",
+  "fetched": "09:20",
   "boats": [
    {
     "waku": 1,
@@ -1274,6 +1274,80 @@
     "name": "榮田将彦",
     "cls": "B1",
     "prob": 0.0342,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   }
+  ]
+ },
+ "10-03": {
+  "jcd": "10",
+  "place": "三国",
+  "rno": 3,
+  "t3": [],
+  "sets": [],
+  "deadline": "09:43",
+  "race_type": "一般",
+  "wind_m": 1,
+  "wave_cm": 1,
+  "fetched": "09:20",
+  "boats": [
+   {
+    "waku": 1,
+    "name": "柳沢一",
+    "cls": "A1",
+    "prob": 0.4835,
+    "odds": 1.0,
+    "ev": 0.484,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 2,
+    "name": "加藤優弥",
+    "cls": "B1",
+    "prob": 0.0666,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 3,
+    "name": "小池哲也",
+    "cls": "A2",
+    "prob": 0.0836,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 4,
+    "name": "田頭虎親",
+    "cls": "B1",
+    "prob": 0.0993,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 5,
+    "name": "前田滉",
+    "cls": "A1",
+    "prob": 0.2382,
+    "odds": 5.2,
+    "ev": 1.238,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 6,
+    "name": "上之晃弘",
+    "cls": "B1",
+    "prob": 0.0288,
     "odds": 0.0,
     "ev": 0.0,
     "exhibit": null,
