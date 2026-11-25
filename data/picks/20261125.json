@@ -1786,17 +1786,17 @@
   "sets": [],
   "deadline": "10:09",
   "race_type": "一般",
-  "wind_m": 1,
-  "wave_cm": 1,
-  "fetched": "09:55",
+  "wind_m": 2,
+  "wave_cm": 2,
+  "fetched": "10:00",
   "boats": [
    {
     "waku": 1,
     "name": "有賀達也",
     "cls": "A2",
-    "prob": 0.6124,
-    "odds": 1.6,
-    "ev": 0.98,
+    "prob": 0.6104,
+    "odds": 2.0,
+    "ev": 1.221,
     "exhibit": 6.65,
     "tag": ""
    },
@@ -1804,7 +1804,7 @@
     "waku": 2,
     "name": "宮地博士",
     "cls": "B1",
-    "prob": 0.0196,
+    "prob": 0.0219,
     "odds": 0.0,
     "ev": 0.0,
     "exhibit": 6.67,
@@ -1814,9 +1814,9 @@
     "waku": 3,
     "name": "是澤孝宏",
     "cls": "A2",
-    "prob": 0.1235,
-    "odds": 2.2,
-    "ev": 0.272,
+    "prob": 0.1242,
+    "odds": 2.7,
+    "ev": 0.335,
     "exhibit": 6.67,
     "tag": ""
    },
@@ -1824,9 +1824,9 @@
     "waku": 4,
     "name": "砂長知輝",
     "cls": "A1",
-    "prob": 0.1867,
-    "odds": 6.7,
-    "ev": 1.251,
+    "prob": 0.1853,
+    "odds": 2.7,
+    "ev": 0.5,
     "exhibit": 6.65,
     "tag": ""
    },
@@ -1834,7 +1834,7 @@
     "waku": 5,
     "name": "安田政彦",
     "cls": "B1",
-    "prob": 0.03,
+    "prob": 0.0306,
     "odds": 0.0,
     "ev": 0.0,
     "exhibit": 6.73,
@@ -1844,9 +1844,9 @@
     "waku": 6,
     "name": "渡辺空依",
     "cls": "B1",
-    "prob": 0.0277,
-    "odds": 6.7,
-    "ev": 0.186,
+    "prob": 0.0276,
+    "odds": 8.2,
+    "ev": 0.226,
     "exhibit": 6.62,
     "tag": ""
    }
@@ -1862,7 +1862,7 @@
   "race_type": "ファーストB",
   "wind_m": 2,
   "wave_cm": 2,
-  "fetched": "09:55",
+  "fetched": "10:00",
   "boats": [
    {
     "waku": 1,
@@ -1921,6 +1921,154 @@
     "prob": 0.0547,
     "odds": 0.0,
     "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   }
+  ]
+ },
+ "11-01": {
+  "jcd": "11",
+  "place": "びわこ",
+  "rno": 1,
+  "t3": [],
+  "sets": [],
+  "deadline": "10:23",
+  "race_type": "予選",
+  "wind_m": 4,
+  "wave_cm": 4,
+  "fetched": "10:00",
+  "boats": [
+   {
+    "waku": 1,
+    "name": "山崎聖司",
+    "cls": "B1",
+    "prob": 0.2858,
+    "odds": 1.5,
+    "ev": 0.429,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 2,
+    "name": "金子和之",
+    "cls": "A2",
+    "prob": 0.1265,
+    "odds": 1.5,
+    "ev": 0.19,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 3,
+    "name": "鋤柄貴俊",
+    "cls": "B1",
+    "prob": 0.1314,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 4,
+    "name": "山口修路",
+    "cls": "B1",
+    "prob": 0.1032,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 5,
+    "name": "沢田昭宏",
+    "cls": "A2",
+    "prob": 0.1174,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 6,
+    "name": "三浦敬太",
+    "cls": "A1",
+    "prob": 0.2357,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   }
+  ]
+ },
+ "18-05": {
+  "jcd": "18",
+  "place": "徳山",
+  "rno": 5,
+  "t3": [],
+  "sets": [],
+  "deadline": "10:21",
+  "race_type": "予選",
+  "wind_m": 3,
+  "wave_cm": 3,
+  "fetched": "10:00",
+  "boats": [
+   {
+    "waku": 1,
+    "name": "鈴木雅希",
+    "cls": "A2",
+    "prob": 0.5731,
+    "odds": 1.0,
+    "ev": 0.573,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 2,
+    "name": "金田幸子",
+    "cls": "B1",
+    "prob": 0.1163,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 3,
+    "name": "馬野耀",
+    "cls": "A2",
+    "prob": 0.166,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 4,
+    "name": "藤井徹",
+    "cls": "B1",
+    "prob": 0.0652,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 5,
+    "name": "木田峰由",
+    "cls": "A1",
+    "prob": 0.066,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 6,
+    "name": "宮田栞",
+    "cls": "B2",
+    "prob": 0.0134,
+    "odds": 3.0,
+    "ev": 0.04,
     "exhibit": null,
     "tag": ""
    }
