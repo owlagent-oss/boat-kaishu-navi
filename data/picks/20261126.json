@@ -516,66 +516,66 @@
   "race_type": "モー2ング戦",
   "wind_m": 5,
   "wave_cm": 5,
-  "fetched": "08:45",
+  "fetched": "08:50",
   "boats": [
    {
     "waku": 1,
     "name": "中村日向",
     "cls": "A1",
-    "prob": 0.802,
+    "prob": 0.811,
     "odds": 1.0,
-    "ev": 0.802,
-    "exhibit": null,
+    "ev": 0.811,
+    "exhibit": 6.57,
     "tag": ""
    },
    {
     "waku": 2,
     "name": "青木幸太",
     "cls": "A2",
-    "prob": 0.0563,
-    "odds": 68.6,
-    "ev": 3.859,
-    "exhibit": null,
+    "prob": 0.0823,
+    "odds": 46.7,
+    "ev": 3.844,
+    "exhibit": 6.66,
     "tag": ""
    },
    {
     "waku": 3,
     "name": "柴田友和",
     "cls": "B1",
-    "prob": 0.0274,
-    "odds": 137.2,
-    "ev": 3.763,
-    "exhibit": null,
+    "prob": 0.0286,
+    "odds": 140.2,
+    "ev": 4.011,
+    "exhibit": 6.65,
     "tag": ""
    },
    {
     "waku": 4,
     "name": "大場広孝",
     "cls": "B1",
-    "prob": 0.0712,
-    "odds": 137.2,
-    "ev": 9.765,
-    "exhibit": null,
+    "prob": 0.053,
+    "odds": 140.2,
+    "ev": 7.426,
+    "exhibit": 6.67,
     "tag": ""
    },
    {
     "waku": 5,
     "name": "福田柊人",
     "cls": "B2",
-    "prob": 0.012,
+    "prob": 0.0029,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.68,
     "tag": ""
    },
    {
     "waku": 6,
     "name": "小林礼央",
     "cls": "B1",
-    "prob": 0.0311,
+    "prob": 0.0222,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.64,
     "tag": ""
    }
   ]
@@ -590,7 +590,7 @@
   "race_type": "狙いトク特選",
   "wind_m": 1,
   "wave_cm": 1,
-  "fetched": "08:45",
+  "fetched": "08:50",
   "boats": [
    {
     "waku": 1,
