@@ -1143,66 +1143,66 @@
   "race_type": "決めトク特賞",
   "wind_m": 2,
   "wave_cm": 2,
-  "fetched": "09:10",
+  "fetched": "09:15",
   "boats": [
    {
     "waku": 1,
     "name": "赤坂俊輔",
     "cls": "A1",
-    "prob": 0.6805,
+    "prob": 0.7448,
     "odds": 1.0,
-    "ev": 0.68,
-    "exhibit": null,
+    "ev": 0.745,
+    "exhibit": 6.83,
     "tag": ""
    },
    {
     "waku": 2,
     "name": "宮村勇哉",
     "cls": "B1",
-    "prob": 0.0964,
+    "prob": 0.0867,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.82,
     "tag": ""
    },
    {
     "waku": 3,
     "name": "山崎鉄平",
     "cls": "B1",
-    "prob": 0.0752,
+    "prob": 0.0563,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.91,
     "tag": ""
    },
    {
     "waku": 4,
     "name": "森高一真",
     "cls": "A1",
-    "prob": 0.097,
+    "prob": 0.0829,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.89,
     "tag": ""
    },
    {
     "waku": 5,
     "name": "口脇釉美",
     "cls": "B2",
-    "prob": 0.0107,
+    "prob": 0.0014,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.93,
     "tag": ""
    },
    {
     "waku": 6,
     "name": "松尾昂明",
     "cls": "A2",
-    "prob": 0.0401,
+    "prob": 0.0279,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.8,
     "tag": ""
    }
   ]
@@ -1217,7 +1217,7 @@
   "race_type": "サンライズX",
   "wind_m": 2,
   "wave_cm": 2,
-  "fetched": "09:10",
+  "fetched": "09:15",
   "boats": [
    {
     "waku": 1,
