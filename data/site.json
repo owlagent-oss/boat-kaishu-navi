@@ -1,6 +1,6 @@
 {
  "date": "2026-11-26",
- "updated": "11/26 16:50",
+ "updated": "11/26 16:55",
  "races": [
   {
    "jcd": "23",
@@ -17161,7 +17161,7 @@
    "race_type": "住之江ファイ",
    "wind_m": 2,
    "wave_cm": 1,
-   "fetched": "16:50",
+   "fetched": "16:55",
    "boats": [
     {
      "waku": 1,
