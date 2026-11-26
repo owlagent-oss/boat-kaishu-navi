@@ -1,4 +1,4 @@
-"""ボート回収率ナビ 毎日の自動処理。
+"""ボートレース ズレ偏差値ナビ（旧：ボート回収率ナビ） 毎日の自動処理。
   python3 navi.py predict   締切が近いレースの直前情報とオッズを取り、期待値を計算して data/picks/ に保存
   python3 navi.py settle    前日までの結果を取り込み、狙い目の成績(data/record.json)を更新
   python3 navi.py build     index.html を作る
