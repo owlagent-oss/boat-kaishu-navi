@@ -1,6 +1,6 @@
 {
  "date": "2026-11-26",
- "updated": "11/26 08:55",
+ "updated": "11/26 09:00",
  "races": [
   {
    "jcd": "23",
@@ -841,66 +841,66 @@
    "race_type": "狙いトク特選",
    "wind_m": 1,
    "wave_cm": 1,
-   "fetched": "08:55",
+   "fetched": "09:00",
    "boats": [
     {
      "waku": 1,
      "name": "高倉和士",
      "cls": "A1",
-     "prob": 0.6946,
+     "prob": 0.7417,
      "odds": 1.0,
-     "ev": 0.695,
-     "exhibit": null,
+     "ev": 0.742,
+     "exhibit": 6.84,
      "tag": ""
     },
     {
      "waku": 2,
      "name": "馬野耀",
      "cls": "A2",
-     "prob": 0.0581,
+     "prob": 0.1072,
      "odds": 0.0,
      "ev": 0.0,
-     "exhibit": null,
+     "exhibit": 6.82,
      "tag": ""
     },
     {
      "waku": 3,
      "name": "田中宏樹",
      "cls": "A2",
-     "prob": 0.0556,
-     "odds": 0.0,
-     "ev": 0.0,
-     "exhibit": null,
+     "prob": 0.0761,
+     "odds": 10.5,
+     "ev": 0.799,
+     "exhibit": 6.8,
      "tag": ""
     },
     {
      "waku": 4,
      "name": "赤岩善生",
      "cls": "A1",
-     "prob": 0.0844,
+     "prob": 0.0556,
      "odds": 0.0,
      "ev": 0.0,
-     "exhibit": null,
+     "exhibit": 6.85,
      "tag": ""
     },
     {
      "waku": 5,
      "name": "樋口由加",
      "cls": "B1",
-     "prob": 0.0663,
+     "prob": 0.014,
      "odds": 0.0,
      "ev": 0.0,
-     "exhibit": null,
+     "exhibit": 6.89,
      "tag": ""
     },
     {
      "waku": 6,
      "name": "森林太",
      "cls": "B1",
-     "prob": 0.0411,
+     "prob": 0.0055,
      "odds": 0.0,
      "ev": 0.0,
-     "exhibit": null,
+     "exhibit": 6.88,
      "tag": ""
     }
    ]
@@ -915,7 +915,7 @@
    "race_type": "一般",
    "wind_m": 6,
    "wave_cm": 6,
-   "fetched": "08:55",
+   "fetched": "09:00",
    "boats": [
     {
      "waku": 1,
