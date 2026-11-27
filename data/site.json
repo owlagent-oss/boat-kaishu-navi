@@ -1,6 +1,6 @@
 {
  "date": "2026-11-28",
- "updated": "11/28 08:45",
+ "updated": "11/28 08:50",
  "races": [
   {
    "jcd": "23",
@@ -310,67 +310,85 @@
    "race_type": "どーなるなる",
    "wind_m": 2,
    "wave_cm": 2,
-   "fetched": "08:45",
+   "fetched": "08:50",
    "boats": [
     {
      "waku": 1,
      "name": "新田芳美",
      "cls": "B1",
-     "prob": 0.6257,
-     "odds": 1.0,
-     "ev": 0.626,
-     "exhibit": null,
-     "tag": ""
+     "prob": 0.5606,
+     "odds": 1.5,
+     "ev": 0.841,
+     "exhibit": 6.93,
+     "tag": "",
+     "mp": 0.4483,
+     "mev": 0.672,
+     "mkt": false
     },
     {
      "waku": 2,
      "name": "西澤日花",
      "cls": "B1",
-     "prob": 0.0699,
-     "odds": 0.0,
-     "ev": 0.0,
-     "exhibit": null,
-     "tag": ""
+     "prob": 0.0714,
+     "odds": 12.0,
+     "ev": 0.857,
+     "exhibit": 6.94,
+     "tag": "",
+     "mp": 0.1041,
+     "mev": 1.25,
+     "mkt": true
     },
     {
      "waku": 3,
      "name": "樫葉新心",
      "cls": "B1",
-     "prob": 0.0641,
-     "odds": 5.2,
-     "ev": 0.333,
-     "exhibit": null,
-     "tag": ""
+     "prob": 0.1212,
+     "odds": 6.0,
+     "ev": 0.727,
+     "exhibit": 6.84,
+     "tag": "",
+     "mp": 0.1064,
+     "mev": 0.638,
+     "mkt": false
     },
     {
      "waku": 4,
      "name": "樋江井舞",
      "cls": "B1",
-     "prob": 0.1245,
-     "odds": 5.2,
-     "ev": 0.647,
-     "exhibit": null,
-     "tag": ""
+     "prob": 0.1857,
+     "odds": 6.0,
+     "ev": 1.114,
+     "exhibit": 6.81,
+     "tag": "sub",
+     "mp": 0.2161,
+     "mev": 1.297,
+     "mkt": true
     },
     {
      "waku": 5,
      "name": "藤田美代",
      "cls": "B1",
-     "prob": 0.0666,
-     "odds": 0.0,
-     "ev": 0.0,
-     "exhibit": null,
-     "tag": ""
+     "prob": 0.0432,
+     "odds": 12.0,
+     "ev": 0.518,
+     "exhibit": 6.94,
+     "tag": "",
+     "mp": 0.0613,
+     "mev": 0.736,
+     "mkt": false
     },
     {
      "waku": 6,
      "name": "五反田忍",
      "cls": "B1",
-     "prob": 0.0491,
-     "odds": 0.0,
-     "ev": 0.0,
-     "exhibit": null,
-     "tag": ""
+     "prob": 0.0179,
+     "odds": 6.0,
+     "ev": 0.107,
+     "exhibit": 6.99,
+     "tag": "",
+     "mp": 0.0638,
+     "mev": 0.383,
+     "mkt": false
     }
    ]
   },
@@ -384,7 +402,7 @@
    "race_type": "モー2ング戦",
    "wind_m": 2,
    "wave_cm": 2,
-   "fetched": "08:45",
+   "fetched": "08:50",
    "boats": [
     {
      "waku": 1,
@@ -431,8 +449,8 @@
      "name": "大場広孝",
      "cls": "B1",
      "prob": 0.0781,
-     "odds": 4.5,
-     "ev": 0.351,
+     "odds": 3.0,
+     "ev": 0.234,
      "exhibit": null,
      "tag": ""
     },
