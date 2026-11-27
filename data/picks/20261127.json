@@ -17039,15 +17039,15 @@
   "race_type": "予選",
   "wind_m": 2,
   "wave_cm": 1,
-  "fetched": "16:45",
+  "fetched": "16:50",
   "boats": [
    {
     "waku": 1,
     "name": "吉永則雄",
     "cls": "A2",
     "prob": 0.448,
-    "odds": 1.1,
-    "ev": 0.493,
+    "odds": 1.5,
+    "ev": 0.672,
     "exhibit": 6.9,
     "tag": ""
    },
@@ -17056,8 +17056,8 @@
     "name": "齊藤廉",
     "cls": "B1",
     "prob": 0.239,
-    "odds": 0.0,
-    "ev": 0.0,
+    "odds": 9.0,
+    "ev": 2.151,
     "exhibit": 6.87,
     "tag": ""
    },
@@ -17076,8 +17076,8 @@
     "name": "寺田祥",
     "cls": "A1",
     "prob": 0.2231,
-    "odds": 2.2,
-    "ev": 0.491,
+    "odds": 1.8,
+    "ev": 0.402,
     "exhibit": 6.9,
     "tag": ""
    },
@@ -17230,7 +17230,7 @@
   "race_type": "予選",
   "wind_m": 0,
   "wave_cm": 0,
-  "fetched": "16:45",
+  "fetched": "16:50",
   "boats": [
    {
     "waku": 1,
@@ -17308,6 +17308,98 @@
     "tag": "",
     "mp": 0.0409,
     "mev": 0.835,
+    "mkt": false
+   }
+  ]
+ },
+ "01-05": {
+  "jcd": "01",
+  "place": "桐生",
+  "rno": 5,
+  "t3": [],
+  "sets": [],
+  "deadline": "17:11",
+  "race_type": "予選",
+  "wind_m": 0,
+  "wave_cm": 0,
+  "fetched": "16:50",
+  "boats": [
+   {
+    "waku": 1,
+    "name": "森作雄大",
+    "cls": "B1",
+    "prob": 0.5166,
+    "odds": 1.6,
+    "ev": 0.827,
+    "exhibit": null,
+    "tag": "",
+    "mp": 0.2465,
+    "mev": 0.396,
+    "mkt": false
+   },
+   {
+    "waku": 2,
+    "name": "高野哲史",
+    "cls": "A1",
+    "prob": 0.2208,
+    "odds": 2.8,
+    "ev": 0.618,
+    "exhibit": null,
+    "tag": "",
+    "mp": 0.2979,
+    "mev": 0.838,
+    "mkt": false
+   },
+   {
+    "waku": 3,
+    "name": "長谷川雅",
+    "cls": "B1",
+    "prob": 0.0459,
+    "odds": 11.2,
+    "ev": 0.514,
+    "exhibit": null,
+    "tag": "",
+    "mp": 0.1278,
+    "mev": 1.437,
+    "mkt": true
+   },
+   {
+    "waku": 4,
+    "name": "三川昂暁",
+    "cls": "A2",
+    "prob": 0.0816,
+    "odds": 11.2,
+    "ev": 0.914,
+    "exhibit": null,
+    "tag": "",
+    "mp": 0.1327,
+    "mev": 1.493,
+    "mkt": true
+   },
+   {
+    "waku": 5,
+    "name": "高井雄基",
+    "cls": "A2",
+    "prob": 0.1055,
+    "odds": 11.2,
+    "ev": 1.181,
+    "exhibit": null,
+    "tag": "sub",
+    "mp": 0.115,
+    "mev": 1.294,
+    "mkt": true
+   },
+   {
+    "waku": 6,
+    "name": "倉持幸太",
+    "cls": "B2",
+    "prob": 0.0295,
+    "odds": 11.2,
+    "ev": 0.331,
+    "exhibit": null,
+    "tag": "",
+    "mp": 0.0801,
+    "mev": 0.902,
     "mkt": false
    }
   ]
