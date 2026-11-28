@@ -17550,5 +17550,79 @@
     "mkt": false
    }
   ]
+ },
+ "07-07": {
+  "jcd": "07",
+  "place": "蒲郡",
+  "rno": 7,
+  "t3": [],
+  "sets": [],
+  "deadline": "17:58",
+  "race_type": "予選",
+  "wind_m": 4,
+  "wave_cm": 2,
+  "fetched": "17:35",
+  "boats": [
+   {
+    "waku": 1,
+    "name": "大野芳顕",
+    "cls": "A2",
+    "prob": 0.4456,
+    "odds": 1.0,
+    "ev": 0.446,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 2,
+    "name": "安河内将",
+    "cls": "A1",
+    "prob": 0.2368,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 3,
+    "name": "金子良昭",
+    "cls": "B1",
+    "prob": 0.0699,
+    "odds": 11.2,
+    "ev": 0.783,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 4,
+    "name": "野末智一",
+    "cls": "A1",
+    "prob": 0.14,
+    "odds": 5.6,
+    "ev": 0.784,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 5,
+    "name": "鈴木智啓",
+    "cls": "B1",
+    "prob": 0.0743,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 6,
+    "name": "港理樹",
+    "cls": "B1",
+    "prob": 0.0334,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   }
+  ]
  }
 }
