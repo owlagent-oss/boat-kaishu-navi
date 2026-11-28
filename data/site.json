@@ -1,6 +1,6 @@
 {
  "date": "2026-11-28",
- "updated": "11/28 08:55",
+ "updated": "11/28 09:00",
  "races": [
   {
    "jcd": "23",
@@ -599,17 +599,17 @@
    "sets": [],
    "deadline": "09:09",
    "race_type": "モー2ング戦",
-   "wind_m": 2,
-   "wave_cm": 2,
-   "fetched": "08:55",
+   "wind_m": 5,
+   "wave_cm": 5,
+   "fetched": "09:00",
    "boats": [
     {
      "waku": 1,
      "name": "田中和也",
      "cls": "A1",
-     "prob": 0.7386,
+     "prob": 0.7019,
      "odds": 1.0,
-     "ev": 0.739,
+     "ev": 0.702,
      "exhibit": 6.71,
      "tag": ""
     },
@@ -617,7 +617,7 @@
      "waku": 2,
      "name": "川田正人",
      "cls": "B1",
-     "prob": 0.03,
+     "prob": 0.0385,
      "odds": 0.0,
      "ev": 0.0,
      "exhibit": 6.76,
@@ -627,7 +627,7 @@
      "waku": 3,
      "name": "徳増秀樹",
      "cls": "A1",
-     "prob": 0.0783,
+     "prob": 0.0904,
      "odds": 0.0,
      "ev": 0.0,
      "exhibit": 6.75,
@@ -637,7 +637,7 @@
      "waku": 4,
      "name": "小林礼央",
      "cls": "B1",
-     "prob": 0.0444,
+     "prob": 0.0483,
      "odds": 0.0,
      "ev": 0.0,
      "exhibit": 6.7,
@@ -647,9 +647,9 @@
      "waku": 5,
      "name": "大場広孝",
      "cls": "B1",
-     "prob": 0.0911,
-     "odds": 3.0,
-     "ev": 0.273,
+     "prob": 0.1016,
+     "odds": 4.1,
+     "ev": 0.417,
      "exhibit": 6.64,
      "tag": ""
     },
@@ -657,9 +657,9 @@
      "waku": 6,
      "name": "石塚裕介",
      "cls": "B1",
-     "prob": 0.0175,
-     "odds": 0.0,
-     "ev": 0.0,
+     "prob": 0.0193,
+     "odds": 8.2,
+     "ev": 0.158,
      "exhibit": 6.69,
      "tag": ""
     }
@@ -675,7 +675,7 @@
    "race_type": "狙いトク一般",
    "wind_m": 2,
    "wave_cm": 2,
-   "fetched": "08:55",
+   "fetched": "09:00",
    "boats": [
     {
      "waku": 1,
