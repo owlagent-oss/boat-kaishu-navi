@@ -862,66 +862,66 @@
   "race_type": "どきどきなる",
   "wind_m": 3,
   "wave_cm": 3,
-  "fetched": "09:10",
+  "fetched": "09:15",
   "boats": [
    {
     "waku": 1,
     "name": "寺本重宣",
     "cls": "A2",
-    "prob": 0.5031,
-    "odds": 1.0,
-    "ev": 0.503,
-    "exhibit": null,
+    "prob": 0.5045,
+    "odds": 1.1,
+    "ev": 0.555,
+    "exhibit": 6.86,
     "tag": ""
    },
    {
     "waku": 2,
     "name": "間野兼礼",
     "cls": "B1",
-    "prob": 0.0636,
+    "prob": 0.1094,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.72,
     "tag": ""
    },
    {
     "waku": 3,
     "name": "新田智彰",
     "cls": "B1",
-    "prob": 0.05,
+    "prob": 0.0369,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.88,
     "tag": ""
    },
    {
     "waku": 4,
     "name": "溝口海義",
     "cls": "A1",
-    "prob": 0.1389,
-    "odds": 3.0,
-    "ev": 0.417,
-    "exhibit": null,
+    "prob": 0.2106,
+    "odds": 2.2,
+    "ev": 0.463,
+    "exhibit": 6.83,
     "tag": ""
    },
    {
     "waku": 5,
     "name": "黒野元基",
     "cls": "A1",
-    "prob": 0.2111,
+    "prob": 0.1263,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.85,
     "tag": ""
    },
    {
     "waku": 6,
     "name": "尾道佳諭",
     "cls": "B1",
-    "prob": 0.0332,
+    "prob": 0.0122,
     "odds": 0.0,
     "ev": 0.0,
-    "exhibit": null,
+    "exhibit": 6.83,
     "tag": ""
    }
   ]
@@ -936,7 +936,7 @@
   "race_type": "3ライズ戦",
   "wind_m": 5,
   "wave_cm": 5,
-  "fetched": "09:10",
+  "fetched": "09:15",
   "boats": [
    {
     "waku": 1,
