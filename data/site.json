@@ -1,6 +1,6 @@
 {
  "date": "2026-11-28",
- "updated": "11/28 18:30",
+ "updated": "11/28 18:35",
  "races": [
   {
    "jcd": "23",
@@ -18231,6 +18231,80 @@
      "odds": 0.0,
      "ev": 0.0,
      "exhibit": 6.87,
+     "tag": ""
+    }
+   ]
+  },
+  {
+   "jcd": "07",
+   "place": "蒲郡",
+   "rno": 9,
+   "t3": [],
+   "sets": [],
+   "deadline": "18:58",
+   "race_type": "予選特賞",
+   "wind_m": 4,
+   "wave_cm": 2,
+   "fetched": "18:35",
+   "boats": [
+    {
+     "waku": 1,
+     "name": "池永太",
+     "cls": "A1",
+     "prob": 0.6099,
+     "odds": 1.0,
+     "ev": 0.61,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 2,
+     "name": "松井賢治",
+     "cls": "A2",
+     "prob": 0.0797,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 3,
+     "name": "岡部大輔",
+     "cls": "B1",
+     "prob": 0.0748,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 4,
+     "name": "北村征嗣",
+     "cls": "A1",
+     "prob": 0.1568,
+     "odds": 5.7,
+     "ev": 0.894,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 5,
+     "name": "坂口諒宗",
+     "cls": "B2",
+     "prob": 0.0253,
+     "odds": 4.3,
+     "ev": 0.109,
+     "exhibit": null,
+     "tag": ""
+    },
+    {
+     "waku": 6,
+     "name": "河野主樹",
+     "cls": "A2",
+     "prob": 0.0534,
+     "odds": 0.0,
+     "ev": 0.0,
+     "exhibit": null,
      "tag": ""
     }
    ]
