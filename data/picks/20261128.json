@@ -18599,5 +18599,79 @@
     "mkt": false
    }
   ]
+ },
+ "07-11": {
+  "jcd": "07",
+  "place": "蒲郡",
+  "rno": 11,
+  "t3": [],
+  "sets": [],
+  "deadline": "20:02",
+  "race_type": "予選特選",
+  "wind_m": 2,
+  "wave_cm": 1,
+  "fetched": "19:40",
+  "boats": [
+   {
+    "waku": 1,
+    "name": "安河内将",
+    "cls": "A1",
+    "prob": 0.7202,
+    "odds": 1.1,
+    "ev": 0.792,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 2,
+    "name": "上村慎太",
+    "cls": "B1",
+    "prob": 0.036,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 3,
+    "name": "永井源",
+    "cls": "A2",
+    "prob": 0.0372,
+    "odds": 2.8,
+    "ev": 0.104,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 4,
+    "name": "赤羽克也",
+    "cls": "A1",
+    "prob": 0.1037,
+    "odds": 14.0,
+    "ev": 1.452,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 5,
+    "name": "港理樹",
+    "cls": "B1",
+    "prob": 0.0569,
+    "odds": 42.0,
+    "ev": 2.391,
+    "exhibit": null,
+    "tag": ""
+   },
+   {
+    "waku": 6,
+    "name": "牧宏次",
+    "cls": "A2",
+    "prob": 0.0459,
+    "odds": 0.0,
+    "ev": 0.0,
+    "exhibit": null,
+    "tag": ""
+   }
+  ]
  }
 }
